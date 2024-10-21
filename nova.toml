@@ -1,0 +1,12 @@
+[project]
+mapping = "src:.build"
+
+[plugins.minify]
+suffixes = [".js", ".css"]
+
+[plugins.minify.methods]
+js = "external"
+css = "native"
+
+[plugins.sass]
+mapping = "sass:css"
