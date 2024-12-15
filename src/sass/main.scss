@@ -1,13 +1,16 @@
-@import url("/css/font-faces.css");
+@import url("/css/extras.css");
 
 body {
     background: black;
     color: white;
 }
 
-sub,
-sup {
+sub, sup, .label-small {
     color: grey;
+}
+
+.label-small {
+    font-size: 10px;
 }
 
 .left-container {
@@ -22,6 +25,8 @@ sup {
 .flexbox {
     display: flex;
     justify-content: center;
+
+    margin-bottom: 25px;
     // align-items: center;
 }
 
@@ -105,7 +110,7 @@ sup {
             align-items: center;
             justify-content: start;
             color: white;
-            width: 65%;
+            width: 100%;
             height: 45%;
             max-height: 75px;
             padding: 2.5px;
@@ -149,7 +154,8 @@ sup {
     }
 }
 
-a { // goodbye, 1998 web standards
+a {
+    // goodbye, 1998 web standards
     color: rgb(87, 116, 245) !important; // stop browsers from injecting a:visited
     text-decoration: none;
 
@@ -165,4 +171,58 @@ h2,
 h3,
 p {
     margin: 10px;
+}
+
+@keyframes xmas {
+    0% {
+        border-image-source: repeating-linear-gradient(to right,
+                red 0%, red 2%,
+                grey 2%, grey 6%,
+                grey 6%, grey 8%,
+                grey 8%, grey 12%,
+                grey 12%, grey 14%,
+                grey 14%, grey 18%);
+    }
+
+    33% {
+        border-image-source: repeating-linear-gradient(to right,
+                grey 0%, grey 2%,
+                grey 2%, grey 6%,
+                green 6%, green 8%,
+                grey 8%, grey 12%,
+                grey 12%, grey 14%,
+                grey 14%, grey 18%);
+    }
+
+    66% {
+        border-image-source: repeating-linear-gradient(to right,
+                grey 0%, grey 2%,
+                grey 2%, grey 6%,
+                grey 6%, grey 8%,
+                grey 8%, grey 12%,
+                blue 12%, blue 14%,
+                grey 14%, grey 18%);
+    }
+
+    100% { // silence ugly transition
+        border-image-source: repeating-linear-gradient(to right,
+        red 0%, red 2%,
+                grey 2%, grey 6%,
+                grey 6%, grey 8%,
+                grey 8%, grey 12%,
+                grey 12%, grey 14%,
+                grey 14%, grey 18%);
+    }
+}
+
+// Christmas lights
+.std-box {
+    border-image: repeating-linear-gradient(to right,
+            red 0%, red 1%,
+            grey 1%, grey 4%,
+            green 4%, green 5%,
+            grey 5%, grey 8%,
+            blue 8%, blue 9%,
+            grey 9%, grey 12%) 1;
+    animation: xmas 5.5s linear infinite;
 }
