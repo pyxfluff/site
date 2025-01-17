@@ -1,30 +1,30 @@
-// pyxfluff 2024
+// pyxfluff 2024 - 2025
 
-function getCurrentTime() {
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric', 
-        hour: 'numeric', 
-        minute: 'numeric', 
-        second: 'numeric', 
-        hour12: true, 
-        timeZone: 'America/New_York' 
-    };
-    
-    const dateInUtc = new Date();
-    let estTime = dateInUtc.toLocaleString('en-US', options);
+// Tabbing
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.nav button');
+    const tabPanes = document.querySelectorAll('.tab-pane');
 
-    const day = estTime.match(/\d{1,2}/)[0];
-    const suffix = day.endsWith('1') && !day.endsWith('11') ? 'st' :
-                   day.endsWith('2') && !day.endsWith('12') ? 'nd' :
-                   day.endsWith('3') && !day.endsWith('13') ? 'rd' : 'th';
+    function switchTab(tabId) {
+        const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
+        const selectedPane = document.getElementById(tabId);
+        
+        tabs.forEach(tab => tab.classList.remove('selected'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        
+        if (selectedTab && selectedPane) {
+            selectedTab.classList.add('selected');
+            selectedPane.classList.add('active');
+        }
+    }
 
-    estTime = estTime.replace(day, `${day}${suffix}`);
-    
-    return estTime;
-}
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            switchTab(tabId);
+        });
+    });
+});
 
 async function fetchTracks() {
     // This is not my API key, don't tell me I leaked it
@@ -40,10 +40,6 @@ async function fetchTracks() {
     artStyle.backgroundRepeat = "no-repeat";
     artStyle.backgroundPosition = "center";
 }
-
-setInterval(function() {
-    document.getElementById("est-time").innerText = getCurrentTime();
-}, 1000)
 
 setInterval(async function() {
     await fetchTracks();

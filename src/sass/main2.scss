@@ -1,0 +1,126 @@
+@import url("/css/extras.css");
+
+$background: #000;
+$button-sel-bg: #fff;
+$button-sel-text: #000;
+$button-fg-bg: #000;
+$button-fg-text: #e7e7e7;
+$button-fg-outline: 2px solid #e7e7e7;
+$text-color: #e7e7e7;
+
+body {
+    background-color: $background;
+    color: $text-color;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .img-card {
+        img {
+            width: 75px;
+            height: 75px;
+            border-radius: 8px;
+        }
+    }
+
+    .text-content {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            margin: 0;
+        }
+
+        h3.subtitle {
+            font-family: "Open Sans Italic";
+            color: grey;
+            margin: 0;
+            font-size: 1rem;
+            font-weight: normal;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+
+    button {
+        transition: all .25s linear;
+        padding: 8px 20px;
+        border: $button-fg-outline;
+        color: $button-fg-text;
+        background-color: $button-fg-bg;
+        border-radius: 8px 8px 0 0;
+        cursor: pointer;
+        font-size: 1rem;
+        position: initial;
+        margin-right: 10px;
+        border-bottom: none;
+
+        &.selected {
+            background-color: $button-sel-bg;
+            color: $button-sel-text;
+            font-weight: bolder;
+
+            z-index: 2;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: $button-sel-bg;
+            }
+        }
+
+        &:hover:not(.selected) {
+            background-color: rgba($button-sel-bg, 0.1);
+        }
+    }
+}
+
+.tab-content {
+    position: relative;
+    z-index: 1;
+    border: $button-fg-outline;
+    padding: 20px;
+    margin-top: -2px;
+    border-radius: 0 8px 8px 8px;
+    
+    .tab-pane {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        
+        &.active {
+            display: block;
+            opacity: 1;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: $text-color;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.6;
+            color: $text-color;
+        }
+    }
+}

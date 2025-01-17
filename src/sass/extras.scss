@@ -13,16 +13,26 @@
     src: url("/fonts/HasklugNerdFont-Regular.woff2");
 }
 
+@font-face {
+    font-family: "Open Sans";
+    src: url("/fonts/OpenSans-Var.ttf");
+}
+
+@font-face {
+    font-family: "Open Sans Italic";
+    src: url("/fonts/OpenSans-Italic.ttf");
+}
+
 body {
-    font-family: "Hasklug Regular";
+    font-family: "Open Sans";
 }
 
-strong, h1, h2 {
-    font-family: "Hasklug Bold";
-}
+//strong, h1, h2 {
+//    font-family: "Hasklug Bold";
+//}
 
-i {
-    font-family: "Hasklug Italic";
+lua, python, webdev, js, ts, vsc, arch, kde, nintendo, rust, cpp, rb {
+    font-family: "Hasklug Bold" !important;
 }
 
 // Language colors
