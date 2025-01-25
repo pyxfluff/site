@@ -17,5 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector('.rain-front').innerHTML = drops;
     document.querySelector('.rain-back').innerHTML = backDrops;
+    
     document.getElementById("rain-audio").volume = .07;
+    document.getElementById("rain-audio").play();
 });
