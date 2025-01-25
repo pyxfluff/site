@@ -16,10 +16,11 @@
     <div class="rain-front"></div>
     <div class="rain-back"></div>
 
-    <audio autoplay loop id="rain-audio">
+    
+    <audio loop id="rain-audio">
         <source src="/sounds/rain.mp3">
     </audio>
-
+    
     <div class="profile-card">
         <div class="img-card">
             <img src="/images/pfp_2024.png" alt="pyxfluff" class="pfp">
@@ -29,17 +30,19 @@
             <h3 class="subtitle">System administration, game, web, and software development, and some other fun stuff.
             </h3>
         </div>
-
+        
         <div class="song-card">
             <div class="song-info">
                 <div class="song-title" id="song_name">Song</div>
                 <div class="song-artist" id="song_meta">Artist</div>
             </div>
-
+            
             <div class="song-artwork" id="song_art"></div>
         </div>
     </div>
-
+    
+    <span id="mouse-nudge" class="subtitle">Click anywhere to enable sounds</span> <br>
+    
     <div class="nav">
         <button class="selected" data-tab="about">About Me</button>
         <button data-tab="projects">Projects</button>
