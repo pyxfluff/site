@@ -1,5 +1,6 @@
 [project]
 mapping = "src:.build"
+# after_build_command = "wranger pages deploy .build --branch production"
 
 #[plugins.minify]
 #suffixes = [".js", ".css"]

@@ -19,8 +19,10 @@ body {
 .profile-card {
     display: flex;
     align-items: center;
+    justify-content: space-between; // Ensures equal spacing between elements
     gap: 1rem;
     margin-bottom: 2rem;
+    width: 100%;
 
     .img-card {
         img {
@@ -44,6 +46,47 @@ body {
             margin: 0;
             font-size: 1rem;
             font-weight: normal;
+        }
+    }
+
+    .song-card {
+        margin-left: auto; // Pushes the .song-card to the far right
+        display: flex;
+        align-items: center;
+        color: white;
+        width: 45%;
+        height: 45%;
+        max-height: 150px;
+        padding: 10px;
+
+        .song-artwork {
+            background-color: #ccc;
+            width: 10%;
+            padding-bottom: 10%;
+            flex-shrink: 0;
+            margin-left: 15px;
+            border-radius: 8px;
+        }
+
+        .song-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+            text-align: right;
+
+            .song-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 5px;
+                word-wrap: break-word;
+            }
+
+            .song-artist {
+                font-size: 1rem;
+                opacity: 0.8;
+                word-wrap: break-word;
+            }
         }
     }
 }
@@ -75,7 +118,7 @@ body {
             font-weight: bolder;
 
             z-index: 2;
-            
+
             &::after {
                 content: '';
                 position: absolute;
@@ -100,12 +143,13 @@ body {
     padding: 20px;
     margin-top: -2px;
     border-radius: 0 8px 8px 8px;
-    
+    overflow-x: hidden;
+
     .tab-pane {
         display: none;
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
-        
+
         &.active {
             display: block;
             opacity: 1;
@@ -123,4 +167,21 @@ body {
             color: $text-color;
         }
     }
+}
+
+@keyframes marquee {
+    0% {
+        -webkit-transform: translateX(100vw)
+    }
+
+    100% {
+        -webkit-transform: translateX(-100vw)
+    }
+}
+
+#f88x31 {
+    animation: marquee 45s linear infinite;
+
+    display: flex;
+    max-height: 90px;
 }

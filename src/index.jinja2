@@ -9,9 +9,17 @@
 
     <link rel="stylesheet" href="/css/main2.css" />
     <script src="/js/index.js"></script>
+    <script src="/js/rain.js"></script>
 </head>
 
 <body>
+    <div class="rain-front"></div>
+    <div class="rain-back"></div>
+
+    <audio autoplay loop id="rain-audio">
+        <source src="/sounds/rain.mp3">
+    </audio>
+
     <div class="profile-card">
         <div class="img-card">
             <img src="/images/pfp_2024.png" alt="pyxfluff" class="pfp">
@@ -20,6 +28,15 @@
             <h1>Hello, I'm Pyx!</h1>
             <h3 class="subtitle">System administration, game, web, and software development, and some other fun stuff.
             </h3>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <div class="song-title" id="song_name">Song</div>
+                <div class="song-artist" id="song_meta">Artist</div>
+            </div>
+
+            <div class="song-artwork" id="song_art"></div>
         </div>
     </div>
 
@@ -40,9 +57,8 @@
                 music enjoyer + HiFi addict,
                 gamer, furry, privacy enthusiast, and more.
 
-                I have proficient programming knowledge in <lua> Luau</lua>, <python> Python</python> (certified!),
-                <webdev> 󰟬 HTML + SASS
-                </webdev>, <ts> TypeScript.</ts> For more information, see the Projects page. <br> <br>
+                I have proficient programming knowledge in <lua> Luau</lua>, <python> Python</python> (certified!), <webdev> 󰟬 HTML + SASS</webdev>, and <ts> TypeScript.</ts>
+                For more information, see the Projects page. <br> <br>
 
                 I have loved computers and everything to do with them since I was a young kid. Building them, debugging
                 Nvidia drivers on Arch, tinkering, and more.
@@ -56,7 +72,9 @@
                 best consoles being the Wii U, Wii, Switch, and 3DS. <br> <br>
 
 
-                Thanks for checking my site out! Make sure to se the other tabs if you are interested in anything specific I mentioned here.
+                Thanks for checking my site out! Make sure to se the other tabs if you are interested in anything specific I mentioned here. <br> <br>
+
+                <div id="f88x31"></div>
 
             </span>
         </div>

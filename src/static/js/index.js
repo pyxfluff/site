@@ -1,5 +1,36 @@
 // pyxfluff 2024 - 2025
 
+const eightyeightbythirtyone = [
+    "3dot5mmfc-button",
+    "antinft",
+    "anythingbut",
+    "archlinux",
+    "built_notepad",
+    "chrmevil",
+    "coke",
+    "cyberdog",
+    "fckfb",
+    "fckgoogle",
+    "ffmpeg",
+    "fftake",
+    "foobar2000",
+    "hi",
+    "ieburnbtn",
+    "internetprivacy",
+    "kdenews",
+    "linux",
+    "mac-works",
+    "masto",
+    "microsoft_stop",
+    "paws",
+    "plasma",
+    "proxmox",
+    "switch_now",
+    "telegram-old",
+    "visitmini",
+    "vscbutton"
+]
+
 // Tabbing
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.nav button');
@@ -24,6 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
             switchTab(tabId);
         });
     });
+
+    // Load 88x31s
+    var finalData = "";
+
+    eightyeightbythirtyone.forEach((path) => {
+        finalData += `<img src="/images/88x31/${path}.gif">  `
+    });
+
+    finalData += `<span style='opacity: 0'>${"W".repeat(50)}</span>`; // spacer
+
+    document.getElementById("f88x31").innerHTML = finalData;
 });
 
 async function fetchTracks() {
