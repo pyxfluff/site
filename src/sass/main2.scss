@@ -1,9 +1,9 @@
 @import url("/css/extras.css");
 
 $background: #000;
-$button-sel-bg: #fff;
+$button-sel-bg: #434faf;
 $button-sel-text: #000;
-$button-fg-bg: #000;
+$button-fg-bg: #08070c;
 $button-fg-text: #e7e7e7;
 $button-fg-outline: 2px solid #e7e7e7;
 $text-color: #e7e7e7;
@@ -102,7 +102,7 @@ body {
     button {
         transition: all .25s linear;
         padding: 8px 20px;
-        border: $button-fg-outline;
+        border: 2px solid #14162a;
         color: $button-fg-text;
         background-color: $button-fg-bg;
         border-radius: 8px 8px 0 0;
@@ -126,7 +126,7 @@ body {
                 left: 0;
                 right: 0;
                 height: 2px;
-                background-color: $button-sel-bg;
+                // background-color: $button-sel-bg;
             }
         }
 
@@ -139,7 +139,7 @@ body {
 .tab-content {
     position: relative;
     z-index: 1;
-    border: $button-fg-outline;
+    border: 2px solid #14162a;
     padding: 20px;
     margin-top: -2px;
     border-radius: 0 8px 8px 8px;
@@ -184,4 +184,9 @@ body {
 
     display: flex;
     max-height: 90px;
+
+    img {
+        margin-right: 4px;
+        border-radius: 4px;
+    }
 }

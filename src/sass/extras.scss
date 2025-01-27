@@ -23,8 +23,8 @@
     src: url("/fonts/OpenSans-Italic.ttf");
 }
 
-body {
-    font-family: "Open Sans";
+body, button {
+    font-family: "Open Sans" !important;
 }
 
 //strong, h1, h2 {
