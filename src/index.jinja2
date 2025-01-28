@@ -16,11 +16,11 @@
     <div class="rain-front"></div>
     <div class="rain-back"></div>
 
-    
+
     <audio loop id="rain-audio">
         <source src="/sounds/rain.mp3">
     </audio>
-    
+
     <div class="profile-card">
         <div class="img-card">
             <img src="/images/pfp_2024.png" alt="pyxfluff" class="pfp">
@@ -30,22 +30,22 @@
             <h3 class="subtitle">System administration, game, web, and software development, and some other fun stuff.
             </h3>
         </div>
-        
+
         <div class="song-card">
             <div class="song-info">
                 <div class="song-title" id="song_name">Song</div>
                 <div class="song-artist" id="song_meta">Artist</div>
             </div>
-            
+
             <div class="song-artwork" id="song_art"></div>
         </div>
     </div>
-    
+
     <span id="mouse-nudge" class="subtitle">Click anywhere to enable sounds</span> <br>
 
     <div class="nav">
         <button class="selected" data-tab="about">About Me</button>
-        <button data-tab="projects">Projects</button>
+        <button data-tab="projects">Projects & Experience</button>
         <button data-tab="music">Music</button>
         <button data-tab="links">Links</button>
         <button data-tab="misc">Miscellaneous</button>
@@ -56,43 +56,141 @@
             <h2>Hello there! Welcome to my corner of the Internet.</h2>
 
             <span>
-                I'm Pyx but some people may know me as darkpixlz. A programmer (for about 8 years), UI/UX designer, 
+                I'm Pyx but some people may know me as darkpixlz. A programmer (for about 8 years), UI/UX designer,
                 music enjoyer + HiFi addict,
                 gamer, furry, privacy enthusiast, and more.
 
-                I am proficient programming in <lua> Luau</lua>, <python> Python</python> (certified!), <webdev> 󰟬 HTML + SASS</webdev>, and <ts> TypeScript.</ts>
+                I am proficient programming in <lua> Luau</lua>, <python> Python</python> (certified!), <webdev> 󰟬
+                    HTML + SASS</webdev>, and <ts> TypeScript.</ts>
                 For more information, see the Projects page. <br> <br>
 
                 I have loved computers and everything to do with them since I was a young kid. Building them, debugging
                 Nvidia drivers on Arch, tinkering, and more.
                 I use <arch>󰣇 Arch</arch> btw, with <kde> KDE Plasma</kde>, the best DE for Linux. Any other opinion
-                is wrong unfortunately. I'm into Photography and drones too, sadly I am not great at either because I almost never leave my city.<br> <br>
-                
+                is wrong unfortunately. I'm into Photography and drones too, sadly I am not great at either because I
+                almost never leave my city.<br> <br>
 
-                I am somewhat of a PC gamer too, I just don't have a graphics card good enough to play games on high without
-                an unbearable FPS. I like open-world, crime, and driving games mostly. I have a large collection of Nintendo
-                games and systems, mostly every home console since the GameCube and every handheld since the DS, with the 
+
+                I am somewhat of a PC gamer too, I just don't have a graphics card good enough to play games on high
+                without
+                an unbearable FPS. I like open-world, crime, and driving games mostly. I have a large collection of
+                Nintendo
+                games and systems, mostly every home console since the GameCube and every handheld since the DS, with
+                the
                 best consoles being the Wii U, Wii, Switch, and 3DS. <br> <br>
 
 
-                Thanks for checking my site out! Make sure to se the other tabs if you are interested in anything specific I mentioned here. <br> <br>
+                Thanks for checking my site out! Make sure to se the other tabs if you are interested in anything
+                specific I mentioned here. <br> <br>
 
                 <div id="f88x31"></div>
 
             </span>
         </div>
         <div class="tab-pane" id="projects">
-            <h2>Projects</h2>
-            <p>Content for Projects section...</p>
+            <h1>Projects</h1>
+            <p>These are all of my active projects I am working on right now and are essentially just a mirror of my GitHub.</p>
+            <div class="card-container">
+                <div class="card">
+                    <a href="https://administer.notpyx.me/to/git/app-server">
+                        <div class="card-image">
+                            <img src="/images/project-administer.png" alt="Administer">
+                        </div>
+                        <div class="card-content">
+                            <h2>Administer</h2>
+                            <p>
+                                <lua> Luau</lua> • Nov '22
+                            </p>
+                            <p>Administer is a next-generation modular FOSS Roblox admin panel.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://administer.notpyx.me/to/git/app-server">
+                        <div class="card-image">
+                            <img src="/images/project-appserver.png" alt="Administer App Server">
+                        </div>
+                        <div class="card-content">
+                            <h2>Administer App Server</h2>
+                            <p>
+                                <python> Python</python>, <webdev> HTML</webdev> • Jun '24
+                            </p>
+                            <p>Python-based FastAPI program for serving and compiling Administer apps, themes, and their Metadata.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://github.com/pyxfluff/site">
+                        <div class="card-image">
+
+                        </div>
+                        <div class="card-content">
+                            <h2>This Website</h2>
+                            <p>
+                                <webdev> HTML</webdev> • Jan '25
+                            </p>
+                            <p>Created with <a href="https://iipython.dev">iiPython</a>'s <a
+                                    href="https://github.com/iipythonx/nova">Nova</a>
+                                using only HTML and SCSS.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://github.com/pyxfluff/site">
+                        <div class="card-image">
+
+                        </div>
+                        <div class="card-content">
+                            <h2>Codelet</h2>
+                            <p>
+                                <python> Python</python>, <ts> TypeScript</ts>, <webdev> HTML</webdev> • Oct '23
+                            </p>
+                            <p>Created with <a href="https://iipython.dev">iiPython</a>'s <a
+                                    href="https://github.com/iipythonx/nova">Nova</a>
+                                using only HTML and SCSS.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <h2>Other experience</h2>
+
+            <div class="cardlist-small">
+                <div class="card figma"> Figma</div>
+            </div>
+
+            <p class="nerdfont">
+                *  Figma <br>
+                *  Linux <br>
+                *  Windows 10/11 <br>
+                *  Discourse <br>
+                *  GIMP <br>
+                * <img style="
+                    width: 16px;
+                    height: 16px;
+                    " src="svg/roblox_dev.svg" type="image/svg+xml"></img> Roblox Studio</a> <br>
+                * 󰦱 Unreal Engine <br>
+                * 󰚯 Unity <br>
+                * 󰹑 Hardware <br>
+                *  Cloudflare <br>
+                *  DNS Management <br>
+                *  Cloud Computing <sub>yuck</sub> <br>
+            </p>
         </div>
+
         <div class="tab-pane" id="music">
             <h2>Music</h2>
             <p>Content for Music section...</p>
         </div>
+
         <div class="tab-pane" id="links">
             <h2>Links</h2>
             <p>Content for Links section...</p>
         </div>
+
         <div class="tab-pane" id="misc">
             <h2>Miscellaneous</h2>
             <p>Content for Miscellaneous section...</p>
