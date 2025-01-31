@@ -62,7 +62,7 @@ a {
     }
 
     .song-card {
-        margin-left: auto; // Pushes the .song-card to the far right
+        margin-left: auto;
         display: flex;
         align-items: center;
         color: white;
@@ -70,6 +70,62 @@ a {
         height: 45%;
         max-height: 150px;
         padding: 10px;
+
+        padding-left: 10px;
+        justify-content: space-between;
+
+        .icon {
+            position: relative;
+            display: inline-flex;
+            justify-content: space-between;
+            width: 13px;
+            height: 13px;
+
+            @keyframes bounce {
+                10% {
+                    transform: scaleY(0.3);
+                }
+
+                30% {
+                    transform: scaleY(1);
+                }
+
+                60% {
+                    transform: scaleY(0.5);
+                }
+
+                80% {
+                    transform: scaleY(0.75);
+                }
+
+                100% {
+                    transform: scaleY(0.6);
+                }
+            }
+
+            span {
+                width: 3px;
+                height: 100%;
+                background-color: #fff;
+                border-radius: 3px;
+                transform-origin: bottom;
+                animation: bounce 2.5s ease infinite alternate;
+                content: '';
+
+                &:nth-of-type(2) {
+                    animation-delay: -2.5s;
+                }
+
+                &:nth-of-type(3) {
+                    animation-delay: -3.7s;
+                }
+
+                &:nth-of-type(4) {
+                    animation-delay: -1.5s;
+                }
+            }
+        }
+
 
         .song-artwork {
             background-color: #ccc;
@@ -86,6 +142,10 @@ a {
             justify-content: center;
             flex-grow: 1;
             text-align: right;
+
+            justify-content: space-between;
+            width: 80%;
+            float: left;
 
             .song-title {
                 font-size: 1.5rem;
@@ -233,7 +293,7 @@ a {
                 object-fit: cover;
                 object-position: center top;
 
-                mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+                mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
             }
         }
 
