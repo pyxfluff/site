@@ -328,22 +328,27 @@ a {
                 grid-template-columns: repeat(5, 1fr);
             }
 
-            &.card {
-                // Colors are in extras.css, this file would be too long otherwise.
-                display: inline;
-
-                padding: 10px 20px 10px 20px;
-
-                font-size: 15px;
-                border-radius: 8px;
-
-                transition: all 0.4s;
-
-                &:hover {
-                    box-shadow: 0 4px 8px $button-sel-bg;
-                    transform: translateY(-5px);
+            &.projects-list {
+                display: flex;
+                
+                .card {
+                    // Colors are in extras.css, this file would be too long otherwise.
+                    display: inline;
+    
+                    padding: 10px 20px 10px 20px;
+    
+                    font-size: 15px;
+                    border-radius: 8px;
+    
+                    transition: all 0.4s;
+    
+                    &:hover {
+                        box-shadow: 0 4px 8px $button-sel-bg;
+                        transform: translateY(-5px);
+                    }
                 }
             }
+
         }
     }
 }
