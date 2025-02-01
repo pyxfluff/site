@@ -1,5 +1,6 @@
 // pyxfluff 2024 - 2025
 
+let enable = true;
 const eightyeightbythirtyone = [
     "3dot5mmfc-button",
     "antinft",
@@ -39,10 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function switchTab(tabId) {
         const selectedTab = document.querySelector(`[data-tab="${tabId}"]`);
         const selectedPane = document.getElementById(tabId);
-        
+
         tabs.forEach(tab => tab.classList.remove('selected'));
         tabPanes.forEach(pane => pane.classList.remove('active'));
-        
+
         if (selectedTab && selectedPane) {
             selectedTab.classList.add('selected');
             selectedPane.classList.add('active');
@@ -83,29 +84,91 @@ async function fetchTracks() {
     artStyle.backgroundPosition = "center";
 }
 
-setInterval(async function() {
+setInterval(async function () {
     await fetchTracks();
-}, 15000)
+}, 15000);
 
-const trigger = async () => { // run jobs instantly
-    await fetchTracks();
-
-    let topTracks = await fetch("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=pyxfluff&api_key=974a5ebc077564f72bd639d122479d4b&format=json&limit=5&period=1month");
-    let json = await topTracks.json()
-
-    console.log(json)
-
-    json.toptracks.track.forEach(track => {
-        console.log(track)
-        let artStyle = document.getElementById(`song_art_${track["@attr"].rank}`).style;
-
-        document.getElementById(`song_name_${track["@attr"].rank}`).innerText = track.name
-        document.getElementById(`song_meta_${track["@attr"].rank}`).innerText = `${track.artist.name} · ${track.playcount} plays`
-        artStyle.background = `url("${track.image[3]["#text"]}")`
-        artStyle.backgroundSize = "cover";
-        artStyle.backgroundRepeat = "no-repeat";
-        artStyle.backgroundPosition = "center";
+async function getArt(trackMbid, title, artistMbid) {
+    let res = await fetch(`https://corsproxy.io?https://musicbrainz.org/ws/2/recording/${trackMbid}?inc=releases&fmt=json`).catch(() => {
+        return null;
     });
+
+    if (res == null || res.status == 503) {
+        return null;
+    }
+
+    if (!res.ok) {
+        let searchData = await (await fetch(`https://corsproxy.io?https://musicbrainz.org/ws/2/recording?query=recording:"${encodeURIComponent(title)}" AND arid:${artistMbid}&fmt=json`)).json();
+
+        trackMbid = searchData.recordings?.[0]?.id;
+        if (!trackMbid) return null;
+
+        res = await fetch(`https://corsproxy.io?https://musicbrainz.org/ws/2/recording/${trackMbid}?inc=releases&fmt=json`).catch(() => {
+            return null;
+        });
+    }
+
+    let data = await res.json();
+
+    return data.releases?.[0]?.id ? `https://coverartarchive.org/release/${data.releases[0].id}/front` : null;
+}
+
+
+const trigger = async () => {
+    if (!enable) return;
+
+    await fetchTracks();
+
+    let topTracks = await fetch("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=pyxfluff&api_key=974a5ebc077564f72bd639d122479d4b&format=json&limit=10&period=1month");
+    let json = await topTracks.json();
+    let final = "";
+
+    for (const track of json.toptracks.track) {
+        let art = await getArt(track.mbid, track.name, track["artist"].mbid);
+        final += `
+            <div class="card song-card-mini">
+                <div class="song-artwork">
+                    <img class='art' src='${art}'>
+                </div>
+
+                <div class="song-info">
+                    <div class="song-title">
+                        <span class="song-title">${track.name}</span>
+                    </div>
+
+                    <div class="song-artist">${track.artist.name} · ${track.playcount} plays</div>
+                </div>
+            </div>
+        `;
+    };
+
+    let topAlbums = await fetch("https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=pyxfluff&api_key=974a5ebc077564f72bd639d122479d4b&format=json&limit=10&period=1month");
+    let albumsJSON = await topAlbums.json();
+    let albumsFinal = "";
+
+    for (const album of albumsJSON.topalbums.album) {
+        
+        albumsFinal += `
+            <div class="card song-card-mini">
+                <div class="song-artwork">
+                    <img class='art' src='${album.image[3]["#text"]}'>
+                </div>
+
+                <div class="song-info">
+                    <div class="song-title">
+                        <span class="song-title">${album.name}</span>
+                    </div>
+
+                    <div class="song-artist">${album.artist.name} · ${album.playcount} plays</div>
+                </div>
+            </div>
+        `;
+    };
+
+    console.log(final)
+
+    document.getElementById("repeat-songs-list").innerHTML = final;
+    document.getElementById("repeat-album-list").innerHTML = albumsFinal;
 }
 
 trigger();
