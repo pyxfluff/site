@@ -23,7 +23,8 @@
     src: url("/fonts/OpenSans-Italic.ttf");
 }
 
-body, button {
+body,
+button {
     font-family: "Open Sans" !important;
 }
 
@@ -38,7 +39,8 @@ kde,
 nintendo,
 rust,
 cpp,
-rb, .nerdfont {
+rb,
+.nerdfont {
     font-family: "Hasklug Bold" !important;
 }
 
@@ -129,7 +131,7 @@ body {
     0% {
         transform: translateY(0vh);
     }
-    
+
     100% {
         transform: translateY(100vh);
     }
@@ -195,5 +197,37 @@ body.splat-toggle .splat {
     100% {
         opacity: 0;
         transform: scale(1.5);
+    }
+}
+
+.card {
+    &.figma {
+        border: 2px solid #ff7262cc;
+        background-color: #ff726248;
+    }
+
+    &.linux {
+        border: 2px solid #0e0b0bcc;
+        background-color: #00000048;
+    }
+
+    &.windows {
+        border: 2px solid #0078d4ba;
+        background-color: #0078d452;
+    }
+
+    &.discourse {
+        border: 2px solid #fffaaebb;
+        background: #fffaae5d;
+    }
+
+    &.roblox {
+        border: 2px solid #019bfbbf;
+        background-color: #019bfb5e;
+    }
+    
+    &.cf {
+        border: 2px solid #f6831fca;
+        background-color: #f6831f59;
     }
 }

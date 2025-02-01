@@ -270,14 +270,15 @@ a {
     width: 100%;
     margin: 0 auto;
 
-    .card {
+    .card:not(.exp) {
         background-color: #000;
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s;
+        transition: all 0.4s;
 
         &:hover {
+            box-shadow: 0 4px 8px $button-sel-bg;
             transform: translateY(-5px);
         }
 
@@ -310,6 +311,25 @@ a {
                 margin: 8px 0 0;
                 font-size: 14px;
                 color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+
+    &.small {
+        .cardlist-small .card {
+            // Colors are in extras.css, this file would be too long otherwise.
+            display: inline;
+
+            padding: 10px 20px 10px 20px;
+
+            font-size: 15px;
+            border-radius: 8px;
+
+            transition: all 0.4s;
+
+            &:hover {
+                box-shadow: 0 4px 8px $button-sel-bg;
+                transform: translateY(-5px);
             }
         }
     }
