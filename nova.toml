@@ -11,3 +11,6 @@ mapping = "src:.build"
 
 [plugins.sass]
 mapping = "sass:css"
+
+[plugins.typescript]
+mapping = "ts:js"
