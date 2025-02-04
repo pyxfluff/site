@@ -206,7 +206,7 @@ body.splat-toggle .splat {
         background-color: #ff726248;
     }
 
-    &.linux {
+    &.linux, &.nocolor {
         border: 2px solid #0e0b0bcc;
         background-color: #00000048;
     }
@@ -230,4 +230,6 @@ body.splat-toggle .splat {
         border: 2px solid #f6831fca;
         background-color: #f6831f59;
     }
+
+    margin-right: 5px;
 }
