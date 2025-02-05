@@ -14,9 +14,16 @@ body {
     margin: 0;
     padding: 20px;
     min-height: 100vh;
+    line-height: 1.5;
+    text-align: justify;
 
     &.mobile {
-        overflow-y: scroll !important
+        overflow-y: scroll !important;
+
+        .nav button {
+            margin-bottom: 5px;
+            border-radius: 8px;
+        }
     }
 }
 
@@ -275,6 +282,9 @@ a {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     width: 100%;
     margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
 
     .card:not(.exp) {
         background-color: #000;
@@ -323,25 +333,29 @@ a {
 
     &.small {
         .cardlist-small {
-            &#repeat-songs-list, &#repeat-album-list {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 8px;
+            padding: 10px 0;
+
+            &#repeat-songs-list,
+            &#repeat-album-list {
                 display: grid;
                 grid-template-columns: repeat(5, 1fr);
             }
 
             &.projects-list {
                 display: flex;
-                
+
                 .card {
                     // Colors are in extras.css, this file would be too long otherwise.
-                    display: inline;
-    
-                    padding: 10px 20px 10px 20px;
-    
-                    font-size: 15px;
+                    flex: 0 0 auto;
+                    padding: 10px 20px;
                     border-radius: 8px;
-    
+                    font-size: 15px;
                     transition: all 0.4s;
-    
+
                     &:hover {
                         box-shadow: 0 4px 8px $button-sel-bg;
                         transform: translateY(-5px);
