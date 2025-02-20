@@ -82,7 +82,7 @@ async function getArt(
 
     let data = await (res || { json: () => { } }).json();
 
-    return data.releases?.[0]?.id ? `https://coverartarchive.org/release/${data.releases[0].id}/front` : null;
+    return data.releases?.[0]?.id ? `https://coverartarchive.org/release/${data.releases[0].id}/front-250` : null;
 }
 
 const trigger = async (
