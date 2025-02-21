@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const badgeContainer = document.getElementById("f88x31");
+    const badgeContainer = document.querySelector("#f88x31 div");
     if (badgeContainer) {
-        badgeContainer.innerHTML = badgeList.map(path => `<img src="/images/88x31/${path}.gif">`).join(" ") + `<span style='opacity:0'>${"W".repeat(50)}</span>`;
+        badgeContainer.innerHTML = badgeList.map(path => `<img src="/images/88x31/${path}.gif">`).join(" ");
     }
 
     if (mobileCheck()) {
