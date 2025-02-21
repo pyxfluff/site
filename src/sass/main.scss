@@ -261,7 +261,12 @@ a {
     max-lines: 1;
     overflow: hidden;
 
-    img {
+    div {
+        display: flex;
+        gap: 0
+    }
+
+    img { 
         border-radius: 6px;
     }
 }
