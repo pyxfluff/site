@@ -40,8 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const urlParams = new URLSearchParams(window.location.search);
 
-    console.log(urlParams.get("isOldDomain") === "true", urlParams)
-
     if (urlParams.get("isOldDomain") == "true") {
         document.body.classList.add("old_domain");
     }

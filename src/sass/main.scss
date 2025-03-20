@@ -436,7 +436,7 @@ body.old_domain #old-domain {
     }
 }
 
-body:not(.old-domain) #old-domain {
+body:not(.old_domain) #old-domain {
     display: none;
 }
 
