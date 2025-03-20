@@ -4,7 +4,7 @@ let enable = true;
 const badgeList = [
     "3dot5mmfc-button", "antinft", "anythingbut", "archlinux", "built_notepad", "chrmevil", "coke",
     "cyberdog", "fckfb", "fckgoogle", "ffmpeg", "fftake", "foobar2000", "hi", "ieburnbtn", "internetprivacy",
-    "kdenews", "linux", "mac-works", "masto", "microsoft_stop", "paws", "plasma", "proxmox", "switch_now",
+    "kdenews", "linux", "mac-works", "masto", "microsoft_stop", "paws", "proxmox", "switch_now",
     "telegram-old", "visitmini", "vscbutton"
 ];
 
@@ -32,13 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (mobileCheck()) {
-        document.body.classList.add("mobile")
+        document.body.classList.add("mobile");
+
+        (document.getElementById("rain-audio") as HTMLAudioElement).src = "";
     }
 });
 
-async function fetchTracks(
-
-): Promise<undefined> {
+async function fetchTracks(): Promise<undefined> {
     let res = await fetch("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=pyxfluff&api_key=974a5ebc077564f72bd639d122479d4b&limit=1&page=1&format=json");
     let track = (await res.json()).recenttracks.track[0];
     let artStyle = document.getElementById("song_art")?.style;
@@ -130,3 +130,10 @@ const trigger = async (
 };
 
 trigger();
+
+const urlParams = new URLSearchParams(window.location.search);
+document.addEventListener("DOMContentLoaded", () => {
+    if (urlParams.get("isOldDomain") === "true") {
+        document.body.classList.add("old_domain");
+    }
+});

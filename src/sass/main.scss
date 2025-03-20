@@ -417,3 +417,21 @@ a {
         }
     }
 }
+
+#old-domain {
+    justify-self: anchor-center;
+    background-color: #4e5dff;
+    border-radius: 15px;
+    padding: 8px;
+
+    height: 75px;
+    width: fit-content;
+
+    h1 {
+        margin: 0px 0px 5px 0px
+    }
+
+    a {
+        color: rgb(67, 255, 161) !important;
+    }
+}
