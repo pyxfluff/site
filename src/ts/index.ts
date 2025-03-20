@@ -1,6 +1,8 @@
 // pyxfluff 2024 - 2025
 
-let enable = true;
+const enableMusicPull = true;
+const urlParams = new URLSearchParams(window.location.search);
+
 const badgeList = [
     "3dot5mmfc-button", "antinft", "anythingbut", "archlinux", "built_notepad", "chrmevil", "coke",
     "cyberdog", "fckfb", "fckgoogle", "ffmpeg", "fftake", "foobar2000", "hi", "ieburnbtn", "internetprivacy",
@@ -36,6 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         (document.getElementById("rain-audio") as HTMLAudioElement).src = "";
     }
+
+    if (urlParams.get("isOldDomain") === "true") {
+        document.body.classList.add("old_domain");
+    }
+
+    (document.querySelector(".music-display") as HTMLElement).addEventListener("click", () => {
+        (document.querySelector(".music-display") as HTMLElement).style.position = "unset";
+        (document.querySelector(".music-display .embed") as HTMLElement).innerHTML = ""
+    })
 });
 
 async function setRecentlyPlaying(): Promise<undefined> {
@@ -86,7 +97,7 @@ async function getArt(
 }
 
 const trigger = async (): Promise<null> => {
-    if (!enable) return null;
+    if (!enableMusicPull) return null;
 
     await setRecentlyPlaying();
 
@@ -163,16 +174,3 @@ const trigger = async (): Promise<null> => {
 
 
 trigger();
-
-const urlParams = new URLSearchParams(window.location.search);
-document.addEventListener("DOMContentLoaded", () => {
-    if (urlParams.get("isOldDomain") === "true") {
-        document.body.classList.add("old_domain");
-    }
-
-    // Init music display
-    (document.querySelector(".music-display") as HTMLElement).addEventListener("click", () => {
-        (document.querySelector(".music-display") as HTMLElement).style.position = "unset";
-        (document.querySelector(".music-display .embed") as HTMLElement).innerHTML = ""
-    })
-});
