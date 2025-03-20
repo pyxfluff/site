@@ -418,7 +418,7 @@ a {
     }
 }
 
-#old-domain {
+body.old_domain #old-domain {
     justify-self: anchor-center;
     background-color: #4e5dff;
     border-radius: 15px;
@@ -434,4 +434,8 @@ a {
     a {
         color: rgb(67, 255, 161) !important;
     }
+}
+
+body:not(.old-domain) #old-domain {
+    display: none;
 }
