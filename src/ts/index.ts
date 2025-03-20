@@ -1,7 +1,6 @@
 // pyxfluff 2024 - 2025
 
 const enableMusicPull = true;
-const urlParams = new URLSearchParams(window.location.search);
 
 const badgeList = [
     "3dot5mmfc-button", "antinft", "anythingbut", "archlinux", "built_notepad", "chrmevil", "coke",
@@ -39,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         (document.getElementById("rain-audio") as HTMLAudioElement).src = "";
     }
 
+    const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("isOldDomain") === "true") {
         document.body.classList.add("old_domain");
     }
