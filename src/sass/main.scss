@@ -3,13 +3,18 @@
 $background: #000;
 $button-sel-bg: #434faf;
 $button-sel-text: #000;
-$button-fg-bg: #08070c;
+$button-fg-bg: #08070c9e;
 $button-fg-text: #e7e7e7;
 $button-fg-outline: 2px solid #e7e7e7;
 $text-color: #e7e7e7;
 
 body {
-    background-color: $background;
+    background: url(/images/background.gif);
+    background-size: cover;
+    background-position: center;
+
+    image-rendering: pixelated;
+
     color: $text-color;
     margin: 0;
     padding: 20px;
@@ -39,6 +44,13 @@ a {
     }
 }
 
+.profile-card, .tab-content {
+    background: $button-fg-bg;
+    backdrop-filter: blur(2rem);
+
+    border-radius: 18px;
+}
+
 .profile-card {
     display: flex;
     align-items: center;
@@ -47,11 +59,17 @@ a {
     margin-bottom: 2rem;
     width: 100%;
 
+    img {
+        image-rendering: auto !important;
+    }
+
     .img-card {
         img {
             width: 75px;
             height: 75px;
             border-radius: 8px;
+
+            margin-left: 10px;
         }
     }
 
@@ -183,17 +201,20 @@ a {
     z-index: 1;
 
     button {
-        transition: all .25s linear;
         padding: 8px 20px;
         border: 2px solid #14162a;
         color: $button-fg-text;
         background-color: $button-fg-bg;
         border-radius: 8px 8px 0 0;
+        
         cursor: pointer;
         font-size: 1rem;
         position: initial;
         margin-right: 10px;
         border-bottom: none;
+        transition: all .25s linear;
+
+        backdrop-filter: blur(2rem);
 
         &.selected {
             background-color: $button-sel-bg;
@@ -255,9 +276,10 @@ a {
 }
 
 
-#f88x31 {
+#f88x31,
+#f88x31_2 {
     display: flex;
-    max-height: 31px;
+    max-height: 40px;
     max-lines: 1;
     overflow: hidden;
 
@@ -266,8 +288,10 @@ a {
         gap: 0
     }
 
-    img { 
+    img {
         border-radius: 6px;
+        height: 40px;
+        image-rendering: pixelated;
     }
 }
 
@@ -282,11 +306,14 @@ a {
     padding-bottom: 10px;
 
     .card:not(.exp) {
-        background-color: #000;
+        background-color: $button-fg-bg;
+        backdrop-filter: blur(2rem);
+        
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: all 0.4s;
+        
 
         &:hover {
             box-shadow: 0 4px 8px $button-sel-bg;
@@ -369,6 +396,8 @@ a {
 
     width: 100%;
     height: 100%;
+
+    image-rendering: auto;
     //aspect-ratio: 1;
     //object-fit: cover;
 }
