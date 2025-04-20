@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .map(({ value }) => value);
     }
 
-    const shuffled = shuffle(badges);
+    const shuffled = shuffle(window.BADGES);
     const half = Math.floor(shuffled.length / 2);
     const firstHalf = shuffled.slice(0, half);
     const secondHalf = shuffled.slice(half, half * 2);
