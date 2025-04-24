@@ -8,8 +8,11 @@
     <title>Pyx's Corner</title>
 
     <link rel="stylesheet" href="/css/main.css" />
+
     <script src="/js/badges.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/js/status.js"></script>
+
     <script src="/js/marquee.js"></script>
     <script src="/js/rain.js"></script>
 </head>
@@ -23,8 +26,6 @@
 
     <div class="rain-front"></div>
     <div class="rain-back"></div>
-
-
 
     <audio loop id="rain-audio">
         <source src="/sounds/rain.mp3">
@@ -67,6 +68,7 @@
         <button data-tab="projects">Projects & Experience</button>
         <button data-tab="music">Music</button>
         <button data-tab="links">Links</button>
+        <button data-tab="status">Status</button>
         <button data-tab="misc">Miscellaneous</button>
     </div>
 
@@ -289,10 +291,59 @@
             </div>
         </div>
 
+        <div class="tab-pane" id="status">
+            <h2>Web Services Status</h2>
+            <p>
+                If you are having issues with Administer, please see <a href="https://status.admsoftware.org">it's dedicated statuspage.</a> Administer data on this page is only stuff I personally run
+                at my home.
+            </p>
+
+            <h3>At a glance</h3>
+            <div class="server-status-row card-container" id="status-class-grid">
+
+            </div>
+
+            <h3>Services</h3>
+            <div class="service-row card-container" id="service-grid">
+                <div class="statuspage-service">
+                    <div class="status-service">
+                        <div class="status-title"><span class="status-title">Administer AOS Canary</span></div>
+                        <div class="status-meta">
+                            <div class="status-orb ${status.status}"></div><span> ${status.status} · ${status.latency}ms</span>
+                        </div>
+                        <div class="status-ticks">
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            <div class="tick up"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="tab-pane" id="misc">
             <h2>Miscellaneous</h2>
             <p>
-                This site is as of 4/9/25 ({{ git_hash[:7] }}). If you're the type of person who calls every new thing
+                This site is as of 4/24/25 ({{ git_hash[:7] }}). If you're the type of person who calls every new thing
                 ever bad, <a href="https://old.pyxfluff.dev/">visit my old site (dec '24)</a>, with the original typos
                 and all intact. <br> <br>
 

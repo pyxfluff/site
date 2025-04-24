@@ -1,6 +1,6 @@
 // pyxfluff 2024 - 2025
 
-const enableMusicPull = true;
+const enableMusicPull = false;
 
 function mobileCheck() {
     let check = false;

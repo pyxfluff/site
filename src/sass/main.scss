@@ -22,6 +22,8 @@ body {
     line-height: 1.5;
     text-align: justify;
 
+    overflow-y: scroll !important;
+
     &.mobile {
         overflow-y: scroll !important;
 
@@ -305,6 +307,15 @@ a {
     white-space: nowrap;
     padding-bottom: 10px;
 
+    &.server-status-row {
+        display: flex !important;
+        flex-direction: row;
+        gap: 16px;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
     .card:not(.exp) {
         background-color: $button-fg-bg;
         backdrop-filter: blur(2rem);
@@ -313,6 +324,8 @@ a {
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: all 0.4s;
+
+        flex: 0 0 320px;
         
 
         &:hover {
@@ -480,5 +493,67 @@ body:not(.old_domain) #old-domain {
 
     .embed {
         width: 90%;
+    }
+}
+
+// Statuspage
+.status-card {
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+    border-radius: 18px;
+    height: auto;
+    width: 100%;
+    max-width: 300px;
+    flex-direction: row;
+    gap: 8px;
+
+    .status-service {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        text-align: left;
+        width: 70%;
+        padding: 10px;
+
+        .status-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            word-wrap: break-word;
+        }
+
+        .status-meta {
+            font-size: 1rem;
+            opacity: 0.8;
+            word-wrap: break-word;
+
+            display: ruby;
+            
+            .status-orb {
+                width: 10px;
+                aspect-ratio: 1;
+                border-radius: 100%;
+
+                &.Online {
+                    background-color: rgb(42, 253, 84);
+                }
+
+                &.Offline {
+                    background-color: rgb(255, 86, 67);
+                }
+
+                &.Error {
+                    background-color: rgb(149, 149, 149);
+                }
+            }
+        }
     }
 }
