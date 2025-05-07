@@ -17,7 +17,6 @@ async function setRecentlyPlaying(): Promise<undefined> {
     }
 }
 
-setInterval(setRecentlyPlaying, 15000);
 
 async function getArt(
     trackMbid: string,
@@ -78,13 +77,13 @@ const initMusicPage = (async () => {
             let result = searchResults.find(res => res.title === track.name);
 
             return `
-                <div class="card song-card-mini song" data-embed-url="${result ? result.embed_url : null}">
-                    <div class="song-artwork"><img class='art' src='${art}'></div>
-                    <div class="song-info">
-                        <div class="song-title"><span class="song-title">${track.name}</span></div>
-                        <div class="song-artist">${track.artist.name} · ${track.playcount} plays</div>
-                    </div>
-                </div>
+            <div class="card song-card-mini song" data-embed-url="${result ? result.embed_url : null}">
+            <div class="song-artwork"><img class='art' src='${art}'></div>
+            <div class="song-info">
+            <div class="song-title"><span class="song-title">${track.name}</span></div>
+            <div class="song-artist">${track.artist.name} · ${track.playcount} plays</div>
+            </div>
+            </div>
             `;
         })).then(html => html.join(""));
     }
@@ -94,13 +93,13 @@ const initMusicPage = (async () => {
             const result = searchResults.find(res => res.title === album.name && res.artist === album.artist.name);
 
             return `
-                <div class="card song-card-mini" data-embed-url="${result ? result.embed_url : null}">
-                    <div class="song-artwork"><img class='art' src='${album.image[3]["#text"]}'></div>
-                    <div class="song-info">
-                        <div class="song-title"><span class="song-title">${album.name}</span></div>
-                        <div class="song-artist">${album.artist.name} · ${album.playcount} plays</div>
-                    </div>
-                </div>
+            <div class="card song-card-mini" data-embed-url="${result ? result.embed_url : null}">
+            <div class="song-artwork"><img class='art' src='${album.image[3]["#text"]}'></div>
+            <div class="song-info">
+            <div class="song-title"><span class="song-title">${album.name}</span></div>
+            <div class="song-artist">${album.artist.name} · ${album.playcount} plays</div>
+            </div>
+            </div>
             `;
         }).join(" ");
     }
@@ -120,3 +119,5 @@ const initMusicPage = (async () => {
         });
     });
 });
+
+setInterval(setRecentlyPlaying, 15000);
