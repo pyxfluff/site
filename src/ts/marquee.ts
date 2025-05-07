@@ -1,46 +1,59 @@
+// Copyright (c) 2025 iiPython
+// Marquee88 - Infinite marquee system for 88x31 buttons
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    const gap = 0;
-    const amount = 1;
-    const element = document.getElementById("f88x31") as HTMLElement;
-    const element2 = document.getElementById("f88x31_2") as HTMLElement;
+    // Configuration
+    const elements = [
+        {
+            element: document.getElementById("f88x31") as HTMLElement,
+            gap: 10,              // Gap between buttons, in pixels
+            amount: 1,            // Pixels to move per animation frame
+            direction: "left"     // Direction to move in, `left` or `right`
+        },
+        {
+            element: document.getElementById("f88x31_2") as HTMLElement,
+            gap: 10,              // Gap between buttons, in pixels
+            amount: 1,            // Pixels to move per animation frame
+            direction: "right"    // Direction to move in, `left` or `right`
+        }
+    ];
 
-    const box = element.querySelector("div") as HTMLElement;
-    box.style.position = "relative";
+    // Ensure positions are relative so we can use `left`
+    for (const config of elements) {
+        const box = config.element.querySelector("div") as HTMLElement;
+        box.style.position = "relative";
 
-    const box2 = element2.querySelector("div") as HTMLElement;
-    box2.style.position = "relative";
+        const append = config.direction === "right" ? "prepend" : "appendChild";
+        const multiplier = config.direction === "right" ? -1 : 1;
+        const comparison = config.direction === "right" ? (x, y) => x >= y : (x, y) => x <= y;
 
-    let left = 0, last = 0;
-    let left2 = 0, last2 = 0;
+        // Setup animation
+        let offset = 0, last = 0;
+        function frame(time) {
+            if (time - last >= 10) {
+                const target = config.direction === "right" ? box.lastElementChild : box.children[0] as HTMLElement;
 
-    function frame(time) {
-        if (time - last >= 10) {
-            const truth = element.getBoundingClientRect().left;
-            const truth2 = element2.getBoundingClientRect().left;
+                if (!target) return;
 
-            const rect = box.children[0].getBoundingClientRect();
-            const rect2 = box2.children[0].getBoundingClientRect();
-
-            if ((rect.left + rect.width) <= truth) {
-                box.appendChild(box.children[0]);
-                left += rect.width + gap;
+                // Calculate bounding boxes
+                const truth = config.element.getBoundingClientRect()[config.direction];
+                const rect = target.getBoundingClientRect();
+            
+                // Push last button to opposite side
+                if (comparison(rect[config.direction] + (rect.width * multiplier), truth)) {
+                    box[append](target);
+                    offset += rect.width + config.gap;
+                }
+            
+                // Update box positioning
+                box.style[config.direction] = `${offset}px`;
+                offset -= config.amount;
+                last = time;
             }
-
-            if ((rect2.left + rect2.width) <= truth2) {
-                box2.appendChild(box2.children[0]);
-                left2 += rect2.width + gap;
-            }
-
-            // Update box positioning
-            box.style.left = `${left}px`;
-            left -= amount;
-            last = time;
-
-            box2.style.left = `${left2}px`;
-            left2 -= amount;
-            last2 = time;
+            requestAnimationFrame(frame);
         }
         requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-});
+    };
+})
+
