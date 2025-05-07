@@ -1,5 +1,5 @@
 # Website
 
-This is the code for my website, located at https://notpyx.me.
+This is the code for my website, located at https://pyxfluff.dev.
 
-It uses basic HTML and SCSS and @iiPythonx's Nova which I recommend you [go check out because it's cool.](https://github.com/iipythonx/nova)
+It uses basic HTML, SCSS, and TypeScript, built with [@iiPythonx\nova.](https://github.com/iipythonx/nova)
