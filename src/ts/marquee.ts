@@ -2,7 +2,7 @@
 // Marquee88 - Infinite marquee system for 88x31 buttons
 
 
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
     // Configuration
     const elements = [
         {
@@ -55,5 +55,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         requestAnimationFrame(frame);
     };
-})
+})();
 
