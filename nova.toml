@@ -5,7 +5,6 @@ mapping = "src:.build"
 suffixes = [".js", ".css"]
 
 [plugins.minify.methods]
-js = "external"
 css = "native"
 
 [plugins.sass]
