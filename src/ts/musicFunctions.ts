@@ -48,7 +48,7 @@ async function getArt(
 }
 
 const initMusicPage = (async () => {
-    if (!enableMusicPull) return null;
+    if (!window.enableMusicPull) return null;
 
     await setRecentlyPlaying();
 
@@ -119,5 +119,7 @@ const initMusicPage = (async () => {
         });
     });
 });
+
+window.initMusic = initMusicPage;
 
 setInterval(setRecentlyPlaying, 15000);

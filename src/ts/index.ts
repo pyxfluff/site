@@ -1,6 +1,12 @@
 // pyxfluff 2024 - 2025
 
-const enableMusicPull = true;
+interface Window {
+    enableMusicPull: boolean;
+    initMusic: () => (any);
+    BADGES: any[]
+}
+
+window.enableMusicPull = true;
 
 function mobileCheck() {
     let check = false;
@@ -61,5 +67,5 @@ function mobileCheck() {
         (document.querySelector(".music-display .embed") as HTMLElement).innerHTML = ""
     });
 
-    await initMusicPage();
+    window.initMusic();
 })();
