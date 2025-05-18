@@ -46,7 +46,8 @@ a {
     }
 }
 
-.profile-card, .tab-content {
+.profile-card,
+.tab-content {
     background: $button-fg-bg;
     backdrop-filter: blur(2rem);
 
@@ -208,7 +209,7 @@ a {
         color: $button-fg-text;
         background-color: $button-fg-bg;
         border-radius: 8px 8px 0 0;
-        
+
         cursor: pointer;
         font-size: 1rem;
         position: initial;
@@ -319,14 +320,14 @@ a {
     .card:not(.exp) {
         background-color: $button-fg-bg;
         backdrop-filter: blur(2rem);
-        
+
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: all 0.4s;
 
         flex: 0 0 320px;
-        
+
 
         &:hover {
             box-shadow: 0 4px 8px $button-sel-bg;
@@ -337,6 +338,8 @@ a {
             position: relative;
             height: 150px;
             background-color: #08070c;
+
+            image-rendering: auto !important;
 
             img {
                 width: 100%;
@@ -536,7 +539,7 @@ body:not(.old_domain) #old-domain {
             word-wrap: break-word;
 
             display: ruby;
-            
+
             .status-orb {
                 width: 10px;
                 aspect-ratio: 1;
@@ -556,4 +559,47 @@ body:not(.old_domain) #old-domain {
             }
         }
     }
+}
+
+.setting {
+    display: block ruby;
+
+    .setting-selection {
+        display: flex;
+        width: 200px;
+        height: 40px;
+        background-color: $button-fg-bg;
+        padding: 0 15px;
+        border-radius: 18px;
+
+        align-items: center;
+
+        div {
+            width: 45%;
+            height: 70%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background-color: white;
+            border-radius: 15px;
+
+            cursor: help;
+
+            &:nth-child(1) {
+                margin-right: 15px;
+
+                background-color: $button-sel-bg;
+                color: $button-sel-text;
+            }
+
+            &:nth-child(2) {
+                background-color: #ff4b4b;
+                color: #fff
+            }
+        }
+    }
+
 }
