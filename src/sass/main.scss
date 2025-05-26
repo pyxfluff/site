@@ -163,7 +163,7 @@ a {
             width: 10%;
             padding-bottom: 10%;
             flex-shrink: 0;
-            
+
             background-color: #ccc;
             
             margin-left: 15px;
@@ -390,8 +390,10 @@ a {
             &.projects-list {
                 display: flex;
 
+                overflow: unset;
+
                 .card {
-                    // Colors are in extras.css, this file would be too long otherwise.
+                    // Colors are in extras.css, this file would be too long otherwise (as if its not already 600 lines lmao).
                     flex: 0 0 auto;
                     padding: 10px 20px;
                     border-radius: 8px;
