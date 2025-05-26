@@ -160,12 +160,16 @@ a {
 
 
         .song-artwork {
-            background-color: #ccc;
             width: 10%;
             padding-bottom: 10%;
             flex-shrink: 0;
+            
+            background-color: #ccc;
+            
             margin-left: 15px;
             border-radius: 8px;
+
+            image-rendering: auto;
         }
 
         .song-info {
@@ -500,68 +504,6 @@ body:not(.old_domain) #old-domain {
     }
 }
 
-// Statuspage
-.status-card {
-    margin-left: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    color: white;
-    border-radius: 18px;
-    height: auto;
-    width: 100%;
-    max-width: 300px;
-    flex-direction: row;
-    gap: 8px;
-
-    .status-service {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex-grow: 1;
-        text-align: left;
-        width: 70%;
-        padding: 10px;
-
-        .status-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-            word-wrap: break-word;
-        }
-
-        .status-meta {
-            font-size: 1rem;
-            opacity: 0.8;
-            word-wrap: break-word;
-
-            display: ruby;
-
-            .status-orb {
-                width: 10px;
-                aspect-ratio: 1;
-                border-radius: 100%;
-
-                &.Online {
-                    background-color: rgb(42, 253, 84);
-                }
-
-                &.Offline {
-                    background-color: rgb(255, 86, 67);
-                }
-
-                &.Error {
-                    background-color: rgb(149, 149, 149);
-                }
-            }
-        }
-    }
-}
-
 .setting {
     display: block ruby;
 
@@ -603,4 +545,75 @@ body:not(.old_domain) #old-domain {
         }
     }
 
+}
+
+// Statuspage
+.service-row {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+
+    .statuspage-service {
+        width: 500px;
+        background-color: $button-fg-bg;
+        padding: 10px;
+        border-radius: 18px;
+
+        .status-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            word-wrap: break-word;
+        }
+
+        .status-meta {
+            word-wrap: break-word;
+            display: ruby;
+
+            .status-orb {
+                width: 10px;
+                aspect-ratio: 1;
+                border-radius: 100%;
+
+                &.up {
+                    background-color: rgb(42, 253, 84);
+                }
+
+                &.down {
+                    background-color: rgb(255, 86, 67);
+                }
+
+                &.error {
+                    background-color: rgb(149, 149, 149);
+                }
+            }
+        }
+
+        .status-ticks {
+            display: flex;
+            gap: 2px;
+            height: 35px;
+
+            .tick {
+                flex: 1;
+                min-width: 3px;
+                height: 100%;
+                border-radius: 2px;
+
+                &.up {
+                    background-color: rgb(74, 251, 74);
+                }
+
+                &.down {
+                    background-color: rgb(255, 68, 68);
+                }
+
+                &:first-child {
+                    border-radius: 6px 2px 2px 6px !important;
+                }
+
+                &:last-child {
+                    border-radius: 2px 6px 6px 2px !important;
+                }
+            }
+        }
+    }
 }

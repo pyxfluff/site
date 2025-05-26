@@ -1,29 +1,35 @@
 // pyxfluff 2025
 
 (async () => {
-    const statusResponse = await ((await fetch("https://statuspage.pyxfluff.dev/api/status")).json())
+    const data = await (await fetch("https://statuspage.pyxfluff.dev/api/status")).json();
 
-    console.log(statusResponse)
+    const records = data.records;
+    const services = Object.keys(records.at(-1).services);
+    const ticks = window.mobileCheck() && 30 || 60
 
-    let finalGlance = ""
-    for (const [service, status] of Object.entries(statusResponse.urls) as [string, {
-        name: string;
-        url: string;
-        status: string;
-        latency: number;
-    }][]) {
-        console.log(service, status);
-        finalGlance += `
-        <div class="card status-card">
-            <div class="status-service">
-            <div class="status-title"><span class="status-title">${status.name}</span></div>
-                <div class="status-meta">
-                    <div class="status-orb ${status.status}"></div><span> ${status.status} · ${status.latency}ms</span>
-                </div>
+    for (const name of services) {
+        const status = records.at(-1).services[name];
+
+        const el = document.createElement("div");
+        el.className = "statuspage-service";
+        el.innerHTML = `
+        <div class="status-title"><span class="status-title">${name}</span></div>
+            <div class="status-meta">
+                <div class="status-orb ${status.online ? "up" : "down"}"></div>
+                <span>${status.online ? "Online" : "Offline"} · ${status.latency}ms</span>
             </div>
-        </div>
-        `
-    }
+        <div class="status-ticks"></div>
+      `;
 
-    document.getElementById("status-class-grid").innerHTML = finalGlance
-})()
+        const size = Math.floor(records.length / ticks);
+
+        for (let i = 0; i < ticks; i++) {
+            const tick = document.createElement("div");
+            tick.className = `tick ${records.slice(i * size, (i + 1) * size).some(r => r.services[name]?.online === false) ? "down" : "up"}`;
+
+            el.querySelector(".status-ticks")!.appendChild(tick);
+        }
+
+        document.getElementById("service-grid")!.appendChild(el);
+    }
+})();
