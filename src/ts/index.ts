@@ -7,7 +7,7 @@ interface Window {
     BADGES: any[]
 }
 
-window.enableMusicPull = false;
+window.enableMusicPull = true;
 
 window.mobileCheck = (() => {
     let check = false;
