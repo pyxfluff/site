@@ -60,6 +60,11 @@ const initMusicPage = (async () => {
     let tracks = (await tracksRes.json()).toptracks.track;
     let albums = (await albumsRes.json()).topalbums.album;
 
+    // load music challenge before the page gets too slow
+    const musicChallengeData = await (await fetch("/data/music_challenge.json")).json()
+
+    document.getElementById("music-challenge").innerText = musicChallengeData.data
+
     const searchResults = await (await fetch("https://spotifysvc.pyxfluff.dev/search", {
         method: "POST",
         headers: {

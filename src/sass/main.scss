@@ -619,3 +619,8 @@ body:not(.old_domain) #old-domain {
         }
     }
 }
+
+.music-challenge-holder {
+    max-height: 500px;
+    overflow-y: scroll
+}
