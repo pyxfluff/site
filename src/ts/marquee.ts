@@ -7,13 +7,13 @@
     const elements = [
         {
             element: document.getElementById("f88x31") as HTMLElement,
-            gap: 10,              // Gap between buttons, in pixels
+            gap: 5,              // Gap between buttons, in pixels
             amount: 1,            // Pixels to move per animation frame
             direction: "left"     // Direction to move in, `left` or `right`
         },
         {
             element: document.getElementById("f88x31_2") as HTMLElement,
-            gap: 10,              // Gap between buttons, in pixels
+            gap: 5,              // Gap between buttons, in pixels
             amount: 1,            // Pixels to move per animation frame
             direction: "right"    // Direction to move in, `left` or `right`
         }
