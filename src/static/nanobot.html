@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NanoBot FAQ</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <div class="nav">
+        <button class="selected">Information</button>
+        <button onclick="location.href='/'">Return to pyxfluff.dev</button>
+    </div>
+    <div class="tab-content">
+        <h1>What is it?</h1>
+        <p>
+            NanoBot is a crawler for a search engine in development. It's intention is to crawl furry related websites to develop a furry search engine.
+        </p>
+        <h2>Why so many requests?</h2>
+        <p>
+            The bot is designed to recursively follow every link it discovers. It respects robots.txt files but if you would like to reach out to us directly to request blockage or limits, please
+            contact
+            me on Discord: @pyxfloof
+        </p>
+        <h2>How did this find my site?</h2>
+        <p>As previously stated, it recursively visits every site it discovers. We probably found the link from another site.</p>
+        <h2>Is this for AI training?</h2>
+        <p>
+            <strong>No.</strong> We are not using any data for AI or other content training. The data we get from your website is just ours and does not belong to any AI company and will not be used
+            to
+            train an AI.
+        </p>
+        <h2>How can I identify it?</h2>
+        <p>
+            Our user agent is
+            <code>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 (compatible; NanoBot/1.0; +https://pyxluff.dev/nanobot)</code>.
+        </p>
+        <h2>Can I block it?</h2>
+        <p>
+            To stop us from crawling a page, simply add <code>Nanobot</code> to your robots.txt file. We also respect <code>Crawl-delay</code>. However, as previously stated, we would prefer you
+            contact
+            us directly via Discord to attempt to resolve any issues beforehand.
+        </p>
+        <h2>What is it written in? Is it open source?</h2>
+        <p>The crawler is not currently open source, but it's written in Python using Playwright with a mix of httpx and urllib.</p>
+    </div>
+</body>
+
+</html>

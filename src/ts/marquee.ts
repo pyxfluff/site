@@ -39,13 +39,13 @@
                 // Calculate bounding boxes
                 const truth = config.element.getBoundingClientRect()[config.direction];
                 const rect = target.getBoundingClientRect();
-            
+
                 // Push last button to opposite side
                 if (comparison(rect[config.direction] + (rect.width * multiplier), truth)) {
                     box[append](target);
                     offset += rect.width + config.gap;
                 }
-            
+
                 // Update box positioning
                 box.style[config.direction] = `${offset}px`;
                 offset -= config.amount;
