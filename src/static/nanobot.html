@@ -21,16 +21,14 @@
         <h2>Why so many requests?</h2>
         <p>
             The bot is designed to recursively follow every link it discovers. It respects robots.txt files but if you would like to reach out to us directly to request blockage or limits, please
-            contact
-            me on Discord: @pyxfloof
+            contact me on Discord: @pyxfloof
         </p>
         <h2>How did this find my site?</h2>
         <p>As previously stated, it recursively visits every site it discovers. We probably found the link from another site.</p>
         <h2>Is this for AI training?</h2>
         <p>
             <strong>No.</strong> We are not using any data for AI or other content training. The data we get from your website is just ours and does not belong to any AI company and will not be used
-            to
-            train an AI.
+            to train an AI.
         </p>
         <h2>How can I identify it?</h2>
         <p>
@@ -40,11 +38,17 @@
         <h2>Can I block it?</h2>
         <p>
             To stop us from crawling a page, simply add <code>Nanobot</code> to your robots.txt file. We also respect <code>Crawl-delay</code>. However, as previously stated, we would prefer you
-            contact
-            us directly via Discord to attempt to resolve any issues beforehand.
+            contact s directly via Discord to attempt to resolve any issues beforehand.
         </p>
         <h2>What is it written in? Is it open source?</h2>
         <p>The crawler is not currently open source, but it's written in Python using Playwright with a mix of httpx and urllib.</p>
+        <h2>Shortcomings</h2>
+        <p>
+            While we respect robots.txt files, I've observed it may have trouble following path wildcards due to an issue with the urllib parse function. This will be fixed soon.
+            <br><br>
+            The bot also does not prioritize URLs or sort them by anything, it simply keeps them in an in-memory list and will attempt to visit as many as possible given it is not blocked by our local
+            blocklist or the robots.txt file. After our initial crawl (which is still currently underway) we will likely implement a system where pages can be crawled based on internal priority.
+        </p>
     </div>
 </body>
 
