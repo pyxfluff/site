@@ -30,6 +30,12 @@
             <strong>No.</strong> We are not using any data for AI or other content training. The data we get from your website is just ours and does not belong to any AI company and will not be used
             to train an AI.
         </p>
+        <h2>Is my art being stolen?</h2>
+        <p>
+            <strong>No.</strong> We strongly disagree with stealing art (especially for AI). If we end up using images collected by the bot, we will give sources, owner information, and allow
+            you to opt-out easily. However, the main purpose of the crawler is to discover blogs, portfolios, and other websites from talented individuals which are not being seen on existing
+            platforms like Google.
+        </p>
         <h2>How can I identify it?</h2>
         <p>
             Our user agent is
@@ -41,13 +47,29 @@
             contact s directly via Discord to attempt to resolve any issues beforehand.
         </p>
         <h2>What is it written in? Is it open source?</h2>
-        <p>The crawler is not currently open source, but it's written in Python using Playwright with a mix of httpx and urllib.</p>
+        <p>
+            The crawler is not currently open source, but it's written in Python using Playwright with a mix of httpx and urllib. The backend database for keeping track of visited pages and images is
+            MongoDB 8.
+        </p>
         <h2>Shortcomings</h2>
         <p>
             While we respect robots.txt files, I've observed it may have trouble following path wildcards due to an issue with the urllib parse function. This will be fixed soon.
             <br><br>
             The bot also does not prioritize URLs or sort them by anything, it simply keeps them in an in-memory list and will attempt to visit as many as possible given it is not blocked by our local
             blocklist or the robots.txt file. After our initial crawl (which is still currently underway) we will likely implement a system where pages can be crawled based on internal priority.
+        </p>
+        <h2>Nanobot is not following my Crawl-Delay!</h2>
+        <p>
+            Short answer: Yes it is, probably.
+            <br>
+            Long answer: Crawl-Delay is read at the time of site discovery. It is respected on a thread level for non-static content. So, for example, if your site
+            is being visited on one thread and gets discovered on another, they are unable to communicate with eachother, and they both will become out of sync and do not do anything but respect their
+            own clocks. Eventually, we will improve this behavior. The bot is still in testing now, so we need to iron our quirks like this.
+        </p>
+        <h2>How many threads is the indexer running on?</h2>
+        <p>
+            Currently, we have 4 threads dedicated to crawling, and 6 threads running the <code>nudenet</code> detector per indexing thread. However, we are constantly changing the amount of threads
+            dedicated to discovery. Each crawl thread has its own set of visited pages and is capable of discovering new websites and archiving images.
         </p>
     </div>
 </body>
