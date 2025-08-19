@@ -39,7 +39,8 @@
         <h2>How can I identify it?</h2>
         <p>
             Our user agent is
-            <code>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 (compatible; NanoBot/1.0; +https://pyxfluff.dev/nanobot)</code>.
+            <code>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137 Safari/537.36 (compatible; NanoBot/1.0; +https://pyxfluff.dev/nanobot)</code>. The Chrome version is
+            dynamic and we will sometimes use Firefox when required.
         </p>
         <h2>Can I block it?</h2>
         <p>
@@ -68,9 +69,31 @@
         </p>
         <h2>How many threads is the indexer running on?</h2>
         <p>
-            Currently, we have 4 threads dedicated to crawling, and 6 threads running the <code>nudenet</code> detector per indexing thread. However, we are constantly changing the amount of threads
-            dedicated to discovery. Each crawl thread has its own set of visited pages and is capable of discovering new websites and archiving images.
+            We don't allocate any specific number of threads to crawl and we are constantly tweaking how much crawling and nudenet scanning is being done at once.
         </p>
+        <h2>What will stop my public site or social media profile from being indexed?</h2>
+        <p>The following things can result in being delisted:
+        <ul>
+            <li>Non-2xx status code (404, 500, etc)</li>
+            <li>Cloudflare block/captcha ("Just a moment.." in your title block; this is why Wikifur is incomplete)</li>
+            <li>Private/delisted page on social media</li>
+            <li>Robots.txt block (e621 disallows visiting profiles)</li>
+            <li>Manual block (we block some sites if they are leading the crawler astray (wikipedia); mostly news & other mainstream websites with lots of pages)</li>
+            <li>Abusive/illegal content</li>
+        </ul>
+
+        We also have not built a <i>complete</i> index of popular websites like FA yet, so your social & personal pages may not yet be indexed. In the future, we will allow for forcefully requesting
+        an index to bypass any restrictions that may be in place to prevent it from crawling random sites.
+
+        </p>
+
+        <h2>Why is it crawling in "waves"?</h2>
+        <p>Sometimes, if the bot discovers a lot of links on one page, it will take a break from your site to try and clear those. We also sometimes pause indexing for compute-intensive database jobs
+            or network issues.</p>
+            
+        <h2>Does the bot detect change?</h2>
+        <p>Not at the moment. As of our initial run, we are just taking in as many pages as possible and will set up change detection at a later date so we can stay up-to-date on removed art or banned
+            users.</p>
     </div>
 </body>
 
