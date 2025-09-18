@@ -1,6 +1,13 @@
 [project]
 mapping = "src:.build"
 
+[plugins.spa]
+title = "pyxfluff"
+title_sep = " - "
+target = "#contentBody"
+mapping = "pages:."
+noscript = false
+
 [plugins.minify]
 suffixes = [".css"]
 

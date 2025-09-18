@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="darkreader-lock">
+    <title>Pyx's Corner</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="https://furryring.neocities.org/onionring.css" />
+
+    <meta property="og:title" content="Pyx's Corner" />
+    <meta property="og:description" content="welcome to my site! :3" />
+    <meta property="og:url" content="https://pyxfluff.dev" />
+    <meta property="og:image" content="https://pyxfluff.dev/img/pfp_2024.png" />
+    <meta property="og:type" content="website" />
+
+</head>
+
+<body>
+    <div class="music-display">
+        <center>
+            <div class="embed"></div>
+        </center>
+    </div>
+
+    <div class="rain-front"></div>
+    <div class="rain-back"></div>
+
+    <audio loop id="rain-audio">
+        <source src="/sounds/rain.mp3">
+    </audio>
+
+    <div class="profile-card">
+        <div class="img-card">
+            <img src="/images/pfp_2024.png" loading="lazy" alt="pyxfluff" class="pfp">
+        </div>
+
+        <div class="text-content">
+            <h1>pyxfluff</h1>
+            <h3 class="subtitle">Software developer, system administrator, UI/UX designer
+            </h3>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <div class="song-title">
+                    <div class="icon">
+                        <span> </span>
+                        <span> </span>
+                        <span> </span>
+                    </div>
+
+                    <span class="song-title" id="song_name">Song</span>
+                </div>
+
+                <div class="song-artist" id="song_meta">Artist</div>
+            </div>
+
+            <div class="song-artwork" id="song_art"></div>
+        </div>
+    </div>
+
+    <span id="mouse-nudge" class="subtitle">Click anywhere to enable sounds</span> <br>
+
+    <div class="nav">
+        <button class="selected" data-tab="about">About Me</button>
+        <button data-tab="projects">Projects & Experience</button>
+        <button data-tab="music">Music</button>
+        <button data-tab="links">Links</button>
+        <button data-tab="status">Status</button>
+        <button data-tab="misc">Miscellaneous</button>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="about">
+            <div id="old-domain">
+                <h1>Welcome to <a href="https://pyxfluff.dev">pyxfluff.dev</a>!</h1>
+
+                This is my new website. Eventually <a href="https://notpyx.me">notpyx.me</a> will be unlinked and used
+                purely for email. Please update bookmarks and links to the domain. <br>
+
+                All existing services have been renamed or split into their own domains (<a href="https://admsoftware.org">Administer</a>, <a href="https://statuspage.pyxfluff.dev">Statuspage</a>,
+                etc.) Find their new locations in the Links tab.
+            </div>
+
+            <h3>Welcome to my corner of the Internet!</h3>
+
+            <span>
+                I'm Pyx but some people may know me as darkpixlz. I'm a programmer (with about <strong>8</strong> years
+                of experience), UI/UX designer,
+                music enjoyer, HiFi addict, furry, privacy enthusiast, a slightly retired gamer, and more.
+
+                I am proficient programming in <lua> Luau</lua>, <python> Python</python> (certified too!), <webdev>
+                    󰟬 HTML + SASS</webdev>, and <ts> TypeScript.</ts> I want to learn Rust and Go one day but I have
+                not had the time to. For more information, see the Projects page. <br> <br>
+
+                I have loved computers and everything to do with them since I was a young kid. Building them, debugging
+                Nvidia drivers on Arch, tinkering, and more, which led me to programming at a
+                young age using Roblox Studio, which is why I have known Luau the longest. It's still my best language
+                to date due to its simplicity. <br> <br>
+
+                I use <arch>󰣇 Arch</arch> btw with <kde> KDE Plasma
+                </kde>, the best Linux desktop environment (any other opinion is wrong
+                unfortunately unless you are a Waybar fan), however my servers run a mix of Arch and Fedora (ubuntu users aren't real
+                linux users). I'm into drones too even if I don't get the chance to fly them
+                anywhere interesting a lot of the time.<br>
+                <br>
+
+
+                I am somewhat of a PC gamer as well, I just don't have a graphics card good enough to play games on high
+                without an unbearable FPS. I like open-world, crime, and driving games mostly.
+                I have a large collection of Nintendo
+                games and systems, mostly every home console since the GameCube and every handheld since the DS, with
+                the best consoles being the Wii U, Wii, Switch, and 3DS. <br> <br>
+
+                Thanks for checking my site out! Make sure to view the other tabs if you are interested in anything
+                specific I mentioned here. <br> <br>
+
+                <div id="f88x31">
+                    <div></div>
+                </div> <br />
+
+                <div id="f88x31_2">
+                    <div></div>
+                </div>
+            </span>
+
+            <div id='furryring'>
+                <script type="text/javascript" src="https://furryring.neocities.org/onionring-variables.js"></script>
+                <script type="text/javascript" src="https://furryring.neocities.org/onionring-widget.js"></script>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="projects">
+            <h1>Current projects</h1>
+            <div class="card-container">
+                <div class="card">
+                    <a href="https://to.admsoftware.org/git/administer">
+                        <div class="card-image">
+                            <img src="/images/project-administer.png" alt="Administer" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2>Administer</h2>
+                            <p>
+                                <lua> Luau</lua> • Nov '22
+                            </p>
+                            <p>Administer is a next-generation modular FOSS Roblox admin panel.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://to.admsoftware.org/to/git/app-server">
+                        <div class="card-image">
+                            <img src="/images/project-appserver.png" alt="Administer App Server" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2>Administer App Server</h2>
+                            <p>
+                                <python> Python</python> • Jun '24
+                            </p>
+                            <p>Python-based FastAPI program for serving and compiling Administer apps, themes, and their
+                                metadata.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="https://github.com/pyxfluff/site">
+                        <div class="card-image">
+                            <img src="/images/project-site.png" alt="Administer App Server" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h2>This Website</h2>
+                            <p>
+                                <webdev> HTML</webdev>, <ts> TypeScript</ts> • Jan '25
+                            </p>
+                            <p>
+                                Created with <a href="https://iipython.dev">iiPython</a>'s
+                                <a href="https://github.com/iipythonx/nova">Nova</a>
+                                using HTML, SCSS, and TypeScript.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="card">
+                    <a href="https://github.com/pyxfluff/easy_share">
+                        <div class="card-image">
+
+                        </div>
+                        <div class="card-content">
+                            <h2>EasyShare</h2>
+                            <p>
+                                <ts> TypeScript</ts>, <webdev> HTML</webdev> • Mar '25
+                            </p>
+                            <p>WIP self-hosted ShareX/E-Z.GG alternative, yet to begin development</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <br />
+            <h2>Other experience!</h2>
+            <p>
+                This list is in no specific order and doesn't include programming languages or frameworks I may know,
+                there are too many to list here.
+            </p>
+
+            <div class="card-container small">
+                <div class="cardlist-small projects-list">
+                    <div class="card cf exp nerdfont">
+                        <div class="exp-name">&nbsp; Cloudflare</div>
+                        <div class="exp-background">Domain management, security, Workers, Tunnels</div>
+                    </div>
+
+                    <div class="card figma exp nerdfont">
+                        <div class="exp-name"> Figma</div>
+                        <div class="exp-background">UI/UX Design, Components</div>
+                    </div>
+                    <div class="card linux exp nerdfont">
+                        <div class="exp-name"> Linux</div>
+                        <div class="exp-background">Debian, Ubuntu, Arch, Fedora, and Raspbian system administration</div>
+                    </div>
+                    <div class="card windows exp nerdfont">
+                        <div class="exp-name"> Windows 10/11</div>
+                        <div class="exp-background">Power user, primary OS 2016-2024</div>
+                    </div>
+                    <div class="card discourse exp nerdfont">
+                        <div class="exp-name"> Discourse</div>
+                        <div class="exp-background">Power user, theme developer, Experts Program member, site administrator (2022-2023)</div>
+                    </div>
+                    <div class="card roblox exp nerdfont">
+                        <div class="exp-name">
+                            <img style="
+                                width: 16px;
+                                height: 16px;
+                                " src="svg/roblox_dev.svg" type="image/svg+xml"></img> Roblox Studio</a>
+                        </div>
+
+                        <div class="exp-background">
+                            Developer, UI/UX Designer
+                        </div>
+                    </div>
+                    <div class="card cf exp nerdfont">
+                        <div class="exp-name"> Proxmox</div>
+                        <div class="exp-background">Proxmox VE Administration</div>
+                    </div>
+                    <div class="card linux exp nerdfont">
+                        <div class="exp-name">󰹑 Hardware</div>
+                        <div class="exp-background">Mostly everything computers lmao.</div>
+                    </div>
+                    <div class="card linux exp nerdfont">
+                        <div class="exp-name"> Cloud Computing</div>
+                        <div class="exp-background">AWS, Oracle Cloud, some smaller providers too</div>
+                    </div>
+                    <div class="card linux exp nerdfont">
+                        <div class="exp-name"> Networking</div>
+                        <div class="exp-background">UnifiOS Management & configuration</div>
+                    </div>
+                    <div class="card linux exp nerdfont">
+                        <div class="exp-name"> WordPress</div>
+                        <div class="exp-background">WP Site Administration & management</div>
+                    </div>
+                    <div class="card linux exp nerdfont">
+                        <div class="exp-name"> Nginx</div>
+                        <div class="exp-background">Nginx proxies, some experience with NPM web managers.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="music">
+            <h2>Music</h2>
+            <p class="subtitle">I love all things music and am always open to song recommendations! :3 <br /> Click on a
+                song to hear it. All charts are monthly data, no way to change it atm.</p>
+
+            <h3>Top Songs</h3>
+            <div class="on-repeat">
+                <div class="card-container small">
+                    <div class="cardlist-small" id="repeat-songs-list">
+
+                    </div>
+                </div>
+            </div>
+
+            <h3>Top Albums</h3>
+            <div class="on-repeat">
+                <div class="card-container small">
+                    <div class="cardlist-small" id="repeat-album-list">
+
+                    </div>
+                </div>
+            </div>
+
+            <h3>May 2025 Music Challenge</h3>
+            <p class="subtitle">I spent 6 days rating my entire library so the one person (myself) who is interested could stop guessing. Here are the results. Everything is a personal opinion that I
+                made while listening to a song, if I gave your favorite song 2 stars don't be too mad.</p>
+            <div class="music-challenge-holder">
+                <span id="music-challenge">
+
+                </span>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="links">
+            <h2>Links</h2>
+            <p>
+                <strong>These are my only real accounts!!</strong>
+
+                If you are being told to contact me via anywhere else or under different handles, you are being scammed!
+                <br> <br>
+
+                Please <a href="https://nohello.net">use common sense and do not just message me "hi!"</a>, I will just
+                ignore you because bots do it.
+            </p>
+
+            <div class="card-container small">
+                <div class="cardlist-small projects-list">
+                    <a href="https://roblox.com/users/133017837/profile">
+                        <div class="card exp nerdfont nocolor"><img style="width: 16px; height: 16px;" src="svg/roblox.svg" type="image/svg+xml"> Roblox</div>
+                    </a>
+                    <a href="https://devforum.roblox.com/u/pyxfluff">
+                        <div class="card exp nerdfont nocolor"><img style="width: 16px; height: 16px;" src="svg/roblox_dev.svg" type="image/svg+xml"> DevForum</div>
+                    </a>
+                    <a href="https://meta.discourse.org/u/darkpixlz">
+                        <div class="card exp nerdfont nocolor"> Discourse</div>
+                    </a>
+                    <a href="https://discord.com/users/449950252397494274">
+                        <div class="card exp nerdfont nocolor">󰙯 Discord</div>
+                    </a>
+                    <a href="https://youtube.com/@darkpixlz">
+                        <div class="card exp nerdfont nocolor"> YouTube</div>
+                    </a>
+                    <a href="https://github.com/pyxfluff">
+                        <div class="card exp nerdfont nocolor"> GitHub</div>
+                    </a>
+                    <a href="https://last.fm/user/pyxfluff">
+                        <div class="card exp nerdfont nocolor"> Last.fm</div>
+                    </a>
+                    <a href="https://steamcommunity.com/id/pyxfluff">
+                        <div class="card exp nerdfont nocolor"> Steam</div>
+                    </a>
+                    <a href="https://bsky.app/profile/pyxfluff.dev">
+                        <div class="card exp nerdfont nocolor"> Bluesky</div>
+                    </a>
+                    <a href="https://t.me/pyxfluff">
+                        <div class="card exp nerdfont nocolor"> Telegram</div>
+                    </a>
+                    <a href="mailto:devsite@notpyx.me">
+                        <div class="card exp nerdfont nocolor">󰇮 Business mail</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="status">
+            <h2>Web Services Status</h2>
+            <p>
+                If you are having issues with Administer, please see <a href="https://status.admsoftware.org">it's
+                    dedicated statuspage.</a> Administer data on this page is only stuff I personally run
+                at my home.
+            </p>
+
+            <h3>Services</h3>
+            <div class="service-row card-container" id="service-grid">
+
+            </div>
+        </div>
+
+        <div class="tab-pane" id="misc">
+            <h2>Miscellaneous</h2>
+            <p>
+                This site is as of 5/27/25 ({{ git_hash[:7] }})!<br> <br>
+
+            <div class="setting">
+                <span>Are you enjoying this site?</span>
+                <div class="setting-selection">
+                    <div id="feedback-nice">Yes</div>
+                    <div id="feedback-mean">No</div>
+                </div>
+            </div><br> <br> <br>
+
+            That's it for now, eventually there will be more to see here, just not now :3
+            </p>
+        </div>
+    </div>
+
+    <!-- Helpers -->
+    <script src="/js/musicFunctions.js"></script>
+    <script src="/js/marquee.js"></script>
+    <script src="/js/badges.js"></script>
+    <script src="/js/rain.js"></script>
+
+    <script src="/js/index.js"></script>
+    <script src="/js/status.js"></script>
+</body>
+
+</html>
