@@ -1,6 +1,151 @@
 {% extends "index.html" %}
-{% set title = "Home" %}
+{% set title = "Projects" %}
 
 {% block content %}
-Projects
+<h1>Current projects</h1>
+<div class="card-container">
+    <div class="card">
+        <a href="https://to.admsoftware.org/git/administer">
+            <div class="card-image">
+                <img src="/images/project-administer.png" alt="Administer" loading="lazy">
+            </div>
+            <div class="card-content">
+                <h2>Administer</h2>
+                <p class="languages">
+                    <lua> Luau</lua> • Nov '22
+                </p>
+                <p>Administer is a next-generation modular FOSS Roblox admin panel.</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="card">
+        <a href="https://to.admsoftware.org/to/git/app-server">
+            <div class="card-image">
+                <img src="/images/project-appserver.png" alt="Administer App Server" loading="lazy">
+            </div>
+            <div class="card-content">
+                <h2>Administer App Server</h2>
+                <p class="languages">
+                    <python> Python</python> • Jun '24
+                </p>
+                <p>Python-based FastAPI program for serving and compiling Administer apps, themes, and their
+                    metadata.</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="card">
+        <a href="https://github.com/pyxfluff/site">
+            <div class="card-image">
+                <img src="/images/project-site.png" alt="Administer App Server" loading="lazy">
+            </div>
+            <div class="card-content">
+                <h2>This Website</h2>
+                <p class="languages">
+                    <webdev> HTML</webdev>, <ts> TypeScript</ts> • Jan '25
+                </p>
+                <p>
+                    Created with <a href="https://iipython.dev">iiPython</a>'s
+                    <a href="https://github.com/iipythonx/nova">Nova</a>
+                    using HTML, SCSS, and TypeScript.
+                </p>
+            </div>
+        </a>
+    </div>
+
+
+    <div class="card">
+        <a href="https://github.com/pyxfluff/easy_share">
+            <div class="card-image">
+
+            </div>
+            <div class="card-content">
+                <h2>EasyShare</h2>
+                <p>
+                    <ts> TypeScript</ts>, <webdev> HTML</webdev> • Mar '25
+                </p>
+                <p>WIP self-hosted ShareX/E-Z.GG alternative, yet to begin development</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<br />
+<h2>Other experience!</h2>
+<p>
+    This list is in no specific order and doesn't include programming languages or frameworks I may know,
+    there are too many to list here.
+</p>
+
+<div class="card-container small">
+    <div class="cardlist-small projects-list">
+        <div class="card cf exp nerdfont">
+            <div class="exp-name">&nbsp; Cloudflare</div>
+            <div class="exp-background">Domain management, security, Workers, Tunnels</div>
+        </div>
+
+        <div class="card figma exp nerdfont">
+            <div class="exp-name"> Figma</div>
+            <div class="exp-background">UI/UX Design, Components</div>
+        </div>
+        <div class="card linux exp nerdfont">
+            <div class="exp-name"> Linux</div>
+            <div class="exp-background">Debian, Ubuntu, Arch, Fedora, and Raspbian system administration</div>
+        </div>
+        <div class="card windows exp nerdfont">
+            <div class="exp-name"> Windows 10/11</div>
+            <div class="exp-background">Power user, primary OS 2016-2024</div>
+        </div>
+        <div class="card discourse exp nerdfont">
+            <div class="exp-name"> Discourse</div>
+            <div class="exp-background">Power user, theme developer, Experts Program member, site administrator (2022-2023)</div>
+        </div>
+        <div class="card roblox exp nerdfont">
+            <div class="exp-name">
+                <img style="
+                                width: 16px;
+                                height: 16px;
+                                " src="svg/roblox_dev.svg" type="image/svg+xml"></img> Roblox Studio</a>
+            </div>
+
+            <div class="exp-background">
+                Developer, UI/UX Designer
+            </div>
+        </div>
+        <div class="card cf exp nerdfont">
+            <div class="exp-name"> Proxmox</div>
+            <div class="exp-background">Proxmox VE Administration</div>
+        </div>
+        <div class="card linux exp nerdfont">
+            <div class="exp-name">󰹑 Hardware</div>
+            <div class="exp-background">Mostly everything computers lmao.</div>
+        </div>
+        <div class="card linux exp nerdfont">
+            <div class="exp-name"> Cloud Computing</div>
+            <div class="exp-background">AWS, Oracle Cloud, some smaller providers too</div>
+        </div>
+        <div class="card linux exp nerdfont">
+            <div class="exp-name"> Networking</div>
+            <div class="exp-background">UnifiOS Management & configuration</div>
+        </div>
+        <div class="card linux exp nerdfont">
+            <div class="exp-name"> WordPress</div>
+            <div class="exp-background">WP Site Administration & management</div>
+        </div>
+        <div class="card linux exp nerdfont">
+            <div class="exp-name"> Nginx</div>
+            <div class="exp-background">Nginx proxies, some experience with NPM web managers.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block after_body %}
+<div class="scripts scripts-projects">
+    <link rel="stylesheet" href="/css/modules/projects.css">
+    <script src="/js/badges.js"></script>
+    <script src="/js/marquee.js"></script>
+    <script src="/js/home.js"></script>
+</div>
 {% endblock %}

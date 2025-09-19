@@ -1,0 +1,42 @@
+// pyxfluff 2025
+
+#f88x31,
+#f88x31_2 {
+    display: flex;
+    max-height: 40px;
+    max-lines: 1;
+    overflow: hidden;
+
+    div {
+        display: flex;
+        gap: 5px
+    }
+
+    img {
+        border-radius: 6px;
+        height: 40px;
+        image-rendering: pixelated;
+    }
+}
+
+body.old_domain #old-domain {
+    justify-self: anchor-center;
+    background-color: #4e5dff;
+    border-radius: 15px;
+    padding: 8px;
+
+    height: 75px;
+    width: fit-content;
+
+    h1 {
+        margin: 0px 0px 5px 0px
+    }
+
+    a {
+        color: rgb(67, 255, 161) !important;
+    }
+}
+
+body:not(.old_domain) #old-domain {
+    display: none;
+}

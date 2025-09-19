@@ -70,7 +70,7 @@ window.mobileCheck = (() => {
 
 
     (document.querySelector("#feedback-mean") as HTMLElement).addEventListener("click", () => {
-        while (true) { let _ = new Array(1e7).fill(Math.random) }
+        while (true) { let _ = new Array(1e7).fill(Math.random()) }
     });
 
     (document.querySelector("#feedback-nice") as HTMLElement).addEventListener("click", () => {

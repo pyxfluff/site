@@ -54,9 +54,13 @@
     </div>
 </span>
 
-<div id='furryring'>
-    <script type="text/javascript" src="https://furryring.neocities.org/onionring-variables.js"></script>
-    <script type="text/javascript" src="https://furryring.neocities.org/onionring-widget.js"></script>
-</div>
+{% endblock %}
 
+{% block after_body %}
+<div class="scripts scripts-home">
+    <link rel="stylesheet" href="/css/modules/home.css">
+    <script src="/js/badges.js"></script>
+    <script src="/js/marquee.js"></script>
+    <script src="/js/home.js"></script>
+</div>
 {% endblock %}
