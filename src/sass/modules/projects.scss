@@ -103,10 +103,16 @@ $bg_selected: #ffffff;
                 grid-template-columns: repeat(5, 1fr);
             }
 
-            &.projects-list {
-                display: flex;
+            .exp-name {
+                font-size: 20px;
+            }
 
-                overflow: unset;
+            .exp-background {
+                font-family: "Open Sans";
+            }
+
+            &.projects-list {
+                display: grid;
 
                 .card {
                     flex: 0 0 auto;

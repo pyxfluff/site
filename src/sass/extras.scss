@@ -1,3 +1,7 @@
+// pyxfluff 2025
+
+$enable_card_bgs: false;
+
 @font-face {
     font-family: "Hasklug Bold";
     src: url("/fonts/HasklugNerdFont-Bold.woff2");
@@ -18,73 +22,8 @@ button {
     font-family: "Open Sans" !important;
 }
 
-lua,
-python,
-webdev,
-js,
-ts,
-vsc,
-arch,
-kde,
-nintendo,
-rust,
-cpp,
-rb,
 .nerdfont {
-    font-family: "Hasklug Bold" !important;
-}
-
-// Language colors
-lua {
-    color: #00A2FF
-}
-
-python {
-    color: #FFE262
-}
-
-webdev {
-    color: #F2672C
-}
-
-js {
-    color: #F0DA4E
-}
-
-ts {
-    color: #3077C5
-}
-
-vsc {
-    color: #1EACF7
-}
-
-nd {
-    color: #0084FF
-}
-
-arch {
-    color: #0F94D2
-}
-
-kde {
-    color: #1D99F2
-}
-
-nintendo {
-    color: #B8000E
-}
-
-rust {
-    color: #F74C00
-}
-
-cpp {
-    color: #185992
-}
-
-rb {
-    color: #FF1645
+    font-family: "Hasklug Bold";
 }
 
 // Rain
@@ -191,35 +130,40 @@ body.splat-toggle .splat {
 }
 
 .card {
-    &.figma {
-        border: 2px solid #ff7262cc;
-        background-color: #ff726248;
-    }
+    border: 2px solid #0e0b0bcc;
+    background-color: #00000048;
+    backdrop-filter: blur(2rem);
 
-    &.linux, &.nocolor {
-        border: 2px solid #0e0b0bcc;
-        background-color: #00000048;
-    }
+    @if ($enable_card_bgs) {
+        &.figma {
+            border: 2px solid #ff7262cc;
+            background-color: #ff726248;
+        }
 
-    &.windows {
-        border: 2px solid #0078d4ba;
-        background-color: #0078d452;
-    }
+        &.linux,
+        &.nocolor {
+            border: 2px solid #0e0b0bcc;
+            background-color: #00000048;
+        }
 
-    &.discourse {
-        border: 2px solid #fffaaebb;
-        background: #fffaae5d;
-    }
+        &.windows {
+            border: 2px solid #0078d4ba;
+            background-color: #0078d452;
+        }
 
-    &.roblox {
-        border: 2px solid #019bfbbf;
-        background-color: #019bfb5e;
-    }
-    
-    &.cf {
-        border: 2px solid #f6831fca;
-        background-color: #f6831f59;
-    }
+        &.discourse {
+            border: 2px solid #fffaaebb;
+            background: #fffaae5d;
+        }
 
-    margin-right: 5px;
+        &.roblox {
+            border: 2px solid #019bfbbf;
+            background-color: #019bfb5e;
+        }
+
+        &.cf {
+            border: 2px solid #f6831fca;
+            background-color: #f6831f59;
+        }
+    }
 }
