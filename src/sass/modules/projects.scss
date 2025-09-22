@@ -1,8 +1,6 @@
 // pyxfluff 2025
 
-$bg: #02020be9;
-$bg_selected: #ffffff;
-
+@import "../variables.scss";
 
 .card-container {
     display: grid;

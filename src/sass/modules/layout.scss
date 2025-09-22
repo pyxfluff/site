@@ -1,8 +1,6 @@
 // pyxfluff 2025
 
-// i hate that `variables.scss` cant work
-$sidebar_width: 15vw;
-$sidebar_bg: #02020be9;
+@import "../variables.scss";
 
 body {
     margin: 0;
@@ -29,7 +27,7 @@ body {
             min-width: fit-content;
             padding: 1rem;
 
-            background: $sidebar_bg;
+            background: $bg;
             backdrop-filter: blur(1rem);
 
             // Buttons
@@ -41,9 +39,9 @@ body {
                 width: 100%;
                 height: 64px;
 
-                border: 4px solid $sidebar_bg;
+                border: 4px solid $bg;
                 border-radius: 18px;
-                background-color: $sidebar_bg;
+                background-color: $bg;
 
                 img {
                     image-rendering: auto !important;
@@ -78,29 +76,29 @@ body {
 
             .button-list {
                 .sidebar-button {
-                    background: $sidebar_bg;
-                    border: 5px solid $sidebar_bg;
+                    background: $bg;
+                    border: 5px solid $bg;
 
                     border-radius: 8px;
                     margin-top: 5px;
 
-                    color: white !important;
+                    color: $button-fg-text !important;
                     transition: all .2s linear;
 
                     a {
                         text-decoration: none;
-                        color: white
+                        color: $button-fg-text
                     }
 
                     &:hover,
                     &.selected {
-                        border: 7px solid white;
-                        background: white;
+                        border: 7px solid $button-sel-bg;
+                        background: $button-sel-bg;
 
                         a,
                         * {
                             // gotta target the <i> too
-                            color: black !important;
+                            color: $button-sel-text !important;
                         }
                     }
                 }

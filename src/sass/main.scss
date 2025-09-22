@@ -1,15 +1,11 @@
+// pyxfluff 2025
+
+// Compiled imports
 @import url("/css/extras.css");
 @import url("/css/modules/layout.css");
 
-$background: #000;
-$button-sel-bg: #434faf;
-$button-sel-text: #000;
-$button-fg-bg: #08070c9e;
-$button-fg-text: #e7e7e7;
-$button-fg-outline: 2px solid #e7e7e7;
-$text-color: #e7e7e7;
-
-$sidebar_width: 100px;
+// SCSS Imports
+@import "./variables.scss";
 
 body {
     background: url(/images/background.gif);
@@ -45,88 +41,5 @@ a:not(.plain) {
         width: 16px;
         height: 16px;
         color: white !important;
-    }
-}
-
-.nav {
-    display: flex;
-    gap: 0;
-    flex-wrap: wrap;
-    margin-bottom: 0;
-    position: relative;
-    z-index: 1;
-
-    button {
-        padding: 8px 20px;
-        border: 2px solid #14162a;
-        color: $button-fg-text;
-        background-color: $button-fg-bg;
-        border-radius: 8px 8px 0 0;
-
-        cursor: pointer;
-        font-size: 1rem;
-        position: initial;
-        margin-right: 10px;
-        border-bottom: none;
-        transition: all .25s linear;
-
-        backdrop-filter: blur(2rem);
-
-        &.selected {
-            background-color: $button-sel-bg;
-            color: $button-sel-text;
-            font-weight: bolder;
-
-            z-index: 2;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -2px;
-                left: 0;
-                right: 0;
-                height: 2px;
-                // background-color: $button-sel-bg;
-            }
-        }
-
-        &:hover:not(.selected) {
-            background-color: rgba($button-sel-bg, 0.1);
-        }
-    }
-}
-
-.tab-content {
-    position: relative;
-    z-index: 1;
-    border: 2px solid #14162a;
-    padding: 20px;
-    margin-top: -2px;
-    border-radius: 0 8px 8px 8px;
-    overflow-x: hidden;
-
-    transition: all linear .25s;
-
-    .tab-pane {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-
-        &.active {
-            display: block;
-            opacity: 1;
-        }
-
-        h2 {
-            margin-top: 0;
-            color: $text-color;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            line-height: 1.6;
-            color: $text-color;
-        }
     }
 }
