@@ -7,7 +7,7 @@
     height: 100%;
     backdrop-filter: blur(2rem);
     background-color: rgba(0, 0, 0, 0.072);
-    
+
     &.hidden {
         display: none;
     }
@@ -19,6 +19,28 @@
     }
 }
 
-img.art {
-    aspect-ratio: 1;
+.song-card-mini {
+    img.art {
+        aspect-ratio: 1;
+        width: 100%;
+        height: 100%;
+
+        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: cover;
+
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        mask-repeat: no-repeat;
+        mask-size: cover;
+    }
+
+    .song-title {
+        font-weight: bolder;
+        size: 25px;
+    }
+
+    .song-info {
+        padding: 7px;
+        padding-top: 0px;
+    }
 }

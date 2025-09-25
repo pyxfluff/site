@@ -10,7 +10,7 @@ async function setRecentlyPlaying(): Promise<undefined> {
     const songName = document.getElementById("song_name");
     const songMeta = document.getElementById("song_meta");
     if (songName) songName.innerText = track.name;
-    if (songMeta) songMeta.innerText = `${track.artist["#text"]} · ${track.album["#text"]}`;
+    if (songMeta) songMeta.querySelector("span").innerText = `${track.artist["#text"]} · ${track.album["#text"]}`;
     if (artStyle) {
         Object.assign(artStyle, {
             background: `url("${track.image[3]["#text"]}") center/cover no-repeat`

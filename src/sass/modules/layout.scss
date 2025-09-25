@@ -115,6 +115,130 @@ body {
                 #furryring {
                     max-width: variables.$sidebar_width
                 }
+
+                // Old gross code (sorry)
+                .song-card {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    margin: 0 auto;
+                    width: 90%;
+
+                    background: variables.$bg;
+                    border: 5px solid variables.$bg;
+                    border-radius: 8px;
+                    color: variables.$button-fg-text !important;
+                    transition: all .2s linear;
+
+                    &:hover,
+                    &.selected {
+                        border: 7px solid variables.$button-sel-bg;
+                        background: variables.$button-sel-bg;
+                        color: variables.$button-sel-text !important;
+                    }
+
+                    .icon {
+                        position: relative;
+                        display: inline-flex;
+                        justify-content: space-between;
+                        width: 13px;
+                        height: 13px;
+
+                        span {
+                            width: 3px;
+                            height: 100%;
+                            background-color: #fff;
+                            border-radius: 3px;
+                            transform-origin: bottom;
+                            animation: bounce 2.5s ease infinite alternate;
+                            content: '';
+
+                            &:nth-of-type(2) {
+                                animation-delay: -2.5s;
+                            }
+
+                            &:nth-of-type(3) {
+                                animation-delay: -3.7s;
+                            }
+
+                            &:nth-of-type(4) {
+                                animation-delay: -1.5s;
+                            }
+                        }
+                    }
+
+
+                    .song-artwork {
+                        width: 10%;
+                        padding-bottom: 10%;
+                        flex-shrink: 0;
+
+                        background-color: #ccc;
+
+                        margin-right: 15px;
+                        border-radius: 8px;
+
+                        image-rendering: auto;
+                    }
+
+                    .song-info {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        flex-grow: 1;
+                        text-align: left;
+
+                        justify-content: space-between;
+                        width: 80%;
+                        float: left;
+
+                        .song-title {
+                            display: block;
+                            width: 100%;
+                            overflow: hidden;
+                            white-space: nowrap;
+
+                            font-size: 1.5rem;
+                            font-weight: bold;
+
+                            position: relative;
+
+                            &:hover span {
+                                // dumb rule hack
+                                display: inline-block;
+                                padding-left: 100%;
+                                animation: marquee 8s linear infinite;
+                            }
+
+                            span {
+                                display: inline-block;
+                                min-width: 100%;
+                            }
+                        }
+
+                        .song-artist {
+                            font-size: 1rem;
+                            opacity: 0.8;
+                            display: block;
+                            white-space: nowrap;
+                            max-width: 100%;
+                            overflow: hidden;
+                            position: relative;
+
+                            span {
+                                display: inline-block;
+                                min-width: 100%;
+                            }
+
+                            &:hover span {
+                                display: inline-block;
+                                padding-left: 100%;
+                                animation: marquee 8s linear infinite;
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -127,5 +251,15 @@ body {
 
             overflow-y: scroll;
         }
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
     }
 }
