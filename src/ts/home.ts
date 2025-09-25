@@ -22,19 +22,3 @@ if (badgeContainer) {
 if (badgeContainer2) {
     badgeContainer2.innerHTML = secondHalf.map(path => `<img src="/images/88x31/${path}">`).join("");
 }
-
-
-if (window.mobileCheck()) {
-    document.body.classList.add("mobile");
-
-    (document.getElementById("rain-audio") as HTMLAudioElement).src = "";
-}
-
-if ((new URLSearchParams(window.location.search)).get("isOldDomain") == "true") {
-    document.body.classList.add("old_domain");
-}
-
-(document.querySelector(".music-display") as HTMLElement).addEventListener("click", () => {
-    (document.querySelector(".music-display") as HTMLElement).style.position = "unset";
-    (document.querySelector(".music-display .embed") as HTMLElement).innerHTML = ""
-});

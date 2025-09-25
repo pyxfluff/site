@@ -19,37 +19,42 @@
 <body>
     <div class="main-content">
         <div class="sidebar">
-            <div class="profile-card">
-                <div class="img-card">
-                    <img src="/images/pfp_2024.png" loading="lazy" alt="pyxfluff" class="pfp">
-                </div>
-
-                <div class="text-content">
-                    <h2>pyx's site :3</h2>
-                </div>
-            </div>
-
             <div class="button-list">
+                <div class="profile-card">
+                    <div class="img-card">
+                        <img src="/images/pfp_2024.png" loading="lazy" alt="pyxfluff" class="pfp">
+                    </div>
+
+                    <div class="text-content">
+                        <h2>pyx's site :3</h2>
+                    </div>
+                </div>
+
                 <div class="sidebar-button selected">
                     <i class="fi fi-rr-home"></i>
                     <a href="/" class="plain">About Me</a>
                 </div>
+
                 <div class="sidebar-button">
                     <i class="fi fi-rr-paintbrush-pencil"></i>
                     <a href="/projects" class="plain">Projects & Experience</a>
                 </div>
+
                 <div class="sidebar-button">
                     <i class="fi fi-rr-waveform-path"></i>
                     <a href="/music" class="plain">Music</a>
                 </div>
+
                 <div class="sidebar-button">
                     <i class="fi fi-rr-link-alt"></i>
                     <a href="/links" class="plain">Links</a>
                 </div>
+
                 <div class="sidebar-button">
                     <i class="fi fi-rr-network"></i>
                     <a href="/status" class="plain">Status</a>
                 </div>
+
                 <div class="sidebar-button">
                     <i class="fi fi-rr-info"></i>
                     <a href="/about" class="plain">About</a>
@@ -91,6 +96,8 @@
     </div>
 
     <div id="after-content">
+        <script src="/js/index.js"></script>
+
         {% block after_body %}{% endblock %}
     </div>
 </body>

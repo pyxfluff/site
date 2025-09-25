@@ -15,7 +15,37 @@ window.mobileCheck = (() => {
     return check;
 });
 
+let priorListener: ((this: Element, ev: Event) => any) | null = null;
+
+async function setRecentlyPlaying(): Promise<undefined> {
+    let res = await fetch("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=pyxfluff&api_key=974a5ebc077564f72bd639d122479d4b&limit=1&page=1&format=json");
+    let track = (await res.json()).recenttracks.track[0];
+    let artStyle = document.getElementById("song_art")?.style;
+
+    const songName = document.getElementById("song_name");
+    const songMeta = document.getElementById("song_meta");
+    if (songName) songName.innerText = track.name;
+    if (songMeta) songMeta.querySelector("span").innerText = `${track.artist["#text"]} · ${track.album["#text"]}`;
+    if (artStyle) {
+        Object.assign(artStyle, {
+            background: `url("${track.image[3]["#text"]}") center/cover no-repeat`
+        });
+    }
+
+    const listener = () => window.open(track.url);
+    document.querySelector(".song-card")?.addEventListener("click", listener);
+
+    if (priorListener) document.querySelector(".song-card")?.removeEventListener("click", priorListener);
+
+    priorListener = listener;
+}
+
 (async () => {
+    await setRecentlyPlaying();
+
+    // spawn sync job
+    setInterval(setRecentlyPlaying, 15000);
+
     document.querySelectorAll(".nav button").forEach(tab => {
         tab.addEventListener("click", () => {
             const pane = document.getElementById(tab.getAttribute("data-tab")!);
@@ -27,29 +57,6 @@ window.mobileCheck = (() => {
         });
     });
 
-    const badgeContainer = document.querySelector("#f88x31 div");
-    const badgeContainer2 = document.querySelector("#f88x31_2 div");
-
-    function shuffle(array) {
-        return array
-            .map(value => ({ value, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ value }) => value);
-    }
-
-    const shuffled = shuffle(window.BADGES);
-    const half = Math.floor(shuffled.length / 2);
-    const firstHalf = shuffled.slice(0, half);
-    const secondHalf = shuffled.slice(half, half * 2);
-
-    if (badgeContainer) {
-        badgeContainer.innerHTML = firstHalf.map(path => `<img src="/images/88x31/${path}">`).join("");
-    }
-
-    if (badgeContainer2) {
-        badgeContainer2.innerHTML = secondHalf.map(path => `<img src="/images/88x31/${path}">`).join("");
-    }
-
 
     if (window.mobileCheck()) {
         document.body.classList.add("mobile");
@@ -60,14 +67,6 @@ window.mobileCheck = (() => {
     if ((new URLSearchParams(window.location.search)).get("isOldDomain") == "true") {
         document.body.classList.add("old_domain");
     }
-
-    (document.querySelector(".music-display") as HTMLElement).addEventListener("click", () => {
-        (document.querySelector(".music-display") as HTMLElement).style.position = "unset";
-        (document.querySelector(".music-display .embed") as HTMLElement).innerHTML = ""
-    });
-
-    window.initMusic();
-
 
     (document.querySelector("#feedback-mean") as HTMLElement).addEventListener("click", () => {
         while (true) { let _ = new Array(1e7).fill(Math.random()) }

@@ -23,9 +23,15 @@ body {
         transition: all .2s ease;
 
         .sidebar {
+            max-width: variables.$sidebar_width;
             width: variables.$sidebar_width;
-            min-width: fit-content;
+            min-width: 0;
+
             padding: 1rem;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             background: variables.$bg;
             backdrop-filter: blur(1rem);
@@ -124,6 +130,7 @@ body {
 
                     margin: 0 auto;
                     width: 90%;
+                    max-width: 90%;
 
                     background: variables.$bg;
                     border: 5px solid variables.$bg;

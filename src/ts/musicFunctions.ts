@@ -2,26 +2,8 @@
 
 const enableMusicPull = true;
 
-async function setRecentlyPlaying(): Promise<undefined> {
-    let res = await fetch("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=pyxfluff&api_key=974a5ebc077564f72bd639d122479d4b&limit=1&page=1&format=json");
-    let track = (await res.json()).recenttracks.track[0];
-    let artStyle = document.getElementById("song_art")?.style;
-
-    const songName = document.getElementById("song_name");
-    const songMeta = document.getElementById("song_meta");
-    if (songName) songName.innerText = track.name;
-    if (songMeta) songMeta.querySelector("span").innerText = `${track.artist["#text"]} · ${track.album["#text"]}`;
-    if (artStyle) {
-        Object.assign(artStyle, {
-            background: `url("${track.image[3]["#text"]}") center/cover no-repeat`
-        });
-    }
-}
-
 const initMusicPage = (async () => {
     if (!enableMusicPull) return null;
-
-    await setRecentlyPlaying();
 
     const [tracksRes, albumsRes] = await Promise.all([
         fetch("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=pyxfluff&api_key=974a5ebc077564f72bd639d122479d4b&format=json&limit=10&period=1month"),
@@ -112,5 +94,3 @@ const initMusicPage = (async () => {
 
     await initMusicPage();
 })();
-
-setInterval(setRecentlyPlaying, 15000);
