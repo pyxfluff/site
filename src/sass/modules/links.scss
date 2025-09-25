@@ -1,0 +1,17 @@
+// pyxfluff 2025
+
+.cardlist-small.links {
+    display: grid;
+
+    a {
+        padding-bottom: 12px;
+        height: fit-content;
+
+        div {
+            height: 100%;
+            border-radius: 8px;
+
+            padding: 5px;
+        }
+    }
+}
