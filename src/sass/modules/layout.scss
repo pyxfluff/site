@@ -1,6 +1,6 @@
 // pyxfluff 2025
 
-@import "../variables.scss";
+@use "../variables.scss";
 
 body {
     margin: 0;
@@ -23,11 +23,11 @@ body {
         transition: all .2s ease;
 
         .sidebar {
-            width: $sidebar_width;
+            width: variables.$sidebar_width;
             min-width: fit-content;
             padding: 1rem;
 
-            background: $bg;
+            background: variables.$bg;
             backdrop-filter: blur(1rem);
 
             // Buttons
@@ -39,9 +39,9 @@ body {
                 width: 100%;
                 height: 64px;
 
-                border: 4px solid $bg;
+                border: 4px solid variables.$bg;
                 border-radius: 18px;
-                background-color: $bg;
+                background-color: variables.$bg;
 
                 img {
                     image-rendering: auto !important;
@@ -76,29 +76,29 @@ body {
 
             .button-list {
                 .sidebar-button {
-                    background: $bg;
-                    border: 5px solid $bg;
+                    background: variables.$bg;
+                    border: 5px solid variables.$bg;
 
                     border-radius: 8px;
                     margin-top: 5px;
 
-                    color: $button-fg-text !important;
+                    color: variables.$button-fg-text !important;
                     transition: all .2s linear;
 
                     a {
                         text-decoration: none;
-                        color: $button-fg-text
+                        color: variables.$button-fg-text
                     }
 
                     &:hover,
                     &.selected {
-                        border: 7px solid $button-sel-bg;
-                        background: $button-sel-bg;
+                        border: 7px solid variables.$button-sel-bg;
+                        background: variables.$button-sel-bg;
 
                         a,
                         * {
                             // gotta target the <i> too
-                            color: $button-sel-text !important;
+                            color: variables.$button-sel-text !important;
                         }
                     }
                 }
@@ -113,7 +113,7 @@ body {
                 }
 
                 #furryring {
-                    max-width: $sidebar_width
+                    max-width: variables.$sidebar_width
                 }
             }
         }

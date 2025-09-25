@@ -1,6 +1,6 @@
 // pyxfluff 2025
 
-@import "./variables.scss";
+@use "variables.scss";
 
 @font-face {
     font-family: "Hasklug Bold";
@@ -134,7 +134,7 @@ body.splat-toggle .splat {
     background-color: #00000048;
     backdrop-filter: blur(2rem);
 
-    @if ($enable_card_bgs) {
+    @if (variables.$enable_card_bgs) {
         &.figma {
             border: 2px solid #ff7262cc;
             background-color: #ff726248;

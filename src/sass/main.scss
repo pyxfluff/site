@@ -1,3 +1,5 @@
+@use "variables.scss";
+
 // pyxfluff 2025
 
 // Compiled imports
@@ -5,7 +7,6 @@
 @import url("/css/modules/layout.css");
 
 // SCSS Imports
-@import "./variables.scss";
 
 body {
     background: url(/images/background.gif);
@@ -14,7 +15,7 @@ body {
 
     image-rendering: pixelated;
 
-    color: $text-color;
+    color: variables.$text-color;
     margin: 0;
     min-height: 100vh;
     line-height: 1.5;

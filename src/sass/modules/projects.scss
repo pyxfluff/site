@@ -1,6 +1,6 @@
 // pyxfluff 2025
 
-@import "../variables.scss";
+@use "../variables.scss";
 
 .card-container {
     display: grid;
@@ -21,7 +21,7 @@
     }
 
     .card:not(.exp) {
-        background-color: $bg;
+        background-color: variables.$bg;
         backdrop-filter: blur(2rem);
 
         border-radius: 16px;
@@ -32,7 +32,7 @@
         flex: 0 0 400px;
 
         &:hover {
-            box-shadow: 0 4px 8px $bg_selected;
+            box-shadow: 0 4px 8px variables.$bg_selected;
             transform: translateY(-5px);
         }
 
@@ -120,7 +120,7 @@
                     transition: all 0.4s;
 
                     &:hover {
-                        box-shadow: 0 4px 8px $bg_selected;
+                        box-shadow: 0 4px 8px variables.$bg_selected;
                         transform: translateY(-5px);
                     }
                 }
