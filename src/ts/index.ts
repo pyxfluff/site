@@ -67,12 +67,4 @@ async function setRecentlyPlaying(): Promise<undefined> {
     if ((new URLSearchParams(window.location.search)).get("isOldDomain") == "true") {
         document.body.classList.add("old_domain");
     }
-
-    (document.querySelector("#feedback-mean") as HTMLElement).addEventListener("click", () => {
-        while (true) { let _ = new Array(1e7).fill(Math.random()) }
-    });
-
-    (document.querySelector("#feedback-nice") as HTMLElement).addEventListener("click", () => {
-        alert("thank you for your feedback :3")
-    });
 })();
