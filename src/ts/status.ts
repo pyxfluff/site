@@ -5,7 +5,7 @@
 
     const records = data.records;
     const services = Object.keys(records.at(-1).services);
-    const ticks = window.mobileCheck() && 30 || 60
+    const ticks = window.mobileCheck() && 60 || 175
 
     for (const name of services) {
         const status = records.at(-1).services[name];

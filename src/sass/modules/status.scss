@@ -1,0 +1,75 @@
+// pyxfluff 2025
+
+@use "../variables.scss";
+
+.service-row {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+
+    .statuspage-service {
+        width: 100%;
+        background-color: variables.$bg;
+        padding: 10px;
+        border-radius: 18px;
+
+        margin-bottom: 10px;
+
+        .status-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            word-wrap: break-word;
+        }
+
+        .status-meta {
+            word-wrap: break-word;
+            display: ruby;
+
+            .status-orb {
+                width: 10px;
+                aspect-ratio: 1;
+                border-radius: 100%;
+
+                &.up {
+                    background-color: rgb(42, 253, 84);
+                }
+
+                &.down {
+                    background-color: rgb(255, 86, 67);
+                }
+
+                &.error {
+                    background-color: rgb(149, 149, 149);
+                }
+            }
+        }
+
+        .status-ticks {
+            display: flex;
+            gap: 2px;
+            height: 35px;
+
+            .tick {
+                flex: 1;
+                min-width: 1px; // account for smaller screens ig
+                height: 100%;
+                border-radius: 2px;
+
+                &.up {
+                    background-color: rgb(74, 251, 74);
+                }
+
+                &.down {
+                    background-color: rgb(255, 68, 68);
+                }
+
+                &:first-child {
+                    border-radius: 6px 2px 2px 6px !important;
+                }
+
+                &:last-child {
+                    border-radius: 2px 6px 6px 2px !important;
+                }
+            }
+        }
+    }
+}

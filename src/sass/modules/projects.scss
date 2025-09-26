@@ -1,0 +1,130 @@
+// pyxfluff 2025
+
+@use "../variables.scss";
+
+.card-container {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    width: 100%;
+    margin: 0 auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+
+    &.server-status-row {
+        display: flex !important;
+        flex-direction: row;
+        gap: 16px;
+        overflow-x: auto !important;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+    .card:not(.exp) {
+        background-color: variables.$bg;
+        backdrop-filter: blur(2rem);
+
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s;
+
+        flex: 0 0 400px;
+
+        &:hover {
+            box-shadow: 0 4px 8px variables.$bg_selected;
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            position: relative;
+            height: 150px;
+            background-color: #08070c;
+
+            image-rendering: auto !important;
+
+            img {
+                width: 100%;
+                height: 115%;
+
+                object-fit: cover;
+                object-position: center top;
+
+                mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            }
+        }
+
+        .card-content {
+            padding: 16px;
+
+            h2 {
+                margin: 0;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            p {
+                &:not(.languages) {
+                    margin: 8px 0 0;
+                }
+
+                &.languages {
+                    margin: 0px;
+                }
+
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.7);
+
+                display: -webkit-box;
+
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                line-clamp: 2;
+
+                overflow: hidden;
+                white-space: normal;
+            }
+        }
+    }
+
+    &.small {
+        .cardlist-small {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 8px;
+            padding: 10px 0;
+
+            &#repeat-songs-list,
+            &#repeat-album-list {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+            }
+
+            .exp-name {
+                font-size: 20px;
+            }
+
+            .exp-background {
+                font-family: "Open Sans";
+            }
+
+            &.projects-list {
+                display: grid;
+
+                .card {
+                    flex: 0 0 auto;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    font-size: 15px;
+                    transition: all 0.4s;
+
+                    &:hover {
+                        box-shadow: 0 4px 8px variables.$bg_selected;
+                        transform: translateY(-5px);
+                    }
+                }
+            }
+        }
+    }
+}
