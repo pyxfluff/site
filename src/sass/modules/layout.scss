@@ -45,6 +45,8 @@ body {
                 width: 100%;
                 height: 64px;
 
+                background-clip: padding-box;
+
                 border: 4px solid variables.$bg;
                 border-radius: 18px;
                 background-color: variables.$bg;
@@ -90,6 +92,8 @@ body {
 
                     color: variables.$button-fg-text !important;
                     transition: all .2s linear;
+
+                    background-clip: padding-box;
 
                     a {
                         text-decoration: none;

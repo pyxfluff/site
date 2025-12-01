@@ -24,7 +24,7 @@ async function setRecentlyPlaying(): Promise<undefined> {
 
     const songName = document.getElementById("song_name");
     const songMeta = document.getElementById("song_meta");
-    if (songName) songName.innerText = track.name;
+    if (songName) songName.querySelector("span").innerText = track.name;
     if (songMeta) songMeta.querySelector("span").innerText = `${track.artist["#text"]} · ${track.album["#text"]}`;
     if (artStyle) {
         Object.assign(artStyle, {
