@@ -1,4 +1,4 @@
-// pyxfluff 2024 - 2025
+// pyxfluff 2024 - 2026
 
 interface Window {
     enableMusicPull: boolean;
@@ -24,8 +24,8 @@ async function setRecentlyPlaying(): Promise<undefined> {
 
     const songName = document.getElementById("song_name");
     const songMeta = document.getElementById("song_meta");
-    if (songName) songName.querySelector("span").innerText = track.name;
-    if (songMeta) songMeta.querySelector("span").innerText = `${track.artist["#text"]} · ${track.album["#text"]}`;
+    if (songName) (songName.querySelector("span") as HTMLElement).innerText = track.name;
+    if (songMeta) (songMeta.querySelector("span") as HTMLElement).innerText = `${track.artist["#text"]} · ${track.album["#text"]}`;
     if (artStyle) {
         Object.assign(artStyle, {
             background: `url("${track.image[3]["#text"]}") center/cover no-repeat`
@@ -68,3 +68,15 @@ async function setRecentlyPlaying(): Promise<undefined> {
         document.body.classList.add("old_domain");
     }
 })();
+
+// just a fun thing i guess?????
+const art = ["/images/pfp_2026.png", "/images/pfp_2024.png", "/images/pixelz.png"]
+let x = false;
+
+document.querySelector(".img-card .pfp")?.addEventListener("click", () => {
+    if (x == false) { x = true; return; }
+
+    x = false;
+
+    (document.querySelector(".img-card .pfp") as HTMLImageElement).src = art[Math.floor(Math.random() * 3)];
+})

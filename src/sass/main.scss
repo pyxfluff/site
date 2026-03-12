@@ -42,3 +42,19 @@ a:not(.plain) {
         color: white !important;
     }
 }
+
+.warning {
+    justify-self: anchor-center;
+    background-color: #fcff4e;
+    border-radius: 15px;
+    padding: 8px;
+
+    color: rgb(1, 1, 3);
+
+    height: fit-content;
+    width: fit-content;
+
+    h1 {
+        margin: 0px 0px 5px 0px
+    }
+}
