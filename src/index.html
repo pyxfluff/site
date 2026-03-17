@@ -1,111 +1,121 @@
-<!-- pyxfluff 2025 -->
+<!-- pyxfluff 2025 - 2026 -->
 
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Pyx's Site - {{ title }}</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
-    <script defer src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
-    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
 
-    <meta property="og:title" content="Pyx's Corner">
-    <meta property="og:description" content="welcome to my site! :3">
-    <meta property="og:url" content="https://pyxfluff.dev">
-    <meta property="og:image" content="https://pyxfluff.dev/img/pfp_2024.png">
-    <meta property="og:type" content="website">
+    <script
+      defer
+      data-domain="pyxfluff.dev"
+      src="https://analytics.pyxfluff.dev/js/script.outbound-links.js"
+    ></script>
+
+    <meta property="og:title" content="Pyx's Corner" />
+    <meta property="og:description" content="welcome to my site! :3" />
+    <meta property="og:url" content="https://pyxfluff.dev" />
+    <meta property="og:image" content="https://pyxfluff.dev/img/pfp_2024.png" />
+    <meta property="og:type" content="website" />
 
     {% block head %}{% endblock %}
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="main-content">
-        <div class="sidebar">
-            <div class="button-list">
-                <div class="profile-card">
-                    <div class="img-card">
-                        <img src="/images/pfp_2026.png" loading="lazy" alt="pyxfluff" class="pfp">
-                    </div>
-
-                    <div class="text-content">
-                        <h2>pyx's site :3</h2>
-                    </div>
-                </div>
-
-                <div class="sidebar-button">
-                    <i class="fi fi-rr-home"></i>
-                    <a href="/" class="plain">Home</a>
-                </div>
-
-                <div class="sidebar-button">
-                    <i class="fi fi-rr-paintbrush-pencil"></i>
-                    <a href="/projects" class="plain">Projects & Experience</a>
-                </div>
-
-                <div class="sidebar-button">
-                    <i class="fi fi-rr-waveform-path"></i>
-                    <a href="/music" class="plain">Music</a>
-                </div>
-
-                <div class="sidebar-button">
-                    <i class="fi fi-rr-link-alt"></i>
-                    <a href="/links" class="plain">Links</a>
-                </div>
-
-                <div class="sidebar-button">
-                    <i class="fi fi-rr-network"></i>
-                    <a href="/status" class="plain">Status</a>
-                </div>
-
-                <div class="sidebar-button">
-                    <i class="fi fi-rr-info"></i>
-                    <a href="/about" class="plain">About</a>
-                </div>
+      <div class="sidebar">
+        <div class="button-list">
+          <div class="profile-card">
+            <div class="img-card">
+              <img
+                src="/images/pfp_2026.png"
+                loading="lazy"
+                alt="pyxfluff"
+                class="pfp"
+              />
             </div>
 
-            <div class="sidebar-bottom">
-                <!-- Music -->
-                <div class="song-card">
-                    <div class="song-artwork" id="song_art"></div>
-                    <div class="song-info">
-                        <div class="song-title" id="song_name">
-                            <span>Song</span>
-                        </div>
+            <div class="text-content">
+              <h2>pyx's site :3</h2>
+            </div>
+          </div>
 
+          <div class="sidebar-button">
+            <i class="fi fi-rr-home"></i>
+            <a href="/" class="plain">Home</a>
+          </div>
 
-                        <div class="song-artist" id="song_meta">
-                            <span>Artist</span>
-                        </div>
-                    </div>
-                </div>
+          <div class="sidebar-button">
+            <i class="fi fi-rr-paintbrush-pencil"></i>
+            <a href="/projects" class="plain">Projects & Experience</a>
+          </div>
 
+          <div class="sidebar-button">
+            <i class="fi fi-rr-waveform-path"></i>
+            <a href="/music" class="plain">Music</a>
+          </div>
 
-                <!-- Webrings -->
-                <!-- nvm i'm pretty sure this is abandoned..
+          <div class="sidebar-button">
+            <i class="fi fi-rr-link-alt"></i>
+            <a href="/links" class="plain">Links</a>
+          </div>
+
+          <div class="sidebar-button">
+            <i class="fi fi-rr-network"></i>
+            <a href="/status" class="plain">Status</a>
+          </div>
+
+          <div class="sidebar-button">
+            <i class="fi fi-rr-info"></i>
+            <a href="/about" class="plain">About</a>
+          </div>
+        </div>
+
+        <div class="sidebar-bottom">
+          <!-- Music -->
+          <div class="song-card">
+            <div class="song-artwork" id="song_art"></div>
+            <div class="song-info">
+              <div class="song-title" id="song_name">
+                <span>Song</span>
+              </div>
+
+              <div class="song-artist" id="song_meta">
+                <span>Artist</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Webrings -->
+          <!-- nvm i'm pretty sure this is abandoned..
                 <div id='furryring'>
                     <script type="text/javascript" src="https://furryring.neocities.org/onionring-variables.js"></script>
                     <script type="text/javascript" src="https://furryring.neocities.org/onionring-widget.js"></script>
                 </div>
                 -->
 
-                <i>{{ git_hash[:7] }} &bullet;</i> <a href="https://github.com/pyxfluff/site"><span class="nerdfont"></span></a>
-            </div>
+          <i>{{ git_hash[:7] }} &bullet;</i>
+          <a href="https://github.com/pyxfluff/site"
+            ><span class="nerdfont"></span></a
+          >
         </div>
+      </div>
 
-        <div id="contentBody">
-            {% block content %}{% endblock %}
-        </div>
+      <div id="contentBody">{% block content %}{% endblock %}</div>
     </div>
 
     <div id="after-content">
-        <script src="/js/index.js"></script>
+      <script src="/js/index.js"></script>
 
-        {% block after_body %}{% endblock %}
+      {% block after_body %}{% endblock %}
     </div>
-</body>
-
+  </body>
 </html>
