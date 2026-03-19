@@ -9,14 +9,17 @@
 
     for (const name of services) {
         const status = records.at(-1).services[name];
+        const meta = data.urls[name];
 
         const el = document.createElement("div");
         el.className = "statuspage-service";
         el.innerHTML = `
         <div class="status-title"><span class="status-title">${name}</span></div>
             <div class="status-meta">
-                <div class="status-orb ${status.online ? "up" : "down"}"></div>
-                <span>${status.online ? "Online" : "Offline"} · ${status.latency}ms</span>
+                <div class="status-orb ${meta.warning != undefined ? "warn" : (status.online ? "up" : "down")}"></div>
+                <span>${meta.warning != undefined ? "<strong>Degraded</strong>" : (status.online ? "Online" : "<strong>Offline</strong>")} (${status.latency}ms)
+                    ${meta.warning != undefined ? `<i class="status-warn">${meta.warning}</i>` : ""} 
+                </span>
             </div>
         <div class="status-ticks"></div>
       `;

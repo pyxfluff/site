@@ -1,4 +1,4 @@
-// pyxfluff 2025
+// pyxfluff 2025 - 2026
 
 @use "../variables.scss";
 
@@ -24,6 +24,11 @@
             word-wrap: break-word;
             display: ruby;
 
+            .status-warn {
+                font-size: 11px;
+                color: rgb(75, 75, 75)
+            }
+
             .status-orb {
                 width: 10px;
                 aspect-ratio: 1;
@@ -39,6 +44,10 @@
 
                 &.error {
                     background-color: rgb(149, 149, 149);
+                }
+
+                &.warn {
+                    background-color: rgb(255, 154, 13);
                 }
             }
         }
