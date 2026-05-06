@@ -40,3 +40,7 @@ body.old_domain #old-domain {
 body:not(.old_domain) #old-domain {
     display: none;
 }
+
+h3 a {
+    color: white !important; // why am i fighting less important rules????
+}

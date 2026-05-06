@@ -8,11 +8,7 @@
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
-    />
+    <script src="https://unpkg.com/lucide@0.244.0/dist/umd/lucide.min.js"></script>
 
     <script
       async
@@ -32,7 +28,7 @@
       plausible.init();
     </script>
 
-    <meta property="og:title" content="Pyx's Corner" />
+    <meta property="og:title" content="Pyx's Site - {{ title }}" />
     <meta property="og:description" content="welcome to my site! :3" />
     <meta property="og:url" content="https://pyxfluff.dev" />
     <meta property="og:image" content="https://pyxfluff.dev/img/pfp_2024.png" />
@@ -60,35 +56,37 @@
             </div>
           </div>
 
-          <a href="/" class="sidebar-button plain">
-            <i class="fi fi-rr-home"></i>
-            <span>Home</span>
-          </a>
+          <div class="buttons">
+            <a href="/" class="sidebar-button plain">
+              <i data-lucide="home"></i>
+              <span>home</span>
+            </a>
 
-          <a href="/projects" class="sidebar-button plain">
-            <i class="fi fi-rr-paintbrush-pencil"></i>
-            <span>Projects & Experience</span>
-          </a>
+            <a href="/projects" class="sidebar-button plain">
+              <i data-lucide="edit-2"></i>
+              <span>projects & experience</span>
+            </a>
 
-          <a href="/music" class="sidebar-button plain">
-            <i class="fi fi-rr-waveform-path"></i>
-            <span>Music</span>
-          </a>
+            <a href="/music" class="sidebar-button plain">
+              <i data-lucide="music"></i>
+              <span>music</span>
+            </a>
 
-          <a href="/links" class="sidebar-button plain">
-            <i class="fi fi-rr-link-alt"></i>
-            <span>Links</span>
-          </a>
+            <a href="/links" class="sidebar-button plain">
+              <i data-lucide="link"></i>
+              <span>links</span>
+            </a>
 
-          <a href="/status" class="sidebar-button plain">
-            <i class="fi fi-rr-network"></i>
-            <span>Status</span>
-          </a>
+            <a href="/status" class="sidebar-button plain">
+              <i data-lucide="server"></i>
+              <span>services</span>
+            </a>
 
-          <a href="/about" class="sidebar-button plain">
-            <i class="fi fi-rr-info"></i>
-            <span>About</span>
-          </a>
+            <a href="/about" class="sidebar-button plain">
+              <i data-lucide="info"></i>
+              <span>about</span>
+            </a>
+          </div>
         </div>
 
         <div class="sidebar-bottom">

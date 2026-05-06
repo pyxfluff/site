@@ -4,5 +4,10 @@
         "statuspage",
         "Ubiquiti",
         "webdev"
-    ]
+    ],
+    "jinja2-html-enhancer.customVariables": {
+        "/mnt/other/Projects/DomainRoot2/src/index.html": [
+            "title"
+        ]
+    }
 }

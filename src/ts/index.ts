@@ -80,3 +80,5 @@ document.querySelector(".img-card .pfp")?.addEventListener("click", () => {
 
     (document.querySelector(".img-card .pfp") as HTMLImageElement).src = art[Math.floor(Math.random() * 3)];
 })
+
+if (window.lucide) lucide.createIcons();
