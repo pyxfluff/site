@@ -1,17 +1,51 @@
-// pyxfluff 2025
+// pyxfluff 2025 - 2026
 
-.cardlist-small.links {
-    display: grid;
+.card-container {
+    display: flex;
+    gap: 15px;
 
-    a {
-        padding-bottom: 12px;
-        height: fit-content;
+    .links {
+        display: grid;
+        max-width: fit-content;
+        min-width: 30rem;
 
-        div {
-            height: 100%;
-            border-radius: 8px;
+        a {
+            padding-bottom: 12px;
+            height: fit-content;
+            width: 100%;
 
-            padding: 5px;
+            color: white;
+
+            div {
+                height: 100%;
+                border-radius: 8px;
+
+                padding: 5px;
+
+                transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .25s;
+
+                &:hover {
+                    padding: 10px;
+                    border: 4px solid rgba(14, 11, 11, 0.8);
+                }
+            }
+        }
+    }
+
+    .row {
+
+        h1,
+        h2 {
+            margin-top: 0px;
+            margin-bottom: 5px;
+        }
+
+        .row-separator {
+            height: 1px;
+            width: 15%;
+            margin-bottom: 15px;
+
+            background-color: grey;
         }
     }
 }

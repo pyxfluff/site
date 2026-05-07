@@ -60,8 +60,6 @@ async function setRecentlyPlaying(): Promise<undefined> {
 
     if (window.mobileCheck()) {
         document.body.classList.add("mobile");
-
-        (document.getElementById("rain-audio") as HTMLAudioElement).src = "";
     }
 
     if ((new URLSearchParams(window.location.search)).get("isOldDomain") == "true") {
