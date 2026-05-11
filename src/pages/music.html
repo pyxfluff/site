@@ -1,55 +1,98 @@
-{% extends "index.html" %}
-{% set title = "Music" %}
-
-{% block content %}
+{% extends "index.html" %} {% set title = "Music" %} {% block content %}
 <h2>Music</h2>
 <div class="music-display hidden">
-    <center>
-        <div class="embed"></div>
-    </center>
+  <center>
+    <div class="embed"></div>
+  </center>
 </div>
-<p class="subtitle">I love all things music and am always open to song recommendations! :3 <br /> Click on a
-    song to hear it. All charts are monthly data, no way to change it atm.</p>
+<p class="subtitle">
+  I love all things music and am always open to song recommendations! :3 <br />
+  Click on a song to hear it. All charts are monthly data, no way to change it
+  atm.
+</p>
 
 <div class="warning">
-    <h1><span class="nerdfont">  </span>Not currently functional</h1>
+  <h1><span class="nerdfont"> </span>Not currently functional</h1>
 
-    Unfortunately Spotify has decided to stupidly and arbitrarily <a href="https://community.spotify.com/t5/Spotify-for-Developers/February-2026-Spotify-for-Developers-update-thread/m-p/7330564">lock
-        their API to Premium subscribers</a>, which is what I was using for song name matching, covers, and embeds. I'm working on replacing it with YouTube but that update will be coming at a later date.
+  Unfortunately Spotify has decided to stupidly and arbitrarily
+  <a
+    href="https://community.spotify.com/t5/Spotify-for-Developers/February-2026-Spotify-for-Developers-update-thread/m-p/7330564"
+    >lock their API to Premium subscribers</a
+  >, which is what I was using for song name matching, covers, and embeds. I'm
+  working on replacing it with YouTube but that update will be coming at a later
+  date.
 </div>
 
 <h3>Top Songs</h3>
 <div class="on-repeat">
-    <div class="card-container small">
-        <div class="cardlist-small" id="repeat-songs-list">
-
-        </div>
-    </div>
+  <div class="card-container small">
+    <div class="cardlist-small" id="repeat-songs-list"></div>
+  </div>
 </div>
 
 <h3>Top Albums</h3>
 <div class="on-repeat">
-    <div class="card-container small">
-        <div class="cardlist-small" id="repeat-album-list">
-
-        </div>
-    </div>
+  <div class="card-container small">
+    <div class="cardlist-small" id="repeat-album-list"></div>
+  </div>
 </div>
 
+<div class="music-challenge">
+  <h3>Music Challenge - 2026</h3>
+  <p>
+    <strong>The music challenge is back!</strong> The music challenge (for lack
+    of a better name) is when I listen through my entire self-hosted music
+    library. The rules are simple:
+  </p>
+  <ul>
+    <li>No skipping any songs</li>
+    <li>Remixes, stripped/acoustic versions, and duplicates do not count (unless I want it to)</li>
+    <li>All songs are played in alphabetical order</li>
+  </ul>
+  <p>
+    ... besides that, it's just a few weeks of me playing every song I own! Some
+    notable dates:
+  </p>
+  <div class="notable-date-carousel">
+    <div class="date">
+      <span><strong>Start</strong> 05/01/26</span>
+    </div>
+    <div class="date">
+      <span><strong>50%</strong> 05/08</span>
+    </div>
+    <div class="date">
+      <span><strong>End</strong> N/A</span>
+    </div>
+    <div class="date">
+      <span><strong>Total time elapsed</strong> 0 hours</span>
+    </div>
+    <div class="date">
+      <span><strong>Total time elapsed (2025)</strong> 6 days</span>
+    </div>
+    <div class="date">
+      <span><strong>Total songs played</strong> 871</span>
+    </div>
+    <div class="date">
+      <span><strong>Total songs (2025)</strong> 530</span>
+    </div>
+  </div>
+</div>
 <h3>May 2025 Music Challenge</h3>
-<p class="subtitle">I spent 6 days rating my entire library so the one person (myself) who is interested could stop guessing. Here are the results. Everything is a personal opinion that I
-    made while listening to a song, if I gave your favorite song 2 stars don't be too mad.</p>
+<p class="subtitle">
+  I spent 6 days rating my entire library so the one person (myself) who is
+  interested could stop guessing. Here are the results. Everything is a personal
+  opinion that I made while listening to a song, if I gave your favorite song 2
+  stars don't be too mad.
+</p>
 <div class="music-challenge-holder">
-    <span id="music-challenge">
-
-    </span>
+  <span id="music-challenge"> </span>
 </div>
 
 <div class="scripts scripts-projects">
-    <!-- importing this for the Card type -->
-    <link rel="stylesheet" href="/css/modules/projects.css">
-    <link rel="stylesheet" href="/css/modules/music.css">
+  <!-- importing this for the Card type -->
+  <link rel="stylesheet" href="/css/modules/projects.css" />
+  <link rel="stylesheet" href="/css/modules/music.css" />
 
-    <script src="/js/musicFunctions.js"></script>
+  <script src="/js/musicFunctions.js"></script>
 </div>
 {% endblock %}

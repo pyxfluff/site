@@ -1,4 +1,4 @@
-// pyxfluff 2025
+// pyxfluff 2025 - 2026
 
 @use "../variables.scss";
 
@@ -42,5 +42,21 @@
     .song-info {
         padding: 7px;
         padding-top: 0px;
+    }
+}
+
+.music-challenge {
+    .notable-date-carousel {
+        .date {
+            width: fit-content;
+            display: inline-block;
+
+            background-color: variables.$bg;
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 4px;
+
+            @include variables.hover_item(.91);
+        }
     }
 }
