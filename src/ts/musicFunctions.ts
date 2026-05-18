@@ -2,6 +2,39 @@
 
 const enableMusicPull = true;
 
+interface LastFmArtist {
+    name: string;
+}
+
+interface LastFmTrack {
+    name: string;
+    artist: LastFmArtist;
+    playcount: string;
+}
+
+interface LastFmAlbum {
+    name: string;
+    artist: LastFmArtist;
+    playcount: string;
+    image: Array<{ "#text": string }>;
+}
+
+interface SearchResult {
+    title: string;
+    artist: string;
+    embed_url: string;
+    art: string;
+}
+
+interface MusicChallengeSong {
+    title: string;
+    artist: string;
+    album: string;
+    year: number;
+    rating: number;
+    cover: string;
+}
+
 const initMusicPage = (async () => {
     if (!enableMusicPull) return null;
 
@@ -10,28 +43,87 @@ const initMusicPage = (async () => {
         fetch("https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=pyxfluff&api_key=974a5ebc077564f72bd639d122479d4b&format=json&limit=10&period=1month")
     ]);
 
-    let tracks = (await tracksRes.json()).toptracks.track;
-    let albums = (await albumsRes.json()).topalbums.album;
+    const tracks = (await tracksRes.json() as { toptracks: { track: LastFmTrack[] } }).toptracks.track;
+    const albums = (await albumsRes.json() as { topalbums: { album: LastFmAlbum[] } }).topalbums.album;
 
     // load music challenge before the page gets too slow
-    const musicChallengeData = await (await fetch("/data/music_challenge.json")).json()
+    // TODO: We can probably remove the 2025 music challenge??? Or at least use the data better,,
+    //const musicChallengeData = await (await fetch("/data/music_challenge.json")).json()
 
-    document.getElementById("music-challenge").innerText = musicChallengeData.data
+    //document.getElementById("music-challenge").innerText = musicChallengeData.data
+
+    const newMusicChallengeData = ((await (await fetch("/data/songs.json")).json()) as Record<string, MusicChallengeSong[]>)["2026"] ?? [];
+
+    (document.querySelector(".music-challenge-table tbody") as HTMLElement).innerHTML = newMusicChallengeData.map((song: MusicChallengeSong) => {
+        return `
+            <tr data-song-name="${song.title}" data-artist-name="${song.artist}" data-album-name="${song.album}">
+                <td class="song-cover">
+                    <img src="${song.cover}" alt="${song.album}" loading="lazy" />
+                </td>
+                <td class="song-info">
+                    <h4 class="title">${song.title}</h4>
+                    <span class="artist">${song.artist}</span>
+                </td>
+                <td class="song-album">${song.album}</td>
+                <td class="song-year">${song.year}</td>
+                <td class="song-rating">${song.rating}/5</td>
+            </tr>
+        `;
+    }).join("");
+
+    const searchInput = document.getElementById("music-search-input") as HTMLInputElement;
+    const searchClear = document.getElementById("music-search-clear") as HTMLElement;
+    const tableBody = document.querySelector(".music-challenge-table tbody") as HTMLElement;
+    if (searchInput && searchClear && tableBody) {
+        const filterAndHighlight = () => {
+            const query = searchInput.value.toLowerCase().trim();
+            const rows = Array.from(tableBody.querySelectorAll("tr"));
+            if (!query) {
+                rows.forEach(row => {
+                    row.style.display = "";
+                    row.querySelectorAll(".highlight").forEach(el => el.classList.remove("highlight"));
+                });
+                return;
+            }
+            rows.forEach(row => {
+                const song = (row.getAttribute("data-song-name") ?? "").toLowerCase();
+                const artist = (row.getAttribute("data-artist-name") ?? "").toLowerCase();
+                const album = (row.getAttribute("data-album-name") ?? "").toLowerCase();
+                const isMatch = song.includes(query) || artist.includes(query) || album.includes(query);
+                if (isMatch) {
+                    row.style.display = "";
+                    const regex = new RegExp(`(${query})`, "gi");
+                    const cells = [row.querySelector(".song-info .title"), row.querySelector(".song-info .artist"), row.querySelector(".song-album")];
+                    cells.forEach(cell => {
+                        if (cell) cell.innerHTML = (cell.textContent ?? "").replace(regex, "<span class='highlight'>$1</span>");
+                    });
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        };
+        searchInput.addEventListener("input", filterAndHighlight);
+        searchClear.addEventListener("click", () => {
+            searchInput.value = "";
+            filterAndHighlight();
+        });
+    }
+
 
     const searchResults = await (await fetch("https://spotifysvc.pyxfluff.dev/search", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify([...tracks.map(track => ({ name: track.name, artist: track.artist.name }))])
-    })).json();
+        body: JSON.stringify(tracks.map((track: LastFmTrack) => ({ name: track.name, artist: track.artist.name })))
+    })).json() as SearchResult[];
 
     const repeatSongsList = document.getElementById("repeat-songs-list");
     const repeatAlbumList = document.getElementById("repeat-album-list");
 
     if (repeatSongsList) {
-        repeatSongsList.innerHTML = await Promise.all(tracks.map(async (track) => {
-            let result = searchResults.find(res => res.title === track.name);
+        repeatSongsList.innerHTML = await Promise.all(tracks.map(async (track: LastFmTrack) => {
+            const result = searchResults.find((res: SearchResult) => res.title === track.name);
 
             return `
             <div class="card song-card-mini song" data-embed-url="${result ? result.embed_url : null}">
@@ -49,8 +141,8 @@ const initMusicPage = (async () => {
     }
 
     if (repeatAlbumList) {
-        repeatAlbumList.innerHTML = albums.map((album) => {
-            const result = searchResults.find(res => res.title === album.name && res.artist === album.artist.name);
+        repeatAlbumList.innerHTML = albums.map((album: LastFmAlbum) => {
+            const result = searchResults.find((res: SearchResult) => res.title === album.name && res.artist === album.artist.name);
 
             return `
             <div class="card song-card-mini" data-embed-url="${result ? result.embed_url : null}">

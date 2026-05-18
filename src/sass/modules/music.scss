@@ -59,4 +59,166 @@
             @include variables.hover_item(.91);
         }
     }
+
+    .music-challenge-controls {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+    }
+
+    .music-challenge-switcher {
+        width: fit-content;
+        background: variables.$bg;
+        border-radius: 8px;
+        padding: 5px 15px 5px 15px;
+        display: flex;
+        gap: 15px;
+
+        div {
+            cursor: pointer;
+
+            &.current {
+                border-bottom: 1px white solid;
+            }
+        }
+    }
+
+    .music-search-bar {
+        display: flex;
+        gap: 8px;
+
+        input {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 12px;
+            background: variables.$bg;
+            border-radius: 8px;
+            color: inherit;
+            font-size: 14px;
+
+            border: 0px; // go away
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            &:focus {
+                outline: none;
+                border-color: rgba(255, 255, 255, 0.4);
+                background: rgba(255, 255, 255, 0.05);
+            }
+        }
+
+        button {
+            padding: 10px 16px;
+            background: variables.$bg;
+            border-radius: 8px;
+            color: inherit;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+
+            border: 0px;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.4);
+            }
+
+            &:active {
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+    }
+
+    .music-challenge-table {
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: separate;
+        border-spacing: 0;
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        .song-cover img {
+            width: 48px;
+            height: 48px;
+            display: block;
+            border-radius: 6px;
+
+            user-select: none;
+        }
+
+        tr {
+            th {
+                // globals
+                background: variables.$bg;
+                user-select: none;
+                cursor: pointer;
+            }
+
+            .cover {
+                width: 48px;
+                border-top-left-radius: 18px;
+            }
+
+            .song {
+                width: auto;
+            }
+
+            .album {
+                width: 20vw
+            }
+
+            .rating,
+            .year {
+                width: 10vw;
+
+                &.rating {
+                    border-top-right-radius: 18px;
+                }
+            }
+        }
+
+        tbody {
+            .song-info {
+                h4 {
+                    margin: 0;
+                }
+            }
+
+            tr:hover {
+                padding: 5px;
+            }
+
+            tr:nth-child(odd) td {
+                background-color: variables.$bg;
+            }
+
+            tr:nth-child(even) td {
+                background-color: rgba(from variables.$bg r g b / .6);
+            }
+
+            tr:last-child {
+                .song-cover {
+                    border-bottom-left-radius: 18px;
+                }
+
+                .song-rating {
+                    border-bottom-right-radius: 18px;
+                }
+            }
+
+            .highlight {
+                background-color: rgba(255, 215, 0, 0.4);
+                font-weight: 600;
+                border-radius: 3px;
+                padding: 2px 4px;
+            }
+        }
+    }
 }
