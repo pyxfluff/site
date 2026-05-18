@@ -78,6 +78,7 @@
 
         div {
             cursor: pointer;
+            user-select: none;
 
             &.current {
                 border-bottom: 1px white solid;
