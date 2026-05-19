@@ -1,7 +1,5 @@
 // pyxfluff 2025
 
-// use global flag on window to avoid duplicate declarations across modules
-
 const enableMusicPull = true;
 
 interface LastFmArtist {
