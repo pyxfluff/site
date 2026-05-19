@@ -1,0 +1,296 @@
+// pyxfluff 2026
+// adapted from https://gist.github.com/ghosh/4f94cf497d7090359a5c9f81caf60699
+
+@use "../variables.scss";
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    //font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+    font-family: inherit;
+
+    .modal[aria-hidden="true"] {
+        pointer-events: none;
+    }
+
+    .modal__overlay {
+        position: absolute;
+        inset: 0;
+        padding: 16px;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal__container {
+        background-color: rgba(from variables.$bg r g b / 1);
+        width: min(800px, 100%);
+        padding: 30px;
+        max-height: calc(100vh - 32px);
+        border-radius: 16px;
+        overflow-y: auto;
+        box-sizing: border-box;
+
+        .modal__top {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.03);
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .modal__meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .album-info {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+
+
+            #album-cover {
+                width: 96px;
+                height: 96px;
+                object-fit: cover;
+                border-radius: 6px;
+            }
+        }
+
+        .album-body {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 16px;
+        }
+
+        .album-songs {
+            width: 100%;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            li {
+                padding: 6px 4px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+                display: flex;
+
+                img {
+                    // hopefully should just be the cover
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 4px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .album-summary {
+
+            * {
+                margin: 0;
+            }
+        }
+
+        .album-chart {
+            width: 40%;
+            margin-left: 15%;
+
+            h3 {
+                margin: 0
+            }
+
+            .chart-placeholder {
+                min-height: 140px;
+                border-radius: 6px;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.01));
+                padding: 8px;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rating-bar .bar {
+            height: 12px;
+            background: linear-gradient(90deg, #ffd700, #ffb347);
+            border-radius: 6px;
+        }
+
+        @media (max-width: 720px) {
+            .album-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .modal__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal__title {
+            font-size: 1.25rem;
+            box-sizing: border-box;
+            display: flex;
+
+            .cover {
+                width: 40px;
+                height: 40px;
+                margin-right: 5px;
+                border-radius: 4px;
+            }
+
+            h4 {
+                margin-top: 0;
+                margin-bottom: 0;
+                align-self: center;
+            }
+        }
+
+        .modal__close {
+            background: transparent;
+            border: 0;
+            color: white;
+            cursor: pointer
+        }
+
+        .modal__header .modal__close:before {
+            content: "\2715";
+        }
+
+        .modal__content {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            //color: rgba(0,0,0,.8);
+        }
+
+        .modal__btn {
+            font-size: .875rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            background-color: #e6e6e6;
+            color: rgba(0, 0, 0, .8);
+            border-radius: .25rem;
+            border-style: none;
+            border-width: 0;
+            cursor: pointer;
+            appearance: button;
+            -webkit-appearance: button;
+            text-transform: none;
+            overflow: visible;
+            line-height: 1.15;
+            margin: 0;
+            will-change: transform;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            transition: -webkit-transform .25s ease-out;
+            transition: transform .25s ease-out;
+            transition: transform .25s ease-out, -webkit-transform .25s ease-out;
+        }
+
+        .modal__btn:focus,
+        .modal__btn:hover {
+            -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+        }
+
+        .modal__btn-primary {
+            background-color: #00449e;
+            color: #fff;
+        }
+    }
+}
+
+
+/**************************\
+  Demo Animation Style
+\**************************/
+@keyframes mmfadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes mmfadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes mmslideIn {
+    from {
+        transform: translateY(15%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes mmslideOut {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10%);
+    }
+}
+
+.micromodal-slide {
+    display: none;
+}
+
+.micromodal-slide.is-open {
+    display: block;
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__overlay {
+    animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="false"] .modal__container {
+    animation: mmslideIn .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__overlay {
+    animation: mmfadeOut .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-slide[aria-hidden="true"] .modal__container {
+    animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
+    will-change: transform;
+}

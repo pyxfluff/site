@@ -87,8 +87,15 @@
       <div class="">2025</div>
     </div>
     <div class="music-search-bar">
-      <input type="text" id="music-search-input" placeholder="Search songs, artists, or albums..." />
-      <button id="music-search-clear">Clear</button>
+      <div class="searchbar">
+        <i data-lucide="search"></i>
+        <input
+          type="text"
+          id="music-search-input"
+          placeholder="Search songs, artists, or albums..."
+        />
+      </div>
+      <button id="music-search-clear"><i data-lucide="x"></i></button>
     </div>
   </div>
   <table class="music-challenge-table">
@@ -135,6 +142,69 @@
   <!-- importing this for the Card type -->
   <link rel="stylesheet" href="/css/modules/projects.css" />
   <link rel="stylesheet" href="/css/modules/music.css" />
+  <link rel="stylesheet" href="/css/modules/modal.css" />
+
+  <!-- micromodal -->
+  <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div
+        class="modal__container"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-1-title"
+      >
+        <header class="modal__header">
+          <div class="modal__title" id="modal-1-title">
+            <img id="modal-cover-small" class="cover" src="" alt="cover" />
+            <h4 id="modal-title-text">Details</h4>
+          </div>
+
+          <button
+            class="modal__close"
+            aria-label="Close modal"
+            data-micromodal-close
+          ></button>
+        </header>
+
+        <main class="modal__content" id="modal-1-content">
+          <div class="album-info">
+            <img id="album-cover" src="" alt="Album cover" />
+            <div class="album-summary" id="album-summary">
+              <h2>The Fame Monster</h2>
+              <h4>Lady Gaga</h4>
+              <span>2011 &bullet; 4.3 star average</span>
+            </div>
+            <section class="album-chart">
+              <h3>Ratings</h3>
+              <div id="album-chart" class="chart-placeholder">
+                <canvas
+                  id="album-chart-canvas"
+                  width="400"
+                  height="140"
+                ></canvas>
+              </div>
+            </section>
+          </div>
+
+          <div class="album-body">
+            <section class="album-songs">
+              <h3>Tracks</h3>
+              <ul id="album-songs"></ul>
+            </section>
+          </div>
+        </main>
+
+        <footer class="modal__footer">
+          <button class="modal__btn modal__btn-primary" data-micromodal-close>
+            Close
+          </button>
+        </footer>
+      </div>
+    </div>
+  </div>
 
   <script src="/js/musicFunctions.js"></script>
 </div>

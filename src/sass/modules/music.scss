@@ -88,40 +88,65 @@
 
     .music-search-bar {
         display: flex;
-        gap: 8px;
+        gap: 0;
 
-        input {
+        width: 40%;
+
+        .searchbar {
             flex: 1;
             min-width: 200px;
-            padding: 10px 12px;
+            padding: 7px 15px 7px 15px;
             background: variables.$bg;
-            border-radius: 8px;
+            border-radius: 8px 0px 0px 8px;
             color: inherit;
-            font-size: 14px;
 
-            border: 0px; // go away
+            display: flex;
+            align-items: center;
+            gap: 8px;
 
-            &::placeholder {
-                color: rgba(255, 255, 255, 0.5);
+            .lucide {
+                width: 18px;
+                height: 18px;
+                flex-shrink: 0;
+                display: block;
             }
 
-            &:focus {
-                outline: none;
-                border-color: rgba(255, 255, 255, 0.4);
-                background: rgba(255, 255, 255, 0.05);
+            input {
+                flex: 1;
+                min-width: 0;
+                background: transparent;
+                border: 0px;
+                border-bottom: 1px transparent solid; // for focus effect :3
+                color: inherit;
+
+                transition: all .07s linear;
+
+                &::placeholder {
+                    color: rgba(255, 255, 255, 0.5);
+                }
+
+                &:focus {
+                    outline: none;
+                    border-bottom: 1px white solid;
+
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                }
             }
         }
 
+
         button {
-            padding: 10px 16px;
+            display: grid; // so hacky
+            align-content: center;
+
             background: variables.$bg;
-            border-radius: 8px;
-            color: inherit;
-            cursor: pointer;
-            font-weight: 500;
             transition: all 0.2s ease;
+            border-radius: 0px 8px 8px 0px;
 
             border: 0px;
+            cursor: pointer;
+            color: inherit;
 
             &:hover {
                 background: rgba(255, 255, 255, 0.1);
@@ -212,6 +237,14 @@
                 .song-rating {
                     border-bottom-right-radius: 18px;
                 }
+            }
+
+            .song-album {
+                cursor: pointer
+            }
+
+            .artist {
+                cursor: pointer;
             }
 
             .highlight {
