@@ -9,6 +9,7 @@ interface Window {
 }
 
 window.enableMusicPull = true;
+window.phrases = ["welcome! :3", "woof", "meow", "programmer", "UI/UX", "sysadmin", "webdev", ":3", "'s website", ".dev"]
 
 window.mobileCheck = (() => {
     let check = false;
