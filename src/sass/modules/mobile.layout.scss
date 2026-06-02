@@ -35,6 +35,15 @@
             background: variables.$bg;
             backdrop-filter: blur(1rem);
 
+            // enable the slim profile card
+            .pc-stub {
+                display: flex !important;
+            }
+
+            .pc-tall {
+                display: none !important;
+            }
+
             // Buttons
             .profile-card {
                 display: flex;

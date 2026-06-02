@@ -44,55 +44,99 @@ body {
                 background: variables.$bg;
                 backdrop-filter: blur(1rem);
 
-                // Buttons
+                .pc-stub {
+                    display: none !important;
+                }
+
                 .profile-card {
+                    position: relative;
+
                     display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                    gap: 1rem;
+                    flex-direction: column;
+
                     width: 100%;
-                    height: 64px;
-
-                    background-clip: padding-box;
-
-                    border: 4px solid variables.$bg;
-                    border-radius: 18px;
                     background-color: variables.$bg;
+                    border-radius: 18px;
+                    overflow: visible;
+                    border: 1px solid rgb(40, 40, 40);
 
-                    img {
-                        image-rendering: auto !important;
-                        aspect-ratio: 1;
-                    }
+                    margin-bottom: 10%;
 
-                    .img-card {
-                        width: 60px;
-                        height: 60px;
-                        padding: 0;
+                    .banner {
+                        width: 100%;
+                        height: 80px;
+
+                        display: flex;
+                        justify-content: center;
 
                         img {
                             width: 100%;
                             height: 100%;
-                            border-radius: 8px;
-                            margin: 0;
+                            object-fit: cover;
+
+                            border-radius: 18px 18px 0 0;
+
+                            &.contained-blur {
+                                filter: blur(10px)
+                            }
+
+                            &.abs {
+                                z-index: -1;
+                                position: absolute;
+                                height: calc(80px + 10%); // this is less safe but good here bc of the absoluteness
+                                width: 110%;
+                                justify-self: center;
+                            }
                         }
                     }
 
-                    .text-content {
+                    .name-card {
                         display: flex;
-                        flex-direction: column;
+                        gap: 10px;
 
-                        float: left;
+                        margin-top: -20px;
+                        padding: 0 12px 12px;
 
-                        h2 {
-                            margin: 0;
+                        position: relative;
+                        z-index: 1;
+
+                        .img-card {
+                            width: 60px;
+                            height: 60px;
+                            flex-shrink: 0;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+
+                                border: 3px solid variables.$bg;
+
+                                border-radius: 8px;
+                                display: block;
+                            }
+                        }
+
+                        .text-content {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+
+                            margin-top: 15px;
+
+                            * {
+                                margin: 0;
+                            }
                         }
                     }
-
-                    margin-bottom: 5%;
                 }
 
 
                 .button-list {
+                    .buttons {
+                        border: 1px solid rgb(40, 40, 40);
+                        border-radius: 18px;
+                    }
+
                     .sidebar-button {
                         display: flex;
                         align-items: center;
@@ -167,7 +211,8 @@ body {
                         max-width: 90%;
 
                         background: variables.$bg;
-                        border: 5px solid variables.$bg;
+                        padding: 7px;
+                        border: 1px solid rgb(40, 40, 40);
                         border-radius: 18px;
                         color: variables.$button-fg-text !important;
                         transition: all .2s linear;
