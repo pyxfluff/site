@@ -122,6 +122,10 @@ body {
                             justify-content: center;
 
                             margin-top: 15px;
+                           
+                            p {
+                                transition: opacity 1s linear;
+                            }
 
                             * {
                                 margin: 0;

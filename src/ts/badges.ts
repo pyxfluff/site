@@ -4,3 +4,5 @@ window.BADGES = ["3dot5mmfc-button.gif", "archlinux.gif", "button110.gif", "butt
     "AOLSucks.gif", "blog.gif", "button199.gif", "button222.png", "button66.gif", "emulate.gif", "foobar2000.gif", "internetprivacy.gif", "mac-works.gif", "MSNever.gif", "takeback.gif", "WebBrowser.gif",
     "aoltos_a.gif", "built_notepad.gif", "button201.gif", "button300.png", "chrmevil.gif", "fckfb.gif", "freelinux.gif", "kdenews.gif", "macworld_online.gif", "paws.gif", "telegram-old.gif", "wget.gif"
 ]
+
+window.phrases = ["welcome! :3", "woof", "meow", "programmer", "UI/UX", "sysadmin", "webdev", ":3", "'s website", ".dev"]

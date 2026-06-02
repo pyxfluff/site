@@ -4,7 +4,8 @@ interface Window {
     enableMusicPull: boolean;
     initMusic: () => (any);
     mobileCheck: () => boolean;
-    BADGES: any[]
+    BADGES: any[];
+    phrases: string[]
 }
 
 window.enableMusicPull = true;
