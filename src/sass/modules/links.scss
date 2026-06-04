@@ -19,7 +19,6 @@
             div {
                 height: 100%;
                 border-radius: 8px;
-
                 padding: 5px;
 
                 transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .25s;
@@ -47,5 +46,11 @@
 
             background-color: grey;
         }
+    }
+}
+
+body.mobile { 
+    .card-container .links {
+        min-width: fit-content !important;
     }
 }

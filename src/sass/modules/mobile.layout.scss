@@ -13,7 +13,7 @@
         box-shadow: 0 0 15px rgba(0, 0, 0, .5);
 
         width: 95vw;
-        max-height: 95vw;
+        max-height: 95vh;
         overflow-y: auto;
 
         transition: all .2s ease;
@@ -207,6 +207,7 @@
             order: 1;
             flex: 1;
             padding: 2rem;
+            font-size: 2em;
 
             background: #02020bac;
             backdrop-filter: blur(1rem);
