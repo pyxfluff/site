@@ -7,5 +7,5 @@ uv.lock
 
 
 tools/nd_auth
-src/static/js/*.js
-src/static/css/*.css
+src/frontend/static/js/*.js
+src/frontend/static/css/*.css
