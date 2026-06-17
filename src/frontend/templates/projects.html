@@ -1,4 +1,4 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 {% set title = "Projects" %}
 
 {% block content %}
@@ -7,7 +7,7 @@
     <div class="card">
         <a href="https://github.com/pyxfluff/administer">
             <div class="card-image">
-                <img src="/images/project-administer.png" alt="Administer" loading="lazy">
+                <img src="/static/images/project-administer.png" alt="Administer" loading="lazy">
             </div>
             <div class="card-content">
                 <h2>Administer</h2>
@@ -24,7 +24,7 @@
     <div class="card">
         <a href="https://github.com/pyxfluff/administer-aos">
             <div class="card-image">
-                <img src="/images/project-appserver.png" alt="Administer AOS" loading="lazy">
+                <img src="/static/images/project-appserver.png" alt="Administer AOS" loading="lazy">
             </div>
             <div class="card-content">
                 <h2>Administer AOS</h2>
@@ -39,7 +39,7 @@
     <div class="card">
         <a href="https://github.com/pyxfluff/site">
             <div class="card-image">
-                <img src="/images/project-site.png" alt="Administer App Server" loading="lazy">
+                <img src="/static/images/project-site.png" alt="Administer App Server" loading="lazy">
             </div>
             <div class="card-content">
                 <h2>This Website</h2>
@@ -58,7 +58,7 @@
     <div class="card">
         <a href="https://github.com/pyxfluff/moderntheme">
             <div class="card-image">
-                <img src="/images/theme.png" alt="ModernTheme" loading="lazy">
+                <img src="/static/images/theme.png" alt="ModernTheme" loading="lazy">
             </div>
             <div class="card-content">
                 <h2>Pyx's Modern Theme</h2>
@@ -180,8 +180,8 @@
     </div>
 </div>
 <div class="scripts scripts-projects">
-    <link rel="stylesheet" href="/css/modules/projects.css">
-    <script src="/js/infoTags.js"></script>
+    <link rel="stylesheet" href="/static/css/modules/projects.css">
+    <script src="/static/js/infoTags.js"></script>
 </div>
 {% endblock %}
 

@@ -70,7 +70,7 @@ async function setRecentlyPlaying(): Promise<undefined> {
 })();
 
 // just a fun thing i guess?????
-const art = ["/images/pfp_2026.png", "/images/pfp_2024.png", "/images/pixelz.png"]
+const art = ["/static/imagespfp_2026.png", "/static/imagespfp_2024.png", "/static/imagespixelz.png"]
 let x = false;
 
 document.querySelector(".img-card .pfp")?.addEventListener("click", () => {

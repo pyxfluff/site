@@ -3,11 +3,11 @@
 // pyxfluff 2025
 
 // Compiled imports
-@import url("/css/extras.css");
-@import url("/css/modules/layout.css");
+@import url("/static/css/extras.css");
+@import url("/static/css/modules/layout.css");
 
 body {
-    background: url(/images/Snow.jpg);
+    background: url(/static/images/Snow.jpg);
     background-size: cover;
     background-position: center;
 

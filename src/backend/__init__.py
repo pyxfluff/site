@@ -22,7 +22,7 @@ class AppConfig:
     # no more complex ass json logic that doesn't work for literally no reason
     dev = True
     web_host = "0.0.0.0"
-    web_port = 8080
+    web_port = 8000
     web_workers = 2
 
 

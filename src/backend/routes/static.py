@@ -35,12 +35,27 @@ try:
     )
 
     logger.success("Sass compiled!")
-except sass.CompileError as e:
-    logger.error(f"Sass compilation failed: {e}")
+# except sass.CompileError as e:
+#     logger.error(f"Sass compilation failed: {e}")
 except Exception as e:
-    logger.error(f"Unexpected error: {e}")
+    logger.error(f"Unexpected error compiling Sass: {e}")
 
 logger.log("Compiling TypeScript...")
+
+try:
+    # can never be too safe :3
+    subprocess.run(["bun", "install", "typescript"], check=True)
+
+    subprocess.run(
+        [
+            "node_modules/.bin/tsc",
+            *[str(f) for f in list((frontend_dir / "ts").glob("*.ts"))],
+            "--outDir",
+            str(static_dir / "js")
+        ]
+    )
+except Exception as e:
+    logger.error(f"Unexpected error compiling TypeScript: {e}")
 
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 

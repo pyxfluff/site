@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <title>Pyx's Site - {{ title }}</title>
 
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <script src="https://unpkg.com/lucide@0.244.0/dist/umd/lucide.min.js"></script>
 
@@ -45,17 +45,17 @@
           <div class="profile-card pc-tall">
             <div class="banner">
               <img
-                src="/images/pfp_2026.png"
+                src="/static/images/pfp_2026.png"
                 alt="Banner Image"
                 class="contained-blur abs"
               />
 
-              <img src="/images/pfp_2026.png" alt="Banner Image" class="" />
+              <img src="/static/images/pfp_2026.png" alt="Banner Image" class="" />
             </div>
             <div class="name-card">
               <div class="img-card">
                 <img
-                  src="/images/pfp_2026.png"
+                  src="/static/images/pfp_2026.png"
                   loading="lazy"
                   alt="pyxfluff"
                   class="pfp"
@@ -72,7 +72,7 @@
           <div class="profile-card pc-stub">
             <div class="img-card">
               <img
-                src="/images/pfp_2026.png"
+                src="/static/images/pfp_2026.png"
                 loading="lazy"
                 alt="pyxfluff"
                 class="pfp"
@@ -142,7 +142,7 @@
 
           <a href="https://github.com/pyxfluff/site">
             <span class="nerdfont"> </span>
-            <i>{{ git_hash[:7] }}</i>
+            <i>{{ git_hash }}</i>
           </a>
         </div>
       </div>
@@ -151,7 +151,7 @@
     </div>
 
     <div id="after-content">
-      <script src="/js/index.js"></script>
+      <script src="/static/js/index.js"></script>
 
       {% block after_body %}{% endblock %}
     </div>

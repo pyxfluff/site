@@ -1,4 +1,6 @@
-{% extends "index.html" %} {% set title = "Music" %} {% block content %}
+{% extends "base.html" %} 
+{% set title = "Music" %} 
+{% block content %}
 <h2>Music</h2>
 <div class="music-display hidden">
   <center>
@@ -128,9 +130,9 @@
 
 <div class="scripts scripts-projects">
   <!-- importing this for the Card type -->
-  <link rel="stylesheet" href="/css/modules/projects.css" />
-  <link rel="stylesheet" href="/css/modules/music.css" />
-  <link rel="stylesheet" href="/css/modules/modal.css" />
+  <link rel="stylesheet" href="/static/css/modules/projects.css" />
+  <link rel="stylesheet" href="/static/css/modules/music.css" />
+  <link rel="stylesheet" href="/static/css/modules/modal.css" />
 
   <!-- micromodal -->
   <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
@@ -194,6 +196,6 @@
     </div>
   </div>
 
-  <script src="/js/musicFunctions.js"></script>
+  <script src="/static/jsmusicFunctions.js"></script>
 </div>
 {% endblock %}
