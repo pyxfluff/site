@@ -11,7 +11,7 @@ if (typeof MicroModal !== "undefined") {
 async function getTracks(artist, albumName) {
     try {
         // good luck to future me
-        const vals = Object.values(await (await fetch('/data/songs.json')).json());
+        const vals = Object.values(await (await fetch('/data/songs')).json());
         if (albumName && albumName !== "")
             return (vals.flat()).filter(s => (s.album || '').toLowerCase() === albumName.toLowerCase() && (s.artist || '').toLowerCase() === artist.toLowerCase());
         // just the artist..
@@ -124,7 +124,7 @@ const initMusicPage = (async () => {
     // TODO: We can probably remove the 2025 music challenge??? Or at least use the data better,,
     //const musicChallengeData = await (await fetch("/data/music_challenge.json")).json()
     //document.getElementById("music-challenge").innerText = musicChallengeData.data
-    const newMusicChallengeData = (await (await fetch("/data/songs.json")).json())["2026"] ?? [];
+    const newMusicChallengeData = (await (await fetch("/data/songs")).json())["2026"] ?? [];
     document.querySelector(".music-challenge-table tbody").innerHTML = newMusicChallengeData.map((song) => {
         return `
             <tr data-song-name="${song.title}" data-artist-name="${song.artist}" data-album-name="${song.album}">

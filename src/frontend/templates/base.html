@@ -7,8 +7,8 @@
     <title>Pyx's Site - {{ title }}</title>
 
     <link rel="stylesheet" href="/static/css/main.css" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <script src="https://unpkg.com/lucide@0.244.0/dist/umd/lucide.min.js"></script>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
+    <script src="https://unpkg.com/lucide@1.20.0/dist/umd/lucide.min.js"></script>
 
     <script
       async
@@ -31,7 +31,7 @@
     <meta property="og:title" content="Pyx's Site - {{ title }}" />
     <meta property="og:description" content="welcome to my site! :3" />
     <meta property="og:url" content="https://pyxfluff.dev" />
-    <meta property="og:image" content="https://pyxfluff.dev/img/pfp_2024.png" />
+    <meta property="og:image" content="https://pyxfluff.dev/static/img/pfp_2024.png" />
     <meta property="og:type" content="website" />
 
     {% block head %}{% endblock %}
@@ -50,7 +50,11 @@
                 class="contained-blur abs"
               />
 
-              <img src="/static/images/pfp_2026.png" alt="Banner Image" class="" />
+              <img
+                src="/static/images/pfp_2026.png"
+                alt="Banner Image"
+                class=""
+              />
             </div>
             <div class="name-card">
               <div class="img-card">
@@ -90,14 +94,19 @@
               <span>home</span>
             </a>
 
-            <a href="/projects" class="sidebar-button plain">
-              <i data-lucide="edit-2"></i>
-              <span>projects & experience</span>
-            </a>
-
             <a href="/music" class="sidebar-button plain">
               <i data-lucide="music"></i>
               <span>music</span>
+            </a>
+
+            <a href="/blog" class="sidebar-button plain">
+              <i data-lucide="notebook-pen"></i>
+              <span>blog</span>
+            </a>
+
+            <a href="/projects" class="sidebar-button plain">
+              <i data-lucide="cuboid"></i>
+              <span>project gallery</span>
             </a>
 
             <a href="/links" class="sidebar-button plain">

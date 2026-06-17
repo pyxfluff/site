@@ -44,6 +44,11 @@ async def links(request: Request):
     return render(request, "links.html")
 
 
+@app.get("/blog", response_class=HTMLResponse)
+async def blog(request: Request):
+    return render(request, "blog/home.html")
+
+
 @app.get("/music", response_class=HTMLResponse)
 async def music(request: Request):
     return render(request, "music.html")

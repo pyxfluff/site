@@ -1,116 +1,169 @@
+#                          WARNING!                          #
+# ALL LLM TRAINING ON THIS WEBSITE IS EXPLICITLY PROHIBITED. #
+
+# LLM TRAINING, SCRAPING, OR OTHER CONTENT THEFT FOR USE IN LLMS IS AGAINST THE ACCESS POLICY FOR THIS WEBSITE.
+# IF YOU IGNORE THIS WARNING AND PROCEED TO THIS SITE, YOU WILL BE SENT TO AN INFINITE MAZE OF SPAM.
+# pyxfluff.dev is proudly anti-AI. Fuck off.
+
+
+# Dear bots and megacorporations: you have been warned :3
+
+User-agent: AddSearchBot
+User-agent: AgentTimes
 User-agent: AI2Bot
-Disallow: /
-
+User-agent: AI2Bot-DeepResearchEval
 User-agent: Ai2Bot-Dolma
-Disallow: /
-
+User-agent: aiHitBot
+User-agent: amazon-kendra
 User-agent: Amazonbot
-Disallow: /
-
+User-agent: AmazonBuyForMe
+User-agent: Amzn-SearchBot
+User-agent: Amzn-User
+User-agent: Andibot
+User-agent: Anomura
 User-agent: anthropic-ai
-Disallow: /
-
+User-agent: ApifyBot
+User-agent: ApifyWebsiteContentCrawler
+User-agent: Applebot
 User-agent: Applebot-Extended
-Disallow: /
-
+User-agent: Aranet-SearchBot
+User-agent: atlassian-bot
+User-agent: Awario
+User-agent: AzureAI-SearchBot
+User-agent: bedrockbot
+User-agent: bigsur.ai
+User-agent: Bravebot
+User-agent: Brightbot
+User-agent: Brightbot 1.0
+User-agent: BuddyBot
 User-agent: Bytespider
-Disallow: /
-
 User-agent: CCBot
-Disallow: /
-
+User-agent: Channel3Bot
+User-agent: ChatGLM-Spider
+User-agent: ChatGPT Agent
 User-agent: ChatGPT-User
-Disallow: /
-
+User-agent: Claude-Code
+User-agent: Claude-SearchBot
+User-agent: Claude-User
 User-agent: Claude-Web
-Disallow: /
-
 User-agent: ClaudeBot
-Disallow: /
-
+User-agent: Cloudflare-AutoRAG
+User-agent: CloudVertexBot
+User-agent: Code
 User-agent: cohere-ai
-Disallow: /
-
+User-agent: cohere-training-data-crawler
+User-agent: Cotoyogi
+User-agent: CragCrawler
+User-agent: Crawl4AI
+User-agent: Crawlspace
+User-agent: Datenbank Crawler
+User-agent: DeepSeekBot
+User-agent: Devin
+User-agent: Diffbot
 User-agent: DuckAssistBot
-Disallow: /
-
+User-agent: Echobot Bot
+User-agent: EchoboxBot
+User-agent: ExaBot
 User-agent: FacebookBot
-Disallow: /
-
 User-agent: facebookexternalhit
-Disallow: /
-
+User-agent: Factset_spyderbot
+User-agent: FirecrawlAgent
 User-agent: FriendlyCrawler
-Disallow: /
-
+User-agent: GeistHaus-PageFetcher
+User-agent: Gemini-Deep-Research
+User-agent: Google-Agent
+User-agent: Google-CloudVertexBot
 User-agent: Google-Extended
-Disallow: /
-
+User-agent: Google-Firebase
+User-agent: Google-Gemini-CLI
+User-agent: Google-NotebookLM
+User-agent: GoogleAgent-Mariner
+User-agent: GoogleAgent-URLContext
 User-agent: GoogleOther
-Disallow: /
-
 User-agent: GoogleOther-Image
-Disallow: /
-
 User-agent: GoogleOther-Video
-Disallow: /
-
 User-agent: GPTBot
-Disallow: /
-
+User-agent: HenkBot
+User-agent: iAskBot
+User-agent: iaskspider
 User-agent: iaskspider/2.0
-Disallow: /
-
+User-agent: IbouBot
 User-agent: ICC-Crawler
-Disallow: /
-
 User-agent: ImagesiftBot
-Disallow: /
-
+User-agent: imageSpider
 User-agent: img2dataset
-Disallow: /
-
 User-agent: ISSCyberRiskCrawler
-Disallow: /
-
+User-agent: kagi-fetcher
 User-agent: Kangaroo Bot
-Disallow: /
-
+User-agent: Kimi-User
+User-agent: KlaviyoAIBot
+User-agent: KunatoCrawler
+User-agent: laion-huggingface-processor
+User-agent: LAIONDownloader
+User-agent: LCC
+User-agent: LinerBot
+User-agent: Linguee Bot
+User-agent: LinkupBot
+User-agent: Manus-User
+User-agent: meta-externalagent
 User-agent: Meta-ExternalAgent
-Disallow: /
-
+User-agent: meta-externalfetcher
 User-agent: Meta-ExternalFetcher
-Disallow: /
-
+User-agent: meta-webindexer
+User-agent: MistralAI-User
+User-agent: MistralAI-User/1.0
+User-agent: MyCentralAIScraperBot
+User-agent: NagetBot
+User-agent: netEstate Imprint Crawler
+User-agent: newsai
+User-agent: NotebookLM
+User-agent: NovaAct
 User-agent: OAI-SearchBot
-Disallow: /
-
 User-agent: omgili
-Disallow: /
-
 User-agent: omgilibot
-Disallow: /
-
+User-agent: OpenAI
+User-agent: opencode
+User-agent: Operator
+User-agent: PanguBot
+User-agent: Panscient
+User-agent: panscient.com
+User-agent: Perplexity-User
 User-agent: PerplexityBot
-Disallow: /
-
 User-agent: PetalBot
-Disallow: /
-
+User-agent: PhindBot
+User-agent: Poggio-Citations
+User-agent: Poseidon Research Crawler
+User-agent: QualifiedBot
+User-agent: Querit-SearchBot
+User-agent: QueritBot
+User-agent: QuillBot
+User-agent: quillbot.com
+User-agent: SBIntuitionsBot
 User-agent: Scrapy
-Disallow: /
-
+User-agent: SemrushBot-OCOB
+User-agent: SemrushBot-SWA
+User-agent: Shap-User
+User-agent: ShapBot
 User-agent: Sidetrade indexer bot
-Disallow: /
-
+User-agent: Spider
+User-agent: TavilyBot
+User-agent: Terra Cotta
+User-agent: TerraCotta
+User-agent: Thinkbot
+User-agent: TikTokSpider
 User-agent: Timpibot
-Disallow: /
-
+User-agent: Trae
+User-agent: TwinAgent
+User-agent: UseAI
 User-agent: VelenPublicWebCrawler
-Disallow: /
-
+User-agent: WARDBot
 User-agent: Webzio-Extended
-Disallow: /
-
+User-agent: webzio-extended
+User-agent: wpbot
+User-agent: WRTNBot
+User-agent: YaK
+User-agent: YandexAdditional
+User-agent: YandexAdditionalBot
 User-agent: YouBot
+User-agent: ZanistaBot
 Disallow: /
