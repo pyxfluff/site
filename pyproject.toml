@@ -3,7 +3,7 @@ name = "domainroot2"
 version = "0.1.0"
 description = "pyxfluff.dev website"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
     "dart-sass>=0.5.2",
     "esbuild>=0.1.2",
