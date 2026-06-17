@@ -9,3 +9,6 @@ uv.lock
 tools/nd_auth
 src/frontend/static/js/*.js
 src/frontend/static/css/*.css
+
+*.pyc
+domainroot2.egg-info
