@@ -1,6 +1,6 @@
 # pyxfluff 2026
 
-import sass
+import subprocess
 
 from src.backend import app
 from src.backend.lib.logger import Logger
@@ -24,15 +24,23 @@ try:
     for file in (static_dir / "css").glob("*.css"):
         file.unlink()
 
-    sass.compile(
-        dirname=(frontend_dir / "sass", static_dir / "css"),  # type: ignore
-        output_style="compact"
+    subprocess.run(
+        [
+            "sass",
+            f"{frontend_dir / 'sass'}:{static_dir / 'css'}",
+            "--style=compressed",
+            "--no-source-map"
+        ],
+        check=True
     )
+
     logger.success("Sass compiled!")
 except sass.CompileError as e:
     logger.error(f"Sass compilation failed: {e}")
 except Exception as e:
     logger.error(f"Unexpected error: {e}")
+
+logger.log("Compiling TypeScript...")
 
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
