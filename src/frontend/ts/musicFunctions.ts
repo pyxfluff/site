@@ -52,7 +52,7 @@ if (typeof MicroModal !== "undefined") {
 async function getTracks(artist: string, albumName: string | undefined) {
     try {
         // good luck to future me
-        const vals = Object.values((await (await fetch('/data/songs')).json() as Record<string, any[]>))
+        const vals = Object.values((await (await fetch('/api/songs')).json() as Record<string, any[]>))
         if (albumName && albumName !== "")
             return (vals.flat()).filter(s => (s.album || '').toLowerCase() === albumName.toLowerCase() && (s.artist || '').toLowerCase() === artist.toLowerCase());
 
@@ -168,7 +168,7 @@ const initMusicPage = (async () => {
 
     //document.getElementById("music-challenge").innerText = musicChallengeData.data
 
-    const newMusicChallengeData = ((await (await fetch("/data/songs")).json()) as Record<string, MusicChallengeSong[]>)["2026"] ?? [];
+    const newMusicChallengeData = ((await (await fetch("/api/songs")).json()) as Record<string, MusicChallengeSong[]>)["2026"] ?? [];
 
     (document.querySelector(".music-challenge-table tbody") as HTMLElement).innerHTML = newMusicChallengeData.map((song: MusicChallengeSong) => {
         return `
