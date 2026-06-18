@@ -1,6 +1,27 @@
-{% extends "base.html" %} 
-{% set title = "About" %} 
-{% block content %}
+{% extends "base.html" %} {% set title = "About" %} {% block content %}
 <h1>Blog</h1>
 
-{% endblock %} {% block after_body %} {% endblock %}
+<div class="blog">
+  <div class="blog-grid">
+    <div class="post">
+      <div class="title-block">
+        <h2 class="header">My post</h2>
+        <div class="meta">
+          <span class="date-block">4 months ago &bullet;</span>
+          <span class="tags unimportant">colon-three/tech</span>
+        </div>
+      </div>
+      <p class="post-content">
+        Hello world, this is an example of a blog post on the /blog section of
+        pyxfluff.dev!!!!!!!!!!!!!!! Maybe something more profound can eventually
+        go here. For now I just need something long enough to make the text
+        block cut off in the rendered HTML.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block after_body %}
+<script src="/static/js/blog.js"></script>
+<link rel="stylesheet" href="/static/css/modules/blog.css" />
+{% endblock %}

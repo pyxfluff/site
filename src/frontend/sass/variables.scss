@@ -1,9 +1,11 @@
 // pyxfluff 2025 - 2026
 
 $sidebar_width: 15vw;
-$bg: #02020be9;
+$bg: #02020bde;
+$bg_secondary: #1d1d30de;
 $bg_selected: #ffffff;
 $enable_card_bgs: false;
+$bg_rgb: rgb(2, 2, 11);
 
 // main body
 $button-sel-bg: #ffffff;
@@ -17,6 +19,18 @@ $text-color: #e7e7e7;
 
     &:hover {
         padding: 10px;
-        border: 4px solid rgba(14, 11, 11, $opacity);
+        border: 4px solid rgba($bg_rgb, $opacity);
+    }
+}
+
+// for use on larger cards (blog..)
+@mixin lg_hover_item($opacity) {
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .25s;
+    _opacity: $opacity;
+
+    &:hover {
+        //padding: 15px;
+        border: 4px solid $bg_secondary;
+        border-radius: 18px;
     }
 }
