@@ -1,4 +1,3 @@
-"use strict";
 // Copyright (c) 2025 iiPython
 // Marquee88 - Infinite marquee system for 88x31 buttons
 (() => {

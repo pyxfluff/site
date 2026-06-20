@@ -2,7 +2,7 @@
 
 import subprocess
 
-from src.backend import app
+from src.backend import app, config
 from src.backend.lib.logger import Logger
 
 from pathlib import Path
@@ -34,28 +34,33 @@ try:
         check=True
     )
 
-    logger.success("Sass compiled!")
+    logger.success(f"Sass compiled: {frontend_dir / 'sass'}:{static_dir / 'css'}")
 # except sass.CompileError as e:
 #     logger.error(f"Sass compilation failed: {e}")
 except Exception as e:
     logger.error(f"Unexpected error compiling Sass: {e}")
 
-logger.log("Compiling TypeScript...")
+if config.enable_ts:
+    logger.log("Compiling TypeScript...")
 
-try:
-    # can never be too safe :3
-    subprocess.run(["bun", "install", "typescript"], check=True)
+    try:
+        # can never be too safe :3
+        subprocess.run(["bun", "install", "typescript"], check=True)
 
-    subprocess.run(
-        [
-            "node_modules/.bin/tsc",
-            *[str(f) for f in list((frontend_dir / "ts").glob("*.ts"))],
-            "--outDir",
-            str(static_dir / "js")
-        ]
-    )
-except Exception as e:
-    logger.error(f"Unexpected error compiling TypeScript: {e}")
+        subprocess.run(
+            [
+                "node_modules/.bin/tsc",
+                *[str(f) for f in list((frontend_dir / "ts").glob("*.ts"))],
+                "--outDir",
+                str(static_dir / "js")
+            ]
+        )
+    except Exception as e:
+        logger.error(f"Unexpected error compiling TypeScript: {e}")
+    finally:
+        logger.success(f"Compiled TypeScript to {str(static_dir / 'js')}!")
+else:
+    logger.warn(f"TypeScript compilation disabled in config, using {str(static_dir / 'js')}.")
 
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
@@ -65,4 +70,4 @@ def status():
     return JSONResponse({"code": 200, "message": "OK"})
 
 
-logger.success("Mounted /app/src/frontend/static to /static!")
+logger.success(f"Mounted {static_dir} to /app/static!")

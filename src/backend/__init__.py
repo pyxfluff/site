@@ -24,6 +24,7 @@ class AppConfig:
     web_host = "0.0.0.0"
     web_port = 8000
     web_workers = 2
+    enable_ts = False
 
 
 config = AppConfig()
@@ -31,7 +32,7 @@ config = AppConfig()
 log.warn("Initializing FastAPI")
 
 app = FastAPI(
-    debug=config.dev, # type: ignore
+    debug=config.dev,
     title="DomainRoot",
     description="pyxfluff.dev homepage"
 )
@@ -55,4 +56,6 @@ for route in (Path(__file__).parent / "routes").rglob("*.py"):
             f"Module {mod} is missing name `router`; make sure it has a valid APIRouter or move it outside of the routes folder"
         )
 
-log.success("App loaded, handing off")
+log.success(
+    f"App loaded (running at http://{config.web_host}:{config.web_port}), handing off"
+)

@@ -29,7 +29,6 @@ def blog_homepage(req: Request):
     cache_hit = True
 
     for post in posts["topic_list"]["topics"]:
-        print(post)
         try:
             post["content"] = cached_posts[post["id"]]
         except KeyError:
@@ -39,8 +38,6 @@ def blog_homepage(req: Request):
 
             post["content"] = cached_posts[post["id"]]
             cache_hit = False
-
-            print(cached_posts[post["id"]])
 
     return JSONResponse(posts, status_code=200, headers={
         "x-was-cached": str(cache_hit)

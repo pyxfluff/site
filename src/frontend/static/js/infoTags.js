@@ -1,4 +1,3 @@
-"use strict";
 // pyxfluff 2025
 document.querySelectorAll(".info").forEach((element) => {
     console.log(element);
