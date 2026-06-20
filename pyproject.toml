@@ -14,4 +14,5 @@ dependencies = [
     "pathlib>=1.0.1",
     "rich>=15.0.0",
     "uvicorn>=0.49.0",
+    "watchfiles>=1.2.0",
 ]

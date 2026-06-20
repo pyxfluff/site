@@ -1,11 +1,13 @@
 # pyxfluff 2026
 
+import asyncio
 import subprocess
 
 from src.backend import app, config
 from src.backend.lib.logger import Logger
 
 from pathlib import Path
+from watchfiles import awatch
 
 from fastapi.routing import APIRouter
 from fastapi.responses import JSONResponse
@@ -19,8 +21,7 @@ logger = Logger("StaticFiles")
 frontend_dir = Path(__file__).parents[2] / "frontend"
 static_dir = frontend_dir / "static"
 
-logger.log("Compiling sass...")
-try:
+def build_css():
     for file in (static_dir / "css").glob("*.css"):
         file.unlink()
 
@@ -34,7 +35,25 @@ try:
         check=True
     )
 
+async def watch_scss():
+    logger.success("Watching for scss changes!")
+
+    async for changes in awatch(frontend_dir / "sass"):
+        logger.log(f"Update detected in {next(iter(changes))[1]}, reloading css")
+        build_css()
+
+logger.log("Compiling sass...")
+try:
+    build_css()
+
+    # lazy fix, i dont feel like implementing a lifespan atm but might be worthwhile eventually
+    # https://fastapi.tiangolo.com/advanced/events/
+    @app.on_event("startup")
+    async def startup():
+        asyncio.create_task(watch_scss())
+
     logger.success(f"Sass compiled: {frontend_dir / 'sass'}:{static_dir / 'css'}")
+
 # except sass.CompileError as e:
 #     logger.error(f"Sass compilation failed: {e}")
 except Exception as e:
@@ -60,7 +79,9 @@ if config.enable_ts:
     finally:
         logger.success(f"Compiled TypeScript to {str(static_dir / 'js')}!")
 else:
-    logger.warn(f"TypeScript compilation disabled in config, using {str(static_dir / 'js')}.")
+    logger.warn(
+        f"TypeScript compilation disabled in config, using {str(static_dir / 'js')}."
+    )
 
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
