@@ -6,6 +6,7 @@ window.BADGES = [
   "button310.gif",
   "clnc.png",
   "fckgoogle.gif",
+  "Flock.gif",
   "gth.png",
   "koolaid.gif",
   "masto.gif",

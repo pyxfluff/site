@@ -5,6 +5,8 @@ import orjson
 
 from pathlib import Path
 
+from src.backend import config
+
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 
@@ -39,6 +41,7 @@ def blog_homepage(req: Request):
             post["content"] = cached_posts[post["id"]]
             cache_hit = False
 
-    return JSONResponse(posts, status_code=200, headers={
-        "x-was-cached": str(cache_hit)
-    })
+    return JSONResponse(
+        posts, status_code=200, headers={"x-was-cached": str(cache_hit)}
+    )
+
