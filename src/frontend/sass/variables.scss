@@ -12,6 +12,7 @@ $button-sel-bg: #ffffff;
 $button-sel-text: #000;
 $button-fg-text: #e7e7e7;
 $text-color: #e7e7e7;
+$link-color: #5774f5;
 
 @mixin hover_item($opacity) {
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .25s;

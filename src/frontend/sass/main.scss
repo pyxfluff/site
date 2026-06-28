@@ -1,6 +1,6 @@
-@use "variables.scss";
+// pyxfluff 2025 - 2026
 
-// pyxfluff 2025
+@use "variables.scss";
 
 // Compiled imports
 @import url("/static/css/extras.css");
@@ -19,7 +19,13 @@ body {
     line-height: 1.5;
     text-align: justify;
 
+
     overflow-y: auto !important;
+
+    span.unimportant {
+        opacity: .7;
+        font-size: 12px; // very sad calc(inherit - 4px) doesn't work btw
+    }
 
     &.mobile {
         overflow-y: auto !important;
@@ -33,7 +39,7 @@ body {
 
 a:not(.plain) {
     // goodbye, 1998 web standards
-    color: rgb(87, 116, 245);
+    color: variables.$link-color;
     text-decoration: none;
 
     img {

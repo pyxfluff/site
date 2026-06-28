@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content %}
+<div class="blog">
+  <div class="blog-post" data-post_id="{{ post_id }}">
+    post_id:{{ post_id }}
+    <div id="discourse-comments"></div>
+  </div>
+</div>
+
+{% endblock %} {% block after_body %}
+<script src="/static/js/blog-post.js"></script>
+<link rel="stylesheet" href="/static/css/modules/blog.css" />
+{% endblock %}

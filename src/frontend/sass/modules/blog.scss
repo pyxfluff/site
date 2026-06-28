@@ -20,6 +20,8 @@
 
             padding: 15px;
 
+            color: variables.$text-color;
+
             .title-block {
                 display: ruby; // god i love ruby boxes just randomly fixing my obscure bugs
                 align-items: center;
@@ -29,6 +31,7 @@
                     margin-top: 0;
                     margin-bottom: .6em;
                     width: fit-content; // defeats the whole point of a h2 lowkey
+                    color: variables.$link-color;
                 }
 
                 .meta {
