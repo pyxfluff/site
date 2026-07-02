@@ -8,6 +8,9 @@
   const services = Object.keys(records.at(-1).services);
   const ticks = (window.mobileCheck() && 60) || 175;
 
+  // why did i write this one differently than how the blog and music page work???????
+  document.getElementById("service-grid").innerHTML = "";
+
   for (const name of services) {
     const status = records.at(-1).services[name];
     const meta = data.urls[name];
