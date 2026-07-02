@@ -1,8 +1,28 @@
 {% extends "base.html" %} {% block content %}
 <div class="blog">
   <div class="blog-post" data-post_id="{{ post_id }}">
-    post_id:{{ post_id }}
-    <div id="discourse-comments"></div>
+    <div class="title">
+      <h1 class="post-title">Example blog post</h1>
+      <div class="poster">
+        <img
+          class="author-img"
+          src="/static/images/pfp_2026.png"
+          alt="Author"
+        />
+        <span class="author-name">Pyx</span>
+      </div>
+      &bullet;
+      <span>07/01/2026</span>
+    </div>
+
+    <div class="post-body">
+        {!{ rendered discourse post }}
+        gmmer likes men
+    </div>
+
+    <div class="post-replies" id="discourse-comments"></div>
+
+    <i class="unimportant">post_id:{{ post_id }}</i>
   </div>
 </div>
 
