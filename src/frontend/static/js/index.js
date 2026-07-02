@@ -97,9 +97,9 @@ async function setRecentlyPlaying() {
 
 // just a fun thing i guess?????
 const art = [
-  "/static/imagespfp_2026.png",
-  "/static/imagespfp_2024.png",
-  "/static/imagespixelz.png"
+  "/static/images/pfp_2026.png",
+  "/static/images/pfp_2024.png",
+  "/static/images/pixelz.png"
 ];
 
 document.querySelector(".img-card .pfp")?.addEventListener("click", () => {
