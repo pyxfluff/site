@@ -111,7 +111,7 @@ document.querySelector(".img-card .pfp")?.addEventListener("click", () => {
   x = false;
 
   document.querySelector(".img-card .pfp").src =
-    art[Math.floor(Math.random() * 3)];
+    art[Math.floor(Math.random() * art.length)];
 });
 
 if (window.lucide) lucide.createIcons();
