@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% set title = "About" %} {% block content %}
-<p>This site is current as of <b>06/17/26</b> ({{ git_hash[:7] }}).</p>
+<p>This site is current as of <b>07/07/26</b> ({{ git_hash[:7] }}).</p>
 
 <p>
   This site should now have full desktop and mobile support. If you hate this
@@ -11,9 +11,9 @@
   id="feedback-mean"
   class="button-negative"
   onclick="
-    while (true) {
-      let _ = new Array(1e7).fill(Math.random());
-    }
+    window.location.assign(
+      'https://accounts.google.com/Logout?hl=en&continue=https://accounts.google.com/SignedOut.html'
+    )
   "
 >
   I hate this site
