@@ -1,18 +1,20 @@
 // pyxfluff 2026
 
 const formatDate = (createdAt) => {
-    return new Intl.DateTimeFormat("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-    }).format(new Date(createdAt));
-}
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }).format(new Date(createdAt));
+};
 
 (async () => {
-    console.log(document.querySelector(".blog .blog-grid"));
+  console.log(document.querySelector(".blog .blog-grid"));
 
-    const blogLatest = await (await fetch("/api/blog/latest")).json();
-    document.querySelector(".blog .blog-grid").innerHTML = blogLatest.topic_list.topics.map((entry) => {
+  const blogLatest = await (await fetch("/api/blog/latest")).json();
+  if (blogLatest.ok) {
+    document.querySelector(".blog .blog-grid").innerHTML =
+      blogLatest.topic_list.topics.map((entry) => {
         return `
         <a class="blog-entry" href="/blog/${entry.id}">
             <div class="post" data-post-id="${entry.id}">
@@ -29,8 +31,14 @@ const formatDate = (createdAt) => {
             </div>
         </a>
         `;
-    });
-    
-    // lazy..
-    lucide.createIcons();
+      });
+  } else {
+    document.querySelector(".blog .blog-grid").innerHTML = `
+    <h2><i data-lucide="message-circle-warning"></i> Blog unavailable</h2>
+    <p>${blogLatest.message}</p>
+    `
+  }
+
+  // lazy..
+  lucide.createIcons();
 })();

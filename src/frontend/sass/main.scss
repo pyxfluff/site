@@ -86,6 +86,12 @@ a:not(.plain) {
     }
 }
 
+// fix
+h2 .lucide {
+    top: 4px;
+    position: relative;
+}
+
 @keyframes rotate {
     100% {
         transform: rotate(360deg);
