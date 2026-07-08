@@ -1,7 +1,7 @@
 # pyxfluff 2026
 
+import shutil
 import asyncio
-import dartsass
 import subprocess
 
 from src.backend import app, config
@@ -30,10 +30,20 @@ def build_css():
     for file in css_dir.glob("*.css"):
         file.unlink()
 
-    dartsass.compile(
-        f"{frontend_dir / 'sass'}:{css_dir}",
-        output_style="compressed",
-        source_map=False
+    sass = shutil.which("sass")
+
+    if not sass:
+        logger.error("sass executable not found, install via your system package manager or npm")
+        raise RuntimeError("no sass")
+
+    subprocess.run(
+        [
+            sass,
+            f"{frontend_dir / 'sass'}:{css_dir}",
+            "--style=compressed",
+            "--no-source-map"
+        ],
+        check=True
     )
 
 
@@ -60,7 +70,8 @@ try:
 # except sass.CompileError as e:
 #     logger.error(f"Sass compilation failed: {e}")
 except Exception as e:
-    logger.error(f"Unexpected error compiling Sass: {e}")
+    logger.error(f"Unexpected error compiling Sass: {repr(e)}")
+    raise
 
 if config.enable_ts:
     logger.log("Compiling TypeScript...")
