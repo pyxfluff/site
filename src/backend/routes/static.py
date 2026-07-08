@@ -1,7 +1,7 @@
 # pyxfluff 2026
 
-import shutil
 import asyncio
+import dartsass
 import subprocess
 
 from src.backend import app, config
@@ -30,20 +30,10 @@ def build_css():
     for file in css_dir.glob("*.css"):
         file.unlink()
 
-    sass = shutil.which("sass")
-
-    if not sass:
-        logger.error("sass executable not found.. css could not regenerate")
-        exit(1)
-
-    subprocess.run(
-        [
-            sass,
-            f"{frontend_dir / 'sass'}:{css_dir}",
-            "--style=compressed",
-            "--no-source-map"
-        ],
-        check=True
+    dartsass.compile(
+        f"{frontend_dir / 'sass'}:{css_dir}",
+        output_style="compressed",
+        source_map=False
     )
 
 
