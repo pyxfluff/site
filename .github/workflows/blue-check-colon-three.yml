@@ -1,0 +1,12 @@
+name: website
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  always-pass:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pass
+        run: exit 0
