@@ -1,0 +1,257 @@
+// pyxfluff 2025 - 2026
+
+@use "../variables.scss";
+@use "./mobile.layout.scss" as mobile;
+@use "helpers/song-card-inner-contents.scss" as song_card;
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    &.mobile {
+        @include mobile.layout;
+    }
+
+    &:not(.mobile) {
+
+        .main-content {
+            display: flex;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+
+            width: 95vw;
+            max-height: 98vh;
+            overflow-y: auto;
+
+            transition: all .2s ease;
+
+            .sidebar {
+                max-width: variables.$sidebar_width;
+                width: variables.$sidebar_width;
+                min-width: 0;
+
+                padding: 1rem;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                background: variables.$bg;
+                backdrop-filter: blur(1rem);
+
+                .pc-stub {
+                    display: none !important;
+                }
+
+                .profile-card {
+                    position: relative;
+
+                    display: flex;
+                    flex-direction: column;
+
+                    width: 100%;
+                    background-color: variables.$bg;
+                    border-radius: 18px;
+                    overflow: visible;
+                    border: 1px solid rgb(40, 40, 40);
+
+                    margin-bottom: 10%;
+
+                    .banner {
+                        width: 100%;
+                        height: 80px;
+
+                        display: flex;
+                        justify-content: center;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+
+                            border-radius: 18px 18px 0 0;
+
+                            &.contained-blur {
+                                filter: blur(10px)
+                            }
+
+                            &.abs {
+                                z-index: -1;
+                                position: absolute;
+                                height: calc(80px + 10%); // this is less safe but good here bc of the absoluteness
+                                width: 110%;
+                                justify-self: center;
+                            }
+                        }
+                    }
+
+                    .name-card {
+                        display: flex;
+                        gap: 10px;
+
+                        margin-top: -20px;
+                        padding: 0 12px 12px;
+
+                        position: relative;
+                        z-index: 1;
+
+                        .img-card {
+                            width: 60px;
+                            height: 60px;
+                            flex-shrink: 0;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+
+                                border: 3px solid variables.$bg;
+
+                                border-radius: 8px;
+                                display: block;
+                            }
+                        }
+
+                        .text-content {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+
+                            margin-top: 15px;
+                           
+                            p {
+                                transition: opacity 1s linear;
+                            }
+
+                            * {
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+
+
+                .button-list {
+                    .buttons {
+                        border: 1px solid rgb(40, 40, 40);
+                        border-radius: 18px;
+                    }
+
+                    .sidebar-button {
+                        display: flex;
+                        align-items: center;
+                        gap: 0px;
+                        background: variables.$bg;
+                        border: 5px solid variables.$bg;
+
+                        color: variables.$button-fg-text !important;
+                        transition: all .2s linear;
+                        text-decoration: none;
+
+                        background-clip: padding-box;
+                        color: variables.$button-fg-text;
+
+                        i,
+                        .lucide {
+                            width: 18px;
+                            height: 18px;
+                            display: inline-block;
+                            flex-shrink: 0;
+                            margin-right: 5px;
+                            vertical-align: middle;
+
+                            margin-left: 5px;
+                        }
+
+                        &:hover,
+                        &.selected {
+                            border: 7px solid variables.$button-sel-bg;
+                            background: variables.$button-sel-bg;
+
+                            * {
+                                // gotta target the <i> too
+                                color: variables.$button-sel-text !important;
+                            }
+                        }
+
+                        &:first-child {
+                            border-radius: 18px 18px 0px 0px;
+                        }
+
+                        &:last-child {
+                            border-radius: 0px 0px 18px 18px;
+                        }
+                    }
+
+                    margin-bottom: 30%;
+                }
+
+                .sidebar-bottom {
+
+                    i,
+                    a {
+                        color: grey;
+                        font-size: smaller; // yes i use `smaller`
+                    }
+
+                    #furryring {
+                        max-width: variables.$sidebar_width
+                    }
+
+                    // Old gross code (sorry)
+                    .song-card {
+                        display: flex;
+                        align-items: center;
+                        justify-content: left;
+
+                        overflow: hidden;
+
+                        margin: 0 auto;
+                        width: 90%;
+                        max-width: 90%;
+
+                        background: variables.$bg;
+                        padding: 7px;
+                        border: 1px solid rgb(40, 40, 40);
+                        border-radius: 18px;
+                        color: variables.$button-fg-text !important;
+                        transition: all .2s linear;
+
+                        &:hover,
+                        &.selected {
+                            border: 7px solid variables.$button-sel-bg;
+                            background: variables.$button-sel-bg;
+                            color: variables.$button-sel-text !important;
+                        }
+
+                        @include song_card.inner-song-card(false);
+                    }
+                }
+            }
+        }
+
+        #contentBody {
+            flex: 1;
+            padding: 2rem;
+
+            background: #02020bac;
+            backdrop-filter: blur(1rem);
+
+            overflow-y: auto;
+        }
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

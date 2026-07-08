@@ -1,3 +1,0 @@
-nova-framework
-lxml
-beautifulsoup4

@@ -1,0 +1,201 @@
+{% extends "base.html" %} 
+{% set title = "Music" %} 
+{% block content %}
+<h2>Music</h2>
+<div class="music-display hidden">
+  <center>
+    <div class="embed"></div>
+  </center>
+</div>
+<p class="subtitle">
+  I love all things music and am always open to song recommendations! :3 <br />
+  Click on a song to hear it. All charts are monthly data, no way to change it
+  atm.
+</p>
+
+<div class="warning">
+  <h1><span class="nerdfont"> </span>Not currently functional</h1>
+
+  Unfortunately Spotify has decided to stupidly and arbitrarily
+  <a
+    href="https://community.spotify.com/t5/Spotify-for-Developers/February-2026-Spotify-for-Developers-update-thread/m-p/7330564"
+    >lock their API to Premium subscribers</a
+  >, which is what I was using for song name matching, covers, and embeds. I'm
+  working on replacing it with Apple Music but that update will be coming at a later
+  date. <span class="unimportant">(youtube did not work right)</span>
+</div>
+
+<h3>Top Songs</h3>
+<div class="on-repeat">
+  <div class="card-container small">
+    <div class="cardlist-small" id="repeat-songs-list"></div>
+  </div>
+</div>
+
+<h3>Top Albums</h3>
+<div class="on-repeat">
+  <div class="card-container small">
+    <div class="cardlist-small" id="repeat-album-list"></div>
+  </div>
+</div>
+
+<div class="music-challenge">
+  <h3>Music Challenge - 2026</h3>
+  <p>
+    <strong>The music challenge is back!</strong> The music challenge (for lack
+    of a better name) is when I listen through my entire self-hosted music
+    library. The rules are simple:
+  </p>
+  <ul>
+    <li>No skipping any songs</li>
+    <li>
+      Remixes, stripped/acoustic versions, extended mixes, and duplicates do not
+      count (unless I want it to)
+    </li>
+    <li>All songs are played in alphabetical order</li>
+    <li>If any music is added during the challenge it still must be rated</li>
+  </ul>
+  <p>
+    ... besides that, it's just a few weeks of me playing every song I own! You can browse and search the chart or click an album/artist for detailed information.
+  </p>
+  <div class="notable-date-carousel">
+    <div class="date">
+      <span><strong>Start</strong> 05/01</span>
+    </div>
+    <div class="date">
+      <span><strong>50%</strong> 05/08</span>
+    </div>
+    <div class="date">
+      <span><strong>End</strong> 05/15</span>
+    </div>
+    <div class="date">
+      <span><strong>Total time elapsed</strong> 14 days (53 hours)</span>
+    </div>
+    <div class="date">
+      <span><strong>Total time elapsed (2025)</strong> 6 days</span>
+    </div>
+    <div class="date">
+      <span><strong>Total songs played</strong> 871</span>
+    </div>
+    <div class="date">
+      <span><strong>Total songs (2025)</strong> 530</span>
+    </div>
+  </div>
+  <div class="music-challenge-controls">
+    <div class="music-challenge-switcher">
+      <div class="current">2026</div>
+      <div class="">2025</div>
+    </div>
+    <div class="music-search-bar">
+      <div class="searchbar">
+        <i data-lucide="search"></i>
+        <input
+          type="text"
+          id="music-search-input"
+          placeholder="Search songs, artists, or albums..."
+        />
+      </div>
+      <button id="music-search-clear"><i data-lucide="x"></i></button>
+    </div>
+  </div>
+  <table class="music-challenge-table">
+    <thead>
+      <tr>
+        <th class="cover"></th>
+        <th class="song">Song</th>
+        <th class="album">Album</th>
+        <th class="year">Year</th>
+        <th class="rating">Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        data-song-name="Welcome to the Black Parade"
+        data-artist-name="My Chemical Romance"
+      >
+        <td class="song-cover">
+          <img src="" alt="" loading="lazy" />
+        </td>
+        <td class="song-info">
+          <h4 class="title">Loading songs</h4>
+          <span class="artist">Fetching data</span>
+        </td>
+        <td class="song-album"></td>
+        <td class="song-year"></td>
+        <td class="song-rating"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="scripts scripts-projects">
+  <!-- importing this for the Card type -->
+  <link rel="stylesheet" href="/static/css/modules/projects.css" />
+  <link rel="stylesheet" href="/static/css/modules/music.css" />
+  <link rel="stylesheet" href="/static/css/modules/modal.css" />
+
+  <!-- micromodal -->
+  <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+      <div
+        class="modal__container"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-1-title"
+      >
+        <header class="modal__header">
+          <div class="modal__title" id="modal-1-title">
+            <img id="modal-cover-small" class="cover" src="" alt="cover" />
+            <h4 id="modal-title-text">Details</h4>
+          </div>
+
+          <button
+            class="modal__close"
+            aria-label="Close modal"
+            data-micromodal-close
+          ></button>
+        </header>
+
+        <main class="modal__content" id="modal-1-content">
+          <div class="album-info">
+            <img id="album-cover" src="" alt="Album cover" />
+            <div class="album-summary" id="album-summary">
+              <h2>The Fame Monster</h2>
+              <h4>Lady Gaga</h4>
+              <span>2011 &bullet; 4.3 star average</span>
+            </div>
+            <section class="album-chart">
+              <h3>Ratings</h3>
+              <div id="album-chart" class="chart-placeholder">
+                <canvas
+                  id="album-chart-canvas"
+                  width="400"
+                  height="140"
+                ></canvas>
+              </div>
+            </section>
+          </div>
+
+          <div class="album-body">
+            <section class="album-songs">
+              <h3>Tracks</h3>
+              <ul id="album-songs"></ul>
+            </section>
+          </div>
+        </main>
+
+        <footer class="modal__footer">
+          <button class="modal__btn modal__btn-primary" data-micromodal-close>
+            Close
+          </button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/musicFunctions.js"></script>
+</div>
+{% endblock %}

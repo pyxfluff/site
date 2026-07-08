@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% set title = "Blog" %} {% block content %}
+<h1>Blog</h1>
+
+<div class="blog">
+  <div class="blog-grid">
+    <div class="spinner"></div>
+  </div>
+</div>
+
+{% endblock %} {% block after_body %}
+<script src="/static/js/blog.js"></script>
+<link rel="stylesheet" href="/static/css/modules/blog.css" />
+{% endblock %}

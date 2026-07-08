@@ -1,5 +1,18 @@
 .build/
 .venv/
-.wrangler
+
+uv.lock
+.venv
+
 
 tools/nd_auth
+src/frontend/static/css/*.css
+src/frontend/static/css/modules/*.css
+src/frontend/static/css/modules/helpers/*.css
+
+*.pyc
+domainroot2.egg-info
+package.json
+bun.lock
+node_modules/
+build

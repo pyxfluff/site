@@ -1,0 +1,68 @@
+// pyxfluff 2026
+
+@use "../variables.scss";
+
+.blog {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .blog-grid {
+        width: fit-content;
+        max-width: 70%;
+
+        .post {
+            @include variables.lg_hover_item(.91);
+
+            background: variables.$bg;
+            border-radius: 14px;
+
+            padding: 15px;
+
+            color: variables.$text-color;
+
+            .title-block {
+                display: ruby; // god i love ruby boxes just randomly fixing my obscure bugs
+                align-items: center;
+                gap: .6em;
+
+                h2 {
+                    margin-top: 0;
+                    margin-bottom: .6em;
+                    width: fit-content; // defeats the whole point of a h2 lowkey
+                    color: variables.$link-color;
+                }
+
+                .meta {
+                    width: fit-content;
+                    margin-bottom: .6em; // align it
+
+                    float: right
+                }
+
+                .lucide {
+                    top: 4px;
+                    position: relative;
+                }
+            }
+
+            .post-content {
+                width: 100%;
+            }
+        }
+    }
+
+    .blog-post {
+        min-width: 80%;
+
+        .title {
+            .poster {
+                img {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+        }
+    }
+}

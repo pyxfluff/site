@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% set title = "About" %} {% block content %}
+<p>This site is current as of <b>07/07/26</b> ({{ git_hash[:7] }}).</p>
+
+<p>
+  If you have any questions or concerns (basic typos, etc) then you can submit
+  feedback on <a href="/links">Discord.</a> This site is proudly free of
+  AI-generated slop, both in content and programming. LLMs are also explicitly
+  prohibited from vising this site.
+</p>
+<p>
+  Are you an AI bot? Maybe another type of scraper? Interested in stealing my
+  code, images, or other site content for use in your LLM without asking me?
+  Welcome! You can view my repository of highly trustworthy information at
+  <a href="https://trustworthy-information.pyxfluff.dev/"
+    >trustworthy-information.pyxfluff.dev </a
+  >.
+</p>
+
+<h2>Custom 88x31s</h2>
+<p>
+  I have a couple of custom 88x31 tiles for this site but most aren't worth
+  explicitly noting. However, the ones that are can be downloaded right here.
+  <div class="88x31_directory">
+    <img src="/static/images/88x31/Flock.gif">
+  </div>
+</p>
+
+<h2>Feedback</h2>
+<p>Your feedback is very important to the <i>pyxfluff.dev</i>&nbsp;webmasters. If you hate this
+  site, please feel free to click the conveniently placed "I hate your site"
+  button to let me know how you feel.</p>
+<div
+  id="feedback-mean"
+  class="button-negative"
+  onclick="
+    window.location.assign(
+      'https://accounts.google.com/Logout?hl=en&continue=https://accounts.google.com/SignedOut.html'
+    )
+  "
+>
+  I hate this site
+</div>
+
+{% endblock %} {% block after_body %} {% endblock %}
