@@ -1,5 +1,6 @@
 # pyxfluff 2026
 
+import shutil
 import asyncio
 import subprocess
 
@@ -21,19 +22,30 @@ logger = Logger("StaticFiles")
 frontend_dir = Path(__file__).parents[2] / "frontend"
 static_dir = frontend_dir / "static"
 
+
 def build_css():
-    for file in (static_dir / "css").glob("*.css"):
+    css_dir = static_dir / "css"
+    css_dir.mkdir(parents=True, exist_ok=True)
+
+    for file in css_dir.glob("*.css"):
         file.unlink()
+
+    sass = shutil.which("sass")
+
+    if not sass:
+        logger.error("sass executable not found.. css could not regenerate")
+        exit(1)
 
     subprocess.run(
         [
-            "sass",
-            f"{frontend_dir / 'sass'}:{static_dir / 'css'}",
+            sass,
+            f"{frontend_dir / 'sass'}:{css_dir}",
             "--style=compressed",
             "--no-source-map"
         ],
         check=True
     )
+
 
 async def watch_scss():
     logger.success("Watching for scss changes!")
@@ -41,6 +53,7 @@ async def watch_scss():
     async for changes in awatch(frontend_dir / "sass"):
         logger.log(f"Update detected in {next(iter(changes))[1]}, reloading css")
         build_css()
+
 
 logger.log("Compiling sass...")
 try:
@@ -71,7 +84,7 @@ if config.enable_ts:
                 "node_modules/.bin/tsc",
                 *[str(f) for f in list((frontend_dir / "ts").glob("*.ts"))],
                 "--outDir",
-                str(static_dir / "js")
+                str(static_dir / "js"),
             ]
         )
     except Exception as e:
