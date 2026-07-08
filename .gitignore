@@ -1,6 +1,5 @@
 .build/
 .venv/
-.wrangler
 
 uv.lock
 .venv
