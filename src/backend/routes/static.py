@@ -4,7 +4,7 @@ import shutil
 import asyncio
 import subprocess
 
-from src.backend import app, config
+from src.backend import app, config, console
 from src.backend.lib.logger import Logger
 
 from pathlib import Path
@@ -33,18 +33,29 @@ def build_css():
     sass = shutil.which("sass")
 
     if not sass:
-        logger.error("sass executable not found, install via your system package manager or npm")
-        raise RuntimeError("no sass")
+        logger.error(
+            "sass executable not found, install via your system package manager or npm"
+        ).warn("css compilation not completed, the website will look incorrect!")
 
-    subprocess.run(
-        [
-            sass,
-            f"{frontend_dir / 'sass'}:{css_dir}",
-            "--style=compressed",
-            "--no-source-map"
-        ],
-        check=True
-    )
+        # YES this is retarded but pylance is stupid
+        try:
+            raise
+        finally:
+            pass
+
+    try:
+        subprocess.run(
+            [
+                sass,
+                f"{frontend_dir / 'sass'}:{css_dir}",
+                "--style=compressed",
+                "--no-source-map"
+            ],
+            check=True
+        )
+    except subprocess.CalledProcessError:
+        logger.warn("css failed to compile! refer to the css errors below:")
+        console.print_exception()
 
 
 async def watch_scss():
