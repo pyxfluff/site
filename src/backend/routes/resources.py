@@ -35,7 +35,7 @@ def blog_homepage(req: Request):
 
         for post in posts["topic_list"]["topics"]:
             try:
-                post["content"] = cached_posts[post["id"]]
+                post["content"] = cached_posts[post["slug"]]
             except KeyError:
                 cached_posts[post["slug"]] = (
                     httpx.get(
@@ -50,11 +50,12 @@ def blog_homepage(req: Request):
                 cache_hit = False
 
         posts["ok"] = True
+        posts["cached"] = cache_hit
 
         return JSONResponse(
             posts,
             status_code=200,
-            headers={"x-was-cached": cache_hit and "true" or "false"},
+            headers={"x-was-cached": cache_hit and "true" or "false"}
         )
 
     except httpx.HTTPError:
