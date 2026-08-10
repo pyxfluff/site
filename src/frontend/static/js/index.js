@@ -56,14 +56,22 @@ async function setRecentlyPlaying() {
   const listener = () => window.open(track.url);
 
   document.querySelector(".song-card")?.addEventListener("click", listener);
+  document.querySelector(".song-card")?.addEventListener("auxclick", listener); // respect middle mouse clicks, middle clickers rise up :fist:
 
-  if (priorListener)
+  if (priorListener) {
+    // good for both events
     document
       .querySelector(".song-card")
       ?.removeEventListener("click", priorListener);
 
-  priorListener = listener;
+    document
+      .querySelector(".song-card")
+      ?.removeEventListener("auxclick", priorListener);
+
+    priorListener = listener;
+  }
 }
+
 (async () => {
   await setRecentlyPlaying();
 
