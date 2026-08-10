@@ -184,6 +184,7 @@ const initMusicPage = async () => {
           });
           return;
         }
+
         rows.forEach((row) => {
           const song = (row.getAttribute("data-song-name") || "").toLowerCase();
           const artist = (
@@ -196,6 +197,7 @@ const initMusicPage = async () => {
             song.includes(query) ||
             artist.includes(query) ||
             album.includes(query);
+
           if (isMatch) {
             row.style.display = "";
             const regex = new RegExp(`(${query})`, "gi");

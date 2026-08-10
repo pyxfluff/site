@@ -53,23 +53,25 @@ async function setRecentlyPlaying() {
     });
   }
 
-  const listener = () => window.open(track.url);
+  priorListener?.abort();
+  priorListener = new AbortController();
 
-  document.querySelector(".song-card")?.addEventListener("click", listener);
-  document.querySelector(".song-card")?.addEventListener("auxclick", listener); // respect middle mouse clicks, middle clickers rise up :fist:
+  const listener = (event) => {
+    if (
+      event.type === "click" ||
+      (event.type === "auxclick" && event.button === 1)
+    ) {
+      window.open(track.url);
+    }
+  };
 
-  if (priorListener) {
-    // good for both events
-    document
-      .querySelector(".song-card")
-      ?.removeEventListener("click", priorListener);
+  document.querySelector(".song-card").addEventListener("click", listener, {
+    signal: priorListener.signal
+  });
 
-    document
-      .querySelector(".song-card")
-      ?.removeEventListener("auxclick", priorListener);
-
-    priorListener = listener;
-  }
+  document.querySelector(".song-card").addEventListener("auxclick", listener, {
+    signal: priorListener.signal
+  });
 }
 
 (async () => {
