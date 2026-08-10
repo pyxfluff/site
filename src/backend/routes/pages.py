@@ -8,7 +8,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-from src.backend import app
+from src.backend import app, config
 
 templates = Jinja2Templates(directory=Path(__file__).parents[2] / "frontend/templates")
 router = APIRouter()
@@ -19,7 +19,7 @@ def git_hash():
         ["git", "-C", Path(__file__).parents[4], "rev-parse", "--short", "HEAD"],
         capture_output=True,
         text=True,
-        check=False,
+        check=False
     ).stdout.strip()
 
 
@@ -32,7 +32,7 @@ def render(req, template_name, extra_context: dict | None = None, status: int = 
         request=req,
         name=f"{template_name}.html",
         context=extra_context,
-        status_code=status,
+        status_code=status
     )
 
 
@@ -77,18 +77,22 @@ async def blog_post(req: Request, post_id: int | str):
     # no use caching here
     try:
         post = httpx.get(
-            f"https://discourse.pyxfluff.dev/t/{post_id}.json",
+            f"{config.blog_url}/t/{post_id}.json",
             follow_redirects=True  # allow for slug-based searching
         ).json()
-        print(post)
+        title = post["fancy_title"]
         post = post["post_stream"]["posts"][0]
+
         serialized = {
             "id": post["id"],
-            "author": {"name": post["name"], "username": post["username"]},
-            "content": post["cooked"]
+            "author": {"name": post["name"], "username": post["username"], "avatar": f"{config.blog_url}{post["avatar_template"].replace("{size}", "96")}"},
+            "content": post["cooked"],
+            "title": title,
+            "base_url": config.blog_url,
+            "posted": post["created_at"]
         }
 
-        return render(req, "blog/post", {"post_id": post_id, "post": serialized})
+        return render(req, "blog/post", {"title": f"Blog - {serialized["title"]}", "post": serialized})
     except KeyError:
         # nice try liberal
         return render(req, "404", {"404_debug": "blog_post_not_found"}, status=404)

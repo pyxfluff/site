@@ -92,7 +92,11 @@ body {
     width: 1px;
     height: 60%;
     margin-left: 7px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.25)
+    );
     animation: stem 1s linear infinite;
 }
 
@@ -204,5 +208,9 @@ body.splat-toggle .splat {
 
     cursor: help;
     background-color: #ff4b4b;
-    color: #fff
+    color: #fff;
+}
+
+.hidden {
+    display: none;
 }

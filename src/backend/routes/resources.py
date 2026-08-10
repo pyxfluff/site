@@ -7,6 +7,8 @@ import orjson
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 
+from src.backend import config
+
 router = APIRouter(prefix="/api")
 cached_posts = {}
 
@@ -26,7 +28,7 @@ def blog_homepage(req: Request):
     try:
         posts = (
             httpx.get(
-                "https://discourse.pyxfluff.dev/c/blog/32/l/latest.json?filter=default"
+                f"{config.blog_url}/c/{config.blog_category}/l/latest.json?filter=default"
             )
             .raise_for_status()
             .json()
@@ -39,7 +41,7 @@ def blog_homepage(req: Request):
             except KeyError:
                 cached_posts[post["slug"]] = (
                     httpx.get(
-                        f"https://discourse.pyxfluff.dev/t/{post['id']}.json",
+                        f"{config.blog_url}/t/{post['id']}.json",
                         follow_redirects=True
                     )
                     .raise_for_status()
