@@ -16,8 +16,8 @@ const formatDate = (createdAt) => {
     document.querySelector(".blog .blog-grid").innerHTML =
       blogLatest.topic_list.topics.map((entry) => {
         return `
-        <a class="blog-entry" href="/blog/${entry.id}">
-            <div class="post" data-post-id="${entry.id}">
+        <a class="blog-entry" href="/blog/${entry.slug}">
+            <div class="post" data-post-id="${entry.id}" data-post-slug="${entry.slug}">
                 <div class="title-block">
                     <h2 class="header">${entry.title}</h2> <i data-lucide="arrow-right"></i>
                     <div class="meta">

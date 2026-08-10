@@ -19,7 +19,7 @@ def git_hash():
         ["git", "-C", Path(__file__).parents[4], "rev-parse", "--short", "HEAD"],
         capture_output=True,
         text=True,
-        check=False
+        check=False,
     ).stdout.strip()
 
 
@@ -32,7 +32,7 @@ def render(req, template_name, extra_context: dict | None = None, status: int = 
         request=req,
         name=f"{template_name}.html",
         context=extra_context,
-        status_code=status
+        status_code=status,
     )
 
 
@@ -72,13 +72,16 @@ async def status(request: Request):
 
 
 # blog posts
-@app.get("/blog/{post_id:int}")
-async def blog_post(req: Request, post_id: int):
+@app.get("/blog/{post_id}")
+async def blog_post(req: Request, post_id: int | str):
     # no use caching here
     try:
-        post = httpx.get(f"https://discourse.pyxfluff.dev/t/{post_id}.json").json()[
-            "post_stream"
-        ]["posts"][0]
+        post = httpx.get(
+            f"https://discourse.pyxfluff.dev/t/{post_id}.json",
+            follow_redirects=True  # allow for slug-based searching
+        ).json()
+        print(post)
+        post = post["post_stream"]["posts"][0]
         serialized = {
             "id": post["id"],
             "author": {"name": post["name"], "username": post["username"]},
@@ -88,4 +91,4 @@ async def blog_post(req: Request, post_id: int):
         return render(req, "blog/post", {"post_id": post_id, "post": serialized})
     except KeyError:
         # nice try liberal
-        return render(req, "404", status=404)
+        return render(req, "404", {"404_debug": "blog_post_not_found"}, status=404)

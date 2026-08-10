@@ -15,8 +15,7 @@
       <span>07/01/2026</span>
     </div>
 
-    <div class="post-body">
-        {{ post_id }}
+    <div class="post-body" data-post_content="{{post['content']}}">
         <div class="spinner"></div>
     </div>
 
@@ -29,4 +28,7 @@
 {% endblock %} {% block after_body %}
 <script src="/static/js/blog-post.js"></script>
 <link rel="stylesheet" href="/static/css/modules/blog.css" />
+<script>
+renderBlogPost(document.querySelector(".blog-post .post-body").dataset.post_content)
+</script>
 {% endblock %}

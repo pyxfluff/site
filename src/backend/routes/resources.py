@@ -37,13 +37,16 @@ def blog_homepage(req: Request):
             try:
                 post["content"] = cached_posts[post["id"]]
             except KeyError:
-                cached_posts[post["id"]] = (
-                    httpx.get(f"https://discourse.pyxfluff.dev/t/{post['id']}.json")
+                cached_posts[post["slug"]] = (
+                    httpx.get(
+                        f"https://discourse.pyxfluff.dev/t/{post['id']}.json",
+                        follow_redirects=True
+                    )
                     .raise_for_status()
                     .json()
                 )
 
-                post["content"] = cached_posts[post["id"]]
+                post["content"] = cached_posts[post["slug"]]
                 cache_hit = False
 
         posts["ok"] = True
@@ -51,7 +54,7 @@ def blog_homepage(req: Request):
         return JSONResponse(
             posts,
             status_code=200,
-            headers={"x-was-cached": cache_hit and "true" or "false"}
+            headers={"x-was-cached": cache_hit and "true" or "false"},
         )
 
     except httpx.HTTPError:

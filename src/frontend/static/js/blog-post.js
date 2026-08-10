@@ -18,3 +18,8 @@ DiscourseEmbed = {
     document.getElementsByTagName("body")[0]
   ).appendChild(d);
 })();
+
+function renderBlogPost(postContent) {
+  // this isn't a terrible idea.. right??
+  document.querySelector(".blog-post .post-body").innerHTML = postContent
+}
