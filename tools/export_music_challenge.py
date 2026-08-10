@@ -1,11 +1,11 @@
 # pyxfluff 2026
 
+from pathlib import Path
+from time import sleep
+
 import httpx
 import orjson
-
-from time import sleep
 from rich import print
-from pathlib import Path
 
 serialized = []
 songs = httpx.get(

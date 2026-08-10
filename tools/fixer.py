@@ -1,8 +1,8 @@
 # pyxfluff 2026
 
-import orjson
-
 from pathlib import Path
+
+import orjson
 
 fixed = []
 for song in orjson.loads(Path("./songs.json").read_text()):
