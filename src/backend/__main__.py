@@ -2,7 +2,7 @@
 
 from uvicorn import run
 
-from src.backend import config, app
+from src.backend import app, config
 from src.backend.lib.logger import Logger
 
 logger = Logger("Main")

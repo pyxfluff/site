@@ -1,8 +1,8 @@
 # pyxfluff 2025-2026
 # from Nanofox-Dev
 
-from time import time
 from math import floor
+from time import time
 
 from src.backend import console
 

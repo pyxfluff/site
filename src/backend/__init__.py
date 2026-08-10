@@ -1,12 +1,10 @@
 # pyxfluff 2026
 
-import orjson
-
 from importlib import import_module
 from pathlib import Path
-from rich.console import Console
 
 from fastapi import FastAPI
+from rich.console import Console
 
 console = Console(force_terminal=True)
 

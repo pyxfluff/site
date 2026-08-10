@@ -1,9 +1,10 @@
 # pyxfluff 2026
 
-from .pages import render
+from fastapi import APIRouter, Request
+
 from src.backend import app
 
-from fastapi import APIRouter, Request
+from .pages import render
 
 router = APIRouter(prefix="/e") # ugh
 

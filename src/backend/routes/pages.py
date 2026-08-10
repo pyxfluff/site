@@ -1,17 +1,14 @@
 # pyxfluff 2026
 
-import httpx
 import subprocess
+from pathlib import Path
+
+import httpx
+from fastapi import APIRouter, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 
 from src.backend import app
-
-from pathlib import Path
-from typing import Optional
-
-from fastapi import Request, APIRouter
-from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 
 templates = Jinja2Templates(directory=Path(__file__).parents[2] / "frontend/templates")
 router = APIRouter()
@@ -21,11 +18,12 @@ def git_hash():
     return subprocess.run(
         ["git", "-C", Path(__file__).parents[4], "rev-parse", "--short", "HEAD"],
         capture_output=True,
-        text=True
+        text=True,
+        check=False
     ).stdout.strip()
 
 
-def render(req, template_name, extra_context: Optional[dict] = None, status: int = 200):
+def render(req, template_name, extra_context: dict | None = None, status: int = 200):
     extra_context = extra_context or {}
 
     extra_context["git_hash"] = git_hash()

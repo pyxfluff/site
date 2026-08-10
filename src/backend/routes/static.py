@@ -1,18 +1,17 @@
 # pyxfluff 2026
 
-import shutil
 import asyncio
+import shutil
 import subprocess
+from pathlib import Path
+
+from fastapi.responses import JSONResponse
+from fastapi.routing import APIRouter
+from fastapi.staticfiles import StaticFiles
+from watchfiles import awatch
 
 from src.backend import app, config, console
 from src.backend.lib.logger import Logger
-
-from pathlib import Path
-from watchfiles import awatch
-
-from fastapi.routing import APIRouter
-from fastapi.responses import JSONResponse
-from fastapi.staticfiles import StaticFiles
 
 router = APIRouter(
     prefix="/static-files"
@@ -39,7 +38,7 @@ def build_css():
 
         # YES this is retarded but pylance is stupid
         try:
-            raise
+            raise FileNotFoundError
         finally:
             pass
 
@@ -96,10 +95,11 @@ if config.enable_ts:
                 "node_modules/.bin/tsc",
                 *[str(f) for f in list((frontend_dir / "ts").glob("*.ts"))],
                 "--outDir",
-                str(static_dir / "js"),
-            ]
+                str(static_dir / "js")
+            ],
+            check=True
         )
-    except Exception as e:
+    except subprocess.SubprocessError as e:
         logger.error(f"Unexpected error compiling TypeScript: {e}")
     finally:
         logger.success(f"Compiled TypeScript to {str(static_dir / 'js')}!")

@@ -15,3 +15,9 @@ dependencies = [
     "uvicorn>=0.49.0",
     "watchfiles>=1.2.0",
 ]
+
+[tool.ruff.lint]
+ignore = [
+    "G010",
+    "RUF010" # this is wrong a lot of the time..
+]
