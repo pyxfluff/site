@@ -23,10 +23,10 @@ class AppConfig:
     web_port = 8000
     web_workers = 2
     enable_ts = False
-    #blog_url = "https://discourse.pyxfluff.dev"
-    #blog_category = "blog/32" # name/id
-    blog_url = "https://try.discourse.org" # my blog hosting is kinda inconsistent atm sadly
-    blog_category = "general/5"
+    blog_url = "https://discourse.pyxfluff.dev"
+    blog_category = "blog/32" # name/id
+    #blog_url = "https://try.discourse.org" # my blog hosting is kinda inconsistent atm sadly
+    #blog_category = "general/5"
 
 
 config = AppConfig()
