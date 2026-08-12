@@ -1,9 +1,11 @@
 # pyxfluff 2026
 
 import subprocess
+from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
+import humanize
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -89,7 +91,7 @@ async def blog_post(req: Request, post_id: int | str):
             "content": post["cooked"],
             "title": title,
             "base_url": config.blog_url,
-            "posted": post["created_at"]
+            "posted": humanize.naturaltime(datetime.strptime(post["created_at"], "%Y-%m-%dT%H:%M:%S.%fZ").astimezone(UTC))
         }
 
         return render(req, "blog/post", {"title": f"Blog - {serialized["title"]}", "post": serialized})
