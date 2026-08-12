@@ -13,7 +13,7 @@
         max-width: 70%;
 
         .post {
-            @include variables.lg_hover_item(.91);
+            @include variables.lg_hover_item(0.91);
 
             background: variables.$bg;
             border-radius: 14px;
@@ -25,20 +25,20 @@
             .title-block {
                 display: ruby; // god i love ruby boxes just randomly fixing my obscure bugs
                 align-items: center;
-                gap: .6em;
+                gap: 0.6em;
 
                 h2 {
                     margin-top: 0;
-                    margin-bottom: .6em;
+                    margin-bottom: 0.6em;
                     width: fit-content; // defeats the whole point of a h2 lowkey
                     color: variables.$link-color;
                 }
 
                 .meta {
                     width: fit-content;
-                    margin-bottom: .6em; // align it
+                    margin-bottom: 0.6em; // align it
 
-                    float: right
+                    float: right;
                 }
 
                 .lucide {
@@ -58,10 +58,68 @@
 
         .title {
             .poster {
+                display: inline-block;
+
+                height: 32px;
+                width: 100%;
+
+                background: variables.$bg;
+                border-radius: 18px;
+                padding: 10px;
+
                 img {
                     width: 32px;
                     height: 32px;
+                    border-radius: 60%;
                 }
+
+                .author-name,
+                .posted-date {
+                    vertical-align: center;
+                    display: inline-block;
+                    height: 32px;
+                }
+            }
+        }
+
+        // images inside of posts work fine until proper baked for some reason
+        .lightbox {
+            .meta {
+                display: none;
+            }
+
+            img {
+                border-radius: 8px;
+                width: fit-content;
+                height: fit-content;
+            }
+        }
+
+        blockquote {
+            background: variables.$bg;
+
+            margin: 0;
+            padding: 10px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            border-radius: 12px;
+
+            p {
+                border-left: 3px solid variables.$bg_secondary;
+                padding-left: 3px;
+                border-radius: 3px 3px 0px;
+            }
+        }
+
+        iframe {
+            border-radius: 18px;
+        }
+
+        .post-body p {
+            display: inline-block;
+
+            .emoji {
+                vertical-align: center;
             }
         }
     }

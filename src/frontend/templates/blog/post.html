@@ -1,36 +1,41 @@
 {% extends "base.html" %} {% block content %}
 <div class="blog">
-  <div class="blog-post" data-post_id="{{ post_id }}">
-    <div class="title">
-      <h1 class="post-title">{{ post["title"] }}</h1>
-      <div class="poster">
-        <img
-          class="author-img"
-          src="{{post['author']['avatar']}}"
-          alt="Author"
-        />
-        <span class="author-name">{{ post["author"]["username"] }}</span>
-      </div>
-      &bullet;
-      <span>{{ post["posted"] }}</span>
+    <div class="blog-post" data-post_id="{{ post_id }}">
+        <div class="title">
+            <h1 class="post-title">{{ post["title"] }}</h1>
+            <div class="poster">
+                <img
+                    class="author-img"
+                    src="{{post['author']['avatar']}}"
+                    alt="Author"
+                />
+                <span class="author-name"
+                    >{{ post["author"]["username"] }}</span
+                >
+                <span class="posted-date">&bullet; {{ post["posted"] }}</span>
+            </div>
+        </div>
+
+        <div class="post-body" data-post_content="{{post['content']}}">
+            <!-- not sure why it would ever not appear instantly, but whatever -->
+            <div class="spinner"></div>
+        </div>
+
+        <div class="post-replies" id="discourse-comments"></div>
+
+        <i class="unimportant hidden"
+            >post_id:{{ post["id"] }}; meta:{{post}}</i
+        >
     </div>
-
-    <div class="post-body" data-post_content="{{post['content']}}">
-        <!-- not sure why it would ever not appear instantly, but whatever -->
-        <div class="spinner"></div>
-    </div>
-
-    <div class="post-replies" id="discourse-comments"></div>
-
-    <i class="unimportant hidden">post_id:{{ post["id"] }}; meta:{{post}}</i>
-  </div>
 </div>
 
 {% endblock %} {% block after_body %}
 <script src="/static/js/blog-post.js"></script>
 <link rel="stylesheet" href="/static/css/modules/blog.css" />
 <script>
-// this whole part does not currently take backend config vars, maybe FIXME
-renderBlogPost(document.querySelector(".blog-post .post-body").dataset.post_content)
+    // this whole part does not currently take backend config vars, maybe FIXME
+    renderBlogPost(
+        document.querySelector(".blog-post .post-body").dataset.post_content
+    );
 </script>
 {% endblock %}
