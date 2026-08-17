@@ -22,3 +22,6 @@ ignore = [
     "G010",
     "RUF010" # this is wrong a lot of the time..
 ]
+
+[tool.pyright]
+typeCheckingMode = "standard"
