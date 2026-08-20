@@ -9,7 +9,7 @@
         width: 100%;
         background-color: variables.$bg;
         padding: 10px;
-        border-radius: 18px;
+        border-radius: 16px;
 
         margin-bottom: 10px;
 
@@ -26,7 +26,7 @@
 
             .status-warn {
                 font-size: 11px;
-                color: rgb(75, 75, 75)
+                color: rgb(75, 75, 75);
             }
 
             .status-orb {
@@ -35,11 +35,11 @@
                 border-radius: 100%;
 
                 &.up {
-                    background-color: rgb(42, 253, 84);
+                    background-color: variables.$success;
                 }
 
                 &.down {
-                    background-color: rgb(255, 86, 67);
+                    background-color: variables.$error;
                 }
 
                 &.error {
@@ -47,7 +47,7 @@
                 }
 
                 &.warn {
-                    background-color: rgb(255, 154, 13);
+                    background-color: variables.$warn;
                 }
             }
         }
@@ -64,11 +64,11 @@
                 border-radius: 2px;
 
                 &.up {
-                    background-color: rgb(74, 251, 74);
+                    background-color: variables.$success;
                 }
 
                 &.down {
-                    background-color: rgb(255, 68, 68);
+                    background-color: variables.$error;
                 }
 
                 &:first-child {
@@ -80,5 +80,31 @@
                 }
             }
         }
+    }
+}
+
+.known-issues {
+    &.shits-going-down {
+        color: black;
+        background: variables.$warn;
+    }
+
+    &.all-is-oki {
+        background: variables.$bg;
+    }
+
+    border-radius: 16px;
+
+    padding: 12px;
+    margin-bottom: 1em;
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    svg.lucide {
+        top: 5px;
+        position: relative;
     }
 }

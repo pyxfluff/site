@@ -15,6 +15,10 @@ $text-color: #e7e7e7;
 $link-color: #5774f5;
 $prominent-button-text: #000;
 
+$success: rgb(42, 253, 84);
+$error: rgb(255, 86, 67);
+$warn: rgb(255, 154, 13);
+
 @mixin hover_item($opacity) {
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .25s;
     _opacity: $opacity;
