@@ -1,5 +1,5 @@
-{% extends "base.html" %} 
-{% set title = "Music" %} 
+{% extends "base.html" %}
+{% set title = "Music" %}
 {% block content %}
 <h2>Music</h2>
 <div class="music-display hidden">
@@ -12,18 +12,18 @@
   Click on a song to hear it. All charts are monthly data, no way to change it
   atm.
 </p>
-
-<div class="warning">
-  <h1><span class="nerdfont"> </span>Not currently functional</h1>
-
-  Unfortunately Spotify has decided to stupidly and arbitrarily
-  <a
-    href="https://community.spotify.com/t5/Spotify-for-Developers/February-2026-Spotify-for-Developers-update-thread/m-p/7330564"
-    >lock their API to Premium subscribers</a
-  >, which is what I was using for song name matching, covers, and embeds. I'm
-  working on replacing it with Apple Music but that update will be coming at a later
-  date. <span class="unimportant">(youtube did not work right)</span>
-</div>
+{% from "components/warning.html" import warning %}
+{{ warning(
+    "Music page disabled",
+    "Top songs are currently dysfunctional",
+    "Unfortunately Spotify has decided to arbitrarily
+    <a
+      href='https://community.spotify.com/t5/Spotify-for-Developers/February-2026-Spotify-for-Developers-update-thread/m-p/7330564'
+      >lock their API to Premium subscribers</a
+    >, which is what I was using for song name matching, covers, and embeds. I'm
+    working on replacing it with Apple Music but that update will be coming at a later
+    date. <span class='unimportant'>(youtube did not work right)</span>"
+)}}
 
 <h3>Top Songs</h3>
 <div class="on-repeat">
