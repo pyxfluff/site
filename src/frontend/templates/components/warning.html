@@ -1,0 +1,9 @@
+{% macro warning(header, title, body, icon="triangle-alert", class="") %}
+
+<div class="warning-box {{ class }}">
+    <i data-lucide="{{ icon }}"></i> <span>{{ header }}</span>
+    <h2>{{ title }}</h2>
+    <span>{{ body | safe }}</span>
+</div>
+
+{% endmacro %}
