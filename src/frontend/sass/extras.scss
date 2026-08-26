@@ -155,10 +155,25 @@ body.splat-toggle .splat {
     }
 }
 
+// // code gets to look like .card.padded too
+// NVM NO IT DOESN'T WTF
+// code {
+//     border: 2px solid #0e0b0bcc;
+//     background-color: #00000048;
+//     backdrop-filter: blur(2rem);
+//     border-radius: 16px;
+//     padding: 12px;
+// }
+
 .card {
     border: 2px solid #0e0b0bcc;
     background-color: #00000048;
     backdrop-filter: blur(2rem);
+
+    &.padded {
+        border-radius: 16px;
+        padding: 12px;
+    }
 
     @if variables.$enable_card_bgs {
         &.figma {

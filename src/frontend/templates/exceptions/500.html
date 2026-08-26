@@ -1,0 +1,30 @@
+<!-- DO NOT FORMAT THIS FILE my formatter really likes kissing boys -->
+{% extends "base.html" %} 
+{% block content %} 
+{% from "components/warning.html" import warning %}
+
+{{ warning( 
+    "500", 
+    "Oops! Something went wrong.", 
+    "Looks like the server encountered an unexpected exception. Sorry about that. <br /><a
+        href='/'
+        class='go-home'
+        >Return home</a
+    >", 
+    class="not-found" 
+)}} 
+
+<div class="card padded">
+    <p>If you are reporting this error, this information may be useful:</p>
+    <div class="card padded">    
+        <code>
+            {{exception_reason | safe}}
+        </code>
+    </div>
+</div>
+{% endblock %} 
+
+{% block after_body %}
+<data id="500-reason" value="{{exception_reason}}"></data>
+<link rel="stylesheet" href="/static/css/modules/404.css" />
+{% endblock %}

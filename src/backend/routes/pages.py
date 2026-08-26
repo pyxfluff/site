@@ -2,6 +2,7 @@
 
 import subprocess
 from datetime import UTC, datetime
+from json.decoder import JSONDecodeError
 from pathlib import Path
 
 import httpx
@@ -80,21 +81,47 @@ async def blog_post(req: Request, post_id: int | str):
     try:
         post = httpx.get(
             f"{config.blog_url}/t/{post_id}.json",
-            follow_redirects=True  # allow for slug-based searching
+            follow_redirects=True,  # allow for slug-based searching
         ).json()
         title = post["fancy_title"]
         post = post["post_stream"]["posts"][0]
 
         serialized = {
             "id": post["id"],
-            "author": {"name": post["name"], "username": post["username"], "avatar": f"{config.blog_url}{post["avatar_template"].replace("{size}", "96")}"},
+            "author": {
+                "name": post["name"],
+                "username": post["username"],
+                "avatar": f"{config.blog_url}{post['avatar_template'].replace('{size}', '96')}"
+            },
             "content": post["cooked"],
             "title": title,
             "base_url": config.blog_url,
-            "posted": humanize.naturaltime(datetime.strptime(post["created_at"], "%Y-%m-%dT%H:%M:%S.%fZ").astimezone(UTC))
+            "posted": humanize.naturaltime(
+                datetime.strptime(
+                    post["created_at"], "%Y-%m-%dT%H:%M:%S.%fZ"
+                ).astimezone(UTC)
+            )
         }
 
-        return render(req, "blog/post", {"title": f"Blog - {serialized["title"]}", "post": serialized})
+        return render(
+            req,
+            "blog/post",
+            {"title": f"Blog - {serialized['title']}", "post": serialized},
+        )
     except KeyError:
         # nice try liberal
-        return render(req, "404", {"404_debug": "blog_post_not_found"}, status=404)
+        return render(
+            req, "exceptions/404", {"404_debug": "blog_post_not_found"}, status=404
+        )
+    except JSONDecodeError:
+        return render(
+            req,
+            "exceptions/500",
+            {
+                "exception_reason": """
+            Couldn't retrieve that blog post due to a server connection problem or other invalid response. The blog backend is likely offline or experiencing temporary connection issues. This isn't really something you should tell me about but feel free to peek at the <a
+                href='/status'
+                >status page</a> to know when it [discourse] is back!"""
+            },
+            status=500
+        )
