@@ -2,6 +2,7 @@
 
 from importlib import import_module
 from pathlib import Path
+from sys import argv
 
 from fastapi import FastAPI
 from rich.console import Console
@@ -18,26 +19,24 @@ log.warn("Backend worker starting, loading AppConfig model")
 # load config
 class AppConfig:
     # no more complex ass json logic that doesn't work for literally no reason
-    dev = True
+    dev = len(argv) > 1 and argv[1] == "dev"
     web_host = "0.0.0.0"
     web_port = 8000
     web_workers = 2
     enable_ts = False
     blog_url = "https://discourse.pyxfluff.dev"
-    blog_category = "blog/32" # name/id
-    #blog_url = "https://try.discourse.org" # my blog hosting is kinda inconsistent atm sadly
-    #blog_category = "general/5"
-
+    blog_category = "blog/32"  # name/id
+    # blog_url = "https://try.discourse.org" # my blog hosting is kinda inconsistent atm sadly
+    # blog_category = "general/5"
 
 config = AppConfig()
 
+if config.dev:
+    log.warn("Developer mode enabled, some things may be different!! Live reload is also on ;w;")
+
 log.warn("Initializing FastAPI")
 
-app = FastAPI(
-    debug=config.dev,
-    title="DomainRoot",
-    description="pyxfluff.dev homepage"
-)
+app = FastAPI(debug=config.dev, title="DomainRoot", description="pyxfluff.dev homepage")
 
 log.log("Loading routes")
 
