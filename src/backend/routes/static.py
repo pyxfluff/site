@@ -58,11 +58,12 @@ def build_css():
 
 
 async def watch_scss():
-    logger.success("Watching for scss changes!")
-
-    async for changes in awatch(frontend_dir / "sass"):
-        logger.log(f"Update detected in {next(iter(changes))[1]}, reloading css")
-        build_css()
+    if config.dev:
+        logger.success("Watching for scss changes!")
+    
+        async for changes in awatch(frontend_dir / "sass"):
+            logger.log(f"Update detected in {next(iter(changes))[1]}, reloading css")
+            build_css()
 
 
 logger.log("Compiling sass...")
