@@ -18,13 +18,15 @@ router = APIRouter()
 
 
 def git_hash():
-    return subprocess.run(
-        ["git", "-C", Path(__file__).parents[4], "rev-parse", "--short", "HEAD"],
+    x = subprocess.run(
+        ["git", "-C", Path(__file__).parents[3], "rev-parse", "--short", "HEAD"],
         capture_output=True,
         text=True,
         check=False
-    ).stdout.strip()
+    )
+    return x.stdout.strip()
 
+print(git_hash())
 
 def render(req, template_name, extra_context: dict | None = None, status: int = 200):
     extra_context = extra_context or {}
@@ -76,7 +78,7 @@ async def status(request: Request):
 
 # blog posts
 @app.get("/blog/{post_id}")
-async def blog_post(req: Request, post_id: int | str):
+def blog_post(req: Request, post_id: int | str):
     # no use caching here
     try:
         post = httpx.get(
