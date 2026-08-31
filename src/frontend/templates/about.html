@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% set title = "About" %} {% block content %}
-<p>This site is current as of <b>August 2026</b> ({{ git_hash[:7] }}).</p>
+<p>This site is current as of <b>August 2026</b> (<a href="https://github.com/pyxfluff/site/commit/{{ git_hash }}">{{ git_hash[:7] }}</a>).</p>
 
 <p>
   If you have any questions or concerns (basic typos, etc) then you can submit
