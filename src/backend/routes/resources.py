@@ -41,8 +41,7 @@ def blog_homepage(req: Request):
             except KeyError:
                 cached_posts[post["slug"]] = (
                     httpx.get(
-                        f"{config.blog_url}/t/{post['id']}.json",
-                        follow_redirects=True
+                        f"{config.blog_url}/t/{post['id']}.json", follow_redirects=True
                     )
                     .raise_for_status()
                     .json()
@@ -57,7 +56,7 @@ def blog_homepage(req: Request):
         return JSONResponse(
             posts,
             status_code=200,
-            headers={"x-was-cached": cache_hit and "true" or "false"}
+            headers={"x-was-cached": cache_hit and "true" or "false"},
         )
 
     except httpx.HTTPError:

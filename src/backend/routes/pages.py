@@ -27,8 +27,6 @@ def git_hash():
     )
     return x.stdout.strip()
 
-print(git_hash())
-
 def render(req, template_name, extra_context: dict | None = None, status: int = 200):
     extra_context = extra_context or {}
 
@@ -51,6 +49,7 @@ async def homepage(request: Request):
 @app.get("/robots.txt")
 async def robots(request: Request):
     return PlainTextResponse((static_dir / "robots.txt").read_text())
+
 
 @app.get("/llms.txt")
 async def clankers(request: Request):

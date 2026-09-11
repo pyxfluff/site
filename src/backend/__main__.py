@@ -7,7 +7,7 @@ from src.backend.lib.logger import Logger
 
 logger = Logger("Main")
 
-logger.log(f"Spawning uvicorn worker (workers={config.web_workers})") # type: ignore
+logger.log(f"Spawning uvicorn worker (workers={config.web_workers})")  # type: ignore
 
 run(
     app="src.backend:app",

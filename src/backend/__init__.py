@@ -29,10 +29,13 @@ class AppConfig:
     # blog_url = "https://try.discourse.org" # my blog hosting is kinda inconsistent atm sadly
     # blog_category = "general/5"
 
+
 config = AppConfig()
 
 if config.dev:
-    log.warn("Developer mode enabled, some things may be different!! Live reload is also on ;w;")
+    log.warn(
+        "Developer mode enabled, some things may be different!! Live reload is also on ;w;"
+    )
 
 log.warn("Initializing FastAPI")
 
