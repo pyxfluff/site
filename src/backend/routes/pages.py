@@ -8,10 +8,11 @@ from pathlib import Path
 import httpx
 import humanize
 from fastapi import APIRouter, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.templating import Jinja2Templates
 
 from src.backend import app, config
+from src.backend.routes.static import static_dir
 
 templates = Jinja2Templates(directory=Path(__file__).parents[2] / "frontend/templates")
 router = APIRouter()
@@ -44,6 +45,16 @@ def render(req, template_name, extra_context: dict | None = None, status: int = 
 @app.get("/", response_class=HTMLResponse)
 async def homepage(request: Request):
     return render(request, "home")
+
+
+# fix
+@app.get("/robots.txt")
+async def robots(request: Request):
+    return PlainTextResponse((static_dir / "robots.txt").read_text())
+
+@app.get("/llms.txt")
+async def clankers(request: Request):
+    return PlainTextResponse((static_dir / "llms.txt").read_text())
 
 
 @app.get("/about", response_class=HTMLResponse)
