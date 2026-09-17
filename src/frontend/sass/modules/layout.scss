@@ -243,6 +243,15 @@ body {
 
             overflow-y: auto;
         }
+
+        #iipython-webring {
+            --webring-border-radius: 16px;
+            --webring-backdrop-filter: blur(2rem);
+            
+            right: 10px;
+            bottom: 10px;
+            position: absolute;
+        }
     }
 }
 
