@@ -10,19 +10,19 @@
         align-items: stretch;
         border-radius: 18px;
         overflow: hidden;
-        box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 
         width: 95vw;
         max-height: 95vh;
         overflow-y: auto;
 
-        transition: all .2s ease;
+        transition: all 0.2s ease;
 
         .sidebar {
             width: 100%;
             min-width: 0;
 
-            height: 10vh;
+            height: fit-content;
             order: 0;
             border-radius: 18px 18px 0 0;
 
@@ -52,7 +52,7 @@
                 gap: 1rem;
                 width: fit-content;
                 padding-right: 1em;
-                height: 5rem;
+                height: 3rem;
 
                 background-clip: padding-box;
 
@@ -68,8 +68,8 @@
                 }
 
                 .img-card {
-                    width: 4em;
-                    height: 4em;
+                    width: 2.5em;
+                    height: 2.5em;
                     padding: 0;
 
                     img {
@@ -98,16 +98,19 @@
 
                 .buttons {
                     display: flex;
+                    overflow-x: scroll;
+
+                    max-width: 90vw;
                 }
 
                 .sidebar-button {
                     align-items: center;
                     gap: 0px;
                     background: variables.$bg;
-                    border: 5px solid variables.$bg;
+                    border: 3px solid variables.$bg;
 
                     color: variables.$button-fg-text !important;
-                    transition: all .2s linear;
+                    transition: all 0.2s linear;
                     text-decoration: none;
 
                     background-clip: padding-box;
@@ -115,11 +118,12 @@
 
                     width: fit-content;
 
-                    padding: 10px;
+                    padding: 7px;
+                    min-width: fit-content;
 
                     svg,
                     span {
-                        margin: auto
+                        margin: auto;
                     }
 
                     i,
@@ -169,7 +173,7 @@
                 }
 
                 #furryring {
-                    max-width: variables.$sidebar_width
+                    max-width: variables.$sidebar_width;
                 }
 
                 .song-card {
@@ -179,17 +183,17 @@
 
                     overflow: hidden;
 
-                    margin: 0 32.5rem 0;
-                    width: 25rem;
-                    max-width: 40%;
+                    margin: 0 16rem 0;
+                    width: fit-content;
 
-                    height: 5rem;
+                    height: 3rem;
 
                     background: variables.$bg;
                     border: 5px solid variables.$bg;
                     border-radius: 18px;
+
                     color: variables.$button-fg-text !important;
-                    transition: all .2s linear;
+                    transition: all 0.2s linear;
 
                     &:hover,
                     &.selected {
@@ -199,6 +203,57 @@
                     }
 
                     @include song_card.inner-song-card(true);
+
+                    .song-artwork {
+                        width: 48px !important;
+                        height: 48px !important;
+                    }
+
+                    .song-info {
+                        display: none;
+                    }
+
+                    .bars {
+                        display: flex;
+                        align-items: flex-end;
+                        position: relative;
+
+                        margin-right: 5px;
+
+                        width: 30px;
+                        height: 30px;
+                        overflow: hidden;
+
+                        top: 10px;
+
+                        span {
+                            margin-left: 0.2rem;
+                            width: 1rem;
+
+                            background: white;
+                            animation: bars 1s infinite;
+                        }
+
+                        .n1 {
+                            animation-delay: 0.5s;
+                        }
+
+                        .n2 {
+                            animation-delay: 0.2s;
+                        }
+
+                        .n3 {
+                            animation-delay: 1.2s;
+                        }
+
+                        .n4 {
+                            animation-delay: 0.9s;
+                        }
+                    }
+                }
+
+                .git {
+                    display: none;
                 }
             }
         }
@@ -207,7 +262,6 @@
             order: 1;
             flex: 1;
             padding: 2rem;
-            font-size: 2em;
 
             background: #02020bac;
             backdrop-filter: blur(1rem);

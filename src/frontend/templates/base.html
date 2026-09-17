@@ -2,167 +2,185 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Pyx's Site - {{ title }}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="/static/css/main.css" />
-    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon" />
-    <script src="https://unpkg.com/lucide@1.20.0/dist/umd/lucide.min.js"></script>
+        <title>Pyx's Site - {{ title }}</title>
 
-    <script
-      async
-      src="https://analytics.pyxfluff.dev/js/pa-M0u79TzTsUotEJg6ZjoVi.js"
-    ></script>
-    <script>
-      ((window.plausible =
-        window.plausible ||
-        function () {
-          (plausible.q = plausible.q || []).push(arguments);
-        }),
-        (plausible.init =
-          plausible.init ||
-          function (i) {
-            plausible.o = i || {};
-          }));
-      plausible.init();
-    </script>
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link
+            rel="shortcut icon"
+            href="/static/favicon.ico"
+            type="image/x-icon"
+        />
+        <script src="https://unpkg.com/lucide@1.20.0/dist/umd/lucide.min.js"></script>
 
-    <meta property="og:title" content="Pyx's Site - {{ title }}" />
-    <meta property="og:description" content="welcome to my site! :3" />
-    <meta property="og:url" content="https://pyxfluff.dev" />
-    <meta property="og:image" content="https://pyxfluff.dev/static/img/pfp_2024.png" />
-    <meta property="og:type" content="website" />
+        <script
+            async
+            src="https://analytics.pyxfluff.dev/js/pa-M0u79TzTsUotEJg6ZjoVi.js"
+        ></script>
+        <script>
+            ((window.plausible =
+                window.plausible ||
+                function () {
+                    (plausible.q = plausible.q || []).push(arguments);
+                }),
+                (plausible.init =
+                    plausible.init ||
+                    function (i) {
+                        plausible.o = i || {};
+                    }));
+            plausible.init();
+        </script>
 
-    {% block head %}{% endblock %}
-  </head>
+        <meta property="og:title" content="Pyx's Site - {{ title }}" />
+        <meta property="og:description" content="welcome to my site! :3" />
+        <meta property="og:url" content="https://pyxfluff.dev" />
+        <meta
+            property="og:image"
+            content="https://pyxfluff.dev/static/img/pfp_2024.png"
+        />
+        <meta property="og:type" content="website" />
 
-  <body>
-    <div class="main-content">
-      <div class="sidebar">
-        <div class="button-list">
-          <!-- JS looks here first -->
-          <div class="profile-card pc-tall">
-            <div class="banner">
-              <img
-                src="/static/images/banner.webp"
-                alt="Banner Image"
-                class="contained-blur abs"
-              />
+        {% block head %}{% endblock %}
+    </head>
 
-              <img
-                src="/static/images/banner.webp"
-                alt="Banner Image"
-                class=""
-              />
-            </div>
-            <div class="name-card">
-              <div class="img-card">
-                <img
-                  src="/static/images/pfp_2026.png"
-                  loading="lazy"
-                  alt="pyxfluff"
-                  class="pfp"
-                />
-              </div>
+    <body>
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="button-list">
+                    <!-- JS looks here first -->
+                    <div class="profile-card pc-tall">
+                        <div class="banner">
+                            <img
+                                src="/static/images/banner.webp"
+                                alt="Banner Image"
+                                class="contained-blur abs"
+                            />
 
-              <div class="text-content">
-                <h3>pyx's site</h3>
-                <p>welcome! :3</p>
-              </div>
-            </div>
-          </div>
+                            <img
+                                src="/static/images/banner.webp"
+                                alt="Banner Image"
+                                class=""
+                            />
+                        </div>
+                        <div class="name-card">
+                            <div class="img-card">
+                                <img
+                                    src="/static/images/pfp_2026.png"
+                                    loading="lazy"
+                                    alt="pyxfluff"
+                                    class="pfp"
+                                />
+                            </div>
 
-          <div class="profile-card pc-stub">
-            <div class="img-card">
-              <img
-                src="/static/images/pfp_2026.png"
-                loading="lazy"
-                alt="pyxfluff"
-                class="pfp"
-              />
-            </div>
+                            <div class="text-content">
+                                <h3>pyx's site</h3>
+                                <p>welcome! :3</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="text-content">
-              <h2>pyx's site :3</h2>
-            </div>
-          </div>
+                    <div class="profile-card pc-stub">
+                        <div class="img-card">
+                            <img
+                                src="/static/images/pfp_2026.png"
+                                loading="lazy"
+                                alt="pyxfluff"
+                                class="pfp"
+                            />
+                        </div>
 
-          <div class="buttons">
-            <a href="/" class="sidebar-button plain">
-              <i data-lucide="home"></i>
-              <span>home</span>
-            </a>
+                        <div class="text-content">
+                            <h2>pyx's site :3</h2>
+                        </div>
+                    </div>
 
-            <a href="/music" class="sidebar-button plain">
-              <i data-lucide="music"></i>
-              <span>music</span>
-            </a>
+                    <div class="buttons">
+                        <a href="/" class="sidebar-button plain">
+                            <i data-lucide="home"></i>
+                            <span>home</span>
+                        </a>
 
-            <a href="/blog" class="sidebar-button plain">
-              <i data-lucide="notebook-pen"></i>
-              <span>blog</span>
-            </a>
+                        <a href="/music" class="sidebar-button plain">
+                            <i data-lucide="music"></i>
+                            <span>music</span>
+                        </a>
 
-            <a href="/projects" class="sidebar-button plain">
-              <i data-lucide="cuboid"></i>
-              <span>project gallery</span>
-            </a>
+                        <a href="/blog" class="sidebar-button plain">
+                            <i data-lucide="notebook-pen"></i>
+                            <span>blog</span>
+                        </a>
 
-            <a href="/links" class="sidebar-button plain">
-              <i data-lucide="link"></i>
-              <span>links</span>
-            </a>
+                        <a href="/projects" class="sidebar-button plain">
+                            <i data-lucide="cuboid"></i>
+                            <span>projects</span>
+                        </a>
 
-            <a href="/status" class="sidebar-button plain">
-              <i data-lucide="server"></i>
-              <span>services</span>
-            </a>
+                        <a href="/links" class="sidebar-button plain">
+                            <i data-lucide="link"></i>
+                            <span>links</span>
+                        </a>
 
-            <a href="/about" class="sidebar-button plain">
-              <i data-lucide="info"></i>
-              <span>about</span>
-            </a>
-          </div>
-        </div>
+                        <a href="/status" class="sidebar-button plain">
+                            <i data-lucide="server"></i>
+                            <span>services</span>
+                        </a>
 
-        <div class="sidebar-bottom">
-          <!-- Music -->
-          <div class="song-card">
-            <div class="song-artwork" id="song_art"></div>
-            <div class="song-info">
-              <div class="song-title" id="song_name">
-                <span>Song</span>
-              </div>
+                        <a href="/about" class="sidebar-button plain">
+                            <i data-lucide="info"></i>
+                            <span>about</span>
+                        </a>
+                    </div>
+                </div>
 
-              <div class="song-artist" id="song_meta">
-                <span>Artist</span>
-              </div>
-            </div>
-          </div>
+                <div class="sidebar-bottom">
+                    <!-- Music -->
+                    <div class="song-card">
+                        <div class="song-artwork" id="song_art"></div>
 
-          <!-- Webrings -->
-          <!-- nvm i'm pretty sure this is abandoned..
+                        <!-- ONLY FOR USE IN MOBILE LAYOUT -->
+                        <div class="bars">
+                            <span class="bar n1">&nbsp;</span>
+                            <span class="bar n2">&nbsp;</span>
+                            <span class="bar n3">&nbsp;</span>
+                            <span class="bar n4">&nbsp;</span>
+                        </div>
+
+                        <div class="song-info">
+                            <div class="song-title" id="song_name">
+                                <span>Song</span>
+                            </div>
+
+                            <div class="song-artist" id="song_meta">
+                                <span>Artist</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Webrings -->
+                    <!-- nvm i'm pretty sure this is abandoned..
                 <div id='furryring'>
                     <script type="text/javascript" src="https://furryring.neocities.org/onionring-variables.js"></script>
                     <script type="text/javascript" src="https://furryring.neocities.org/onionring-widget.js"></script>
                 </div>
                 -->
 
-          <a href="https://github.com/pyxfluff/site">
-            <span class="nerdfont"> </span>
-            <i>{{ git_hash }}</i>
-          </a>
+                    <a class="git" href="https://github.com/pyxfluff/site">
+                        <span class="nerdfont"> </span>
+                        <i>{{ git_hash }}</i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="contentBody">{% block content %}{% endblock %}</div>
         </div>
-      </div>
 
-      <div id="contentBody">{% block content %}{% endblock %}</div>
-    </div>
+        <div id="after-content">
+            <script src="/static/js/index.js"></script>
 
-    <div id="after-content">
-      <script src="/static/js/index.js"></script>
-
-      {% block after_body %}{% endblock %}
-    </div>
-  </body>
+            {% block after_body %}{% endblock %}
+        </div>
+    </body>
 </html>
