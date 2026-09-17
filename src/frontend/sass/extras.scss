@@ -230,10 +230,8 @@ body.splat-toggle .splat {
     display: none;
 }
 
-.has_title {
-    text-decoration: underline;
-    text-decoration-style: dotted;
-    text-decoration-color: variables.$bg_selected;
+.has-title {
+    text-decoration: underline dotted variables.$bg_selected;
 }
 
 @keyframes bars {
